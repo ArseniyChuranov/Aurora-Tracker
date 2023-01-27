@@ -11,7 +11,6 @@
 		AE1805D62981BDEA00C96DD1 /* AuroraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805D52981BDEA00C96DD1 /* AuroraError.swift */; };
 		AE1805DA2981C44F00C96DD1 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1805D92981C44F00C96DD1 /* SampleData.json */; };
 		AE1805E22981CDC200C96DD1 /* Aurora_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805E12981CDC200C96DD1 /* Aurora_TrackerTests.swift */; };
-		AE1805E92981CE2300C96DD1 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805E82981CE2300C96DD1 /* TestData.swift */; };
 		AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */; };
 		AE1805ED2981E1F000C96DD1 /* Aurora+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */; };
 		AE1805EF29820B5300C96DD1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805EE29820B5300C96DD1 /* MapView.swift */; };
@@ -22,6 +21,13 @@
 		AE8D4F032981AD7B008AE9A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D4F022981AD7B008AE9A2 /* ContentView.swift */; };
 		AE8D4F052981AD7C008AE9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8D4F042981AD7C008AE9A2 /* Assets.xcassets */; };
 		AE8D4F092981AD7C008AE9A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8D4F082981AD7C008AE9A2 /* Preview Assets.xcassets */; };
+		AE94F3862983254D00068AB5 /* AuroraList+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */; };
+		AE94F3882983314300068AB5 /* AuroraProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94F3872983314300068AB5 /* AuroraProvider.swift */; };
+		AE94F38C2983328C00068AB5 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94F38B2983328C00068AB5 /* HTTPDataDownloader.swift */; };
+		AE94F38D2983340600068AB5 /* TestDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94F3892983325D00068AB5 /* TestDownloader.swift */; };
+		AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94F38F2983361F00068AB5 /* AuroraClient.swift */; };
+		AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA006322983107D00EB1EA6 /* AuroraLocationsList.swift */; };
+		AEA00635298310E100EB1EA6 /* IndividualAuroraSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA00634298310E100EB1EA6 /* IndividualAuroraSpot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,7 @@
 		AE1805D92981C44F00C96DD1 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		AE1805DF2981CDC200C96DD1 /* Aurora TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aurora TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1805E12981CDC200C96DD1 /* Aurora_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aurora_TrackerTests.swift; sourceTree = "<group>"; };
-		AE1805E82981CE2300C96DD1 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "Aurora TrackerTests/TestData.swift"; sourceTree = SOURCE_ROOT; };
+		AE1805E82981CE2300C96DD1 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "Aurora Tracker/Preview Content/TestData.swift"; sourceTree = SOURCE_ROOT; };
 		AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraLocation.swift; sourceTree = "<group>"; };
 		AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Preview.swift"; sourceTree = "<group>"; };
 		AE1805EE29820B5300C96DD1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -52,6 +58,13 @@
 		AE8D4F042981AD7C008AE9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8D4F062981AD7C008AE9A2 /* Aurora_Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aurora_Tracker.entitlements; sourceTree = "<group>"; };
 		AE8D4F082981AD7C008AE9A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuroraList+Preview.swift"; sourceTree = "<group>"; };
+		AE94F3872983314300068AB5 /* AuroraProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraProvider.swift; sourceTree = "<group>"; };
+		AE94F3892983325D00068AB5 /* TestDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDownloader.swift; sourceTree = "<group>"; };
+		AE94F38B2983328C00068AB5 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
+		AE94F38F2983361F00068AB5 /* AuroraClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraClient.swift; sourceTree = "<group>"; };
+		AEA006322983107D00EB1EA6 /* AuroraLocationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraLocationsList.swift; sourceTree = "<group>"; };
+		AEA00634298310E100EB1EA6 /* IndividualAuroraSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAuroraSpot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				AE1805D22981BDAC00C96DD1 /* Aurora.swift */,
-				AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */,
+				AEA00634298310E100EB1EA6 /* IndividualAuroraSpot.swift */,
 				AE1805D52981BDEA00C96DD1 /* AuroraError.swift */,
+				AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */,
+				AEA006322983107D00EB1EA6 /* AuroraLocationsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -85,7 +100,6 @@
 		AE1805E02981CDC200C96DD1 /* Aurora TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE1805E82981CE2300C96DD1 /* TestData.swift */,
 				AE1805E12981CDC200C96DD1 /* Aurora_TrackerTests.swift */,
 			);
 			path = "Aurora TrackerTests";
@@ -113,9 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				AE8D4F002981AD7B008AE9A2 /* Aurora_TrackerApp.swift */,
-				AE8D4F022981AD7B008AE9A2 /* ContentView.swift */,
-				AE1805EE29820B5300C96DD1 /* MapView.swift */,
-				AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */,
+				AE94F38B2983328C00068AB5 /* HTTPDataDownloader.swift */,
+				AE94F3872983314300068AB5 /* AuroraProvider.swift */,
+				AE94F38F2983361F00068AB5 /* AuroraClient.swift */,
+				AE94F38E2983349B00068AB5 /* Views */,
 				AE1805D42981BDB100C96DD1 /* Models */,
 				AE8D4F042981AD7C008AE9A2 /* Assets.xcassets */,
 				AE1805D92981C44F00C96DD1 /* SampleData.json */,
@@ -129,10 +144,23 @@
 			isa = PBXGroup;
 			children = (
 				AE8D4F082981AD7C008AE9A2 /* Preview Assets.xcassets */,
+				AE1805E82981CE2300C96DD1 /* TestData.swift */,
+				AE94F3892983325D00068AB5 /* TestDownloader.swift */,
 				AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */,
+				AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */,
 				AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AE94F38E2983349B00068AB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */,
+				AE8D4F022981AD7B008AE9A2 /* ContentView.swift */,
+				AE1805EE29820B5300C96DD1 /* MapView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE1805E22981CDC200C96DD1 /* Aurora_TrackerTests.swift in Sources */,
-				AE1805E92981CE2300C96DD1 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,13 +272,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA00635298310E100EB1EA6 /* IndividualAuroraSpot.swift in Sources */,
 				AE1805EF29820B5300C96DD1 /* MapView.swift in Sources */,
 				AE1805ED2981E1F000C96DD1 /* Aurora+Preview.swift in Sources */,
 				AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */,
+				AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */,
 				AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */,
+				AE94F3882983314300068AB5 /* AuroraProvider.swift in Sources */,
+				AE94F38D2983340600068AB5 /* TestDownloader.swift in Sources */,
 				AE1805F029820DB100C96DD1 /* TestData.swift in Sources */,
+				AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */,
 				AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */,
 				AE1805D62981BDEA00C96DD1 /* AuroraError.swift in Sources */,
+				AE94F3862983254D00068AB5 /* AuroraList+Preview.swift in Sources */,
+				AE94F38C2983328C00068AB5 /* HTTPDataDownloader.swift in Sources */,
 				AE8D4F032981AD7B008AE9A2 /* ContentView.swift in Sources */,
 				AE8D4F012981AD7B008AE9A2 /* Aurora_TrackerApp.swift in Sources */,
 				AE1805D32981BDAC00C96DD1 /* Aurora.swift in Sources */,

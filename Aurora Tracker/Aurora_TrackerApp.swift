@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Aurora_TrackerApp: App {
+    @StateObject var auroraProvider = AuroraProvider()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(auroraProvider)
         }
     }
 }
