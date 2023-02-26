@@ -10,6 +10,7 @@ import Foundation
 @MainActor
 class AuroraProvider: ObservableObject {
     
+    // Sample initialization
     @Published var aurora: Aurora = Aurora(observationTime: "2023-01-25T20:01:00Z", forecastTime: "sample", coordinates: [IndividualAuroraSpot(longitude: 0, latitude: 0, aurora: 0)])
     
     let client: AuroraClient

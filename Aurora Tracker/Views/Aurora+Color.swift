@@ -8,5 +8,5 @@
 import SwiftUI
 
 extension AuroraLocation {
-    // Figure a way to create a color coding method
+    // For future this will be used to create animation/different colors for aurora. If i would find a way to get any information about colors though.
 }

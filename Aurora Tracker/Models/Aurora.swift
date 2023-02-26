@@ -8,11 +8,15 @@
 import Foundation
 
 struct Aurora {
+    
     // see what JSON file will provide and extract needed information since for now I'm not sure whet data will I need and use.
     // Now this struct decodes all needed info from current source.
+    
     let observationTime: String
     let forecastTime: String
+    
     // I will use only one decoder here for evertything and for overall simplicity.
+    
     var coordinates: [IndividualAuroraSpot]
     
 }
