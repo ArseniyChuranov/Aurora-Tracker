@@ -39,10 +39,12 @@ class SaveAuroraTiles: ObservableObject {
             
             do {
                 try FileManager.default.createDirectory(atPath: dirPathTiles!.path() , withIntermediateDirectories: true, attributes: nil)
+    
             } catch {
                 print(error.localizedDescription)
             }
         }
+  
     }
     
     // create new directories, use same system as used for tileRenderer.

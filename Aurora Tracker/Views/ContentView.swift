@@ -7,7 +7,7 @@
 
 import SwiftUI
 import MapKit
-import QuartzCore
+import QuartzCore // ?????
 
 struct ContentView: View {
     
@@ -21,11 +21,12 @@ struct ContentView: View {
     
     @State private var error: AuroraError?
     @State private var hasError = false
-
+    
+    let coordinateCalculate = CoordinateCalculations()
 
     var body: some View {
         VStack {
-            AuroraMapView()
+            AuroraMapView(auroraList: $newList)
                 .ignoresSafeArea(.all)
             
         }
@@ -33,7 +34,13 @@ struct ContentView: View {
         .task() {
             await fetchAurora()
             
+            //let thridLevelList = convertIncomingData(inputList: newList, resolution: 2048)
+            
+            //SaveAuroraTiles().generateGridTilePicture(inputList: thridLevelList, resolution: 2048, zoomLevel: 3)
+            
             // Inefficient method for now, will be replaced with a better one later.
+            
+            /*
             
             let thridLevelList = convertIncomingData(inputList: newList, resolution: 2048)
             
@@ -42,8 +49,11 @@ struct ContentView: View {
             let fourthLevelList = convertIncomingData(inputList: newList, resolution: 4096)
             
             SaveAuroraTiles().generateGridTilePicture(inputList: fourthLevelList, resolution: 4096, zoomLevel: 4)
+             
+             */
             
-            //SaveAuroraTiles().generateGridTilePicture(inputList: newColorList, resolution: 1024, zoomLevel: 2) // this function will try to save document to a correct directory
+            // this function will try to save document to a correct directory
+            // SaveAuroraTiles().generateGridTilePicture(inputList: newColorList, resolution: 1024, zoomLevel: 2)
         }
     }
 }
@@ -54,6 +64,8 @@ extension ContentView {
     func convertIncomingData(inputList: [IndividualAuroraSpot], resolution: Int) -> [UInt32] {
         
         // Find max aurora value:
+        
+        
         
         let auroraList = inputList.map {$0.aurora}
         let maxAurora = auroraList.max()
@@ -68,7 +80,8 @@ extension ContentView {
   
         var filteredAuroraList: [IndividualAuroraSpot] = []
         
-        // Take raw value and filter anything above above 86 and below -86 // later change for exact max tile value possible by Mercator, as of now it doesnt really matter.
+        // Take raw value and filter anything above above 86 and below -86 // later change for exact max tile value possible by Mercator,
+        // as of now it doesnt really matter.
         
         for aurora in inputList {
             if aurora.latitude < 86 && aurora.latitude > -86 {
@@ -91,6 +104,10 @@ extension ContentView {
             mercatorSphereCoordinates.append(IndividualAuroraSpot(longitude: lon, latitude: lat, aurora: aurora.aurora))
         }
         
+        
+//        print(mercatorSphereCoordinates[0...100])
+//        print("og mercator sphere coordinates")
+        
         /*
          
             Create a list filled with structure that represent a Rectangle with coordinate as corners and aurora values as corners.
@@ -100,6 +117,8 @@ extension ContentView {
         
         let rectangleResult = parseMercatorToRectangles(mercatorGrid: mercatorSphereCoordinates, resolution: resolution)
         
+//        print(rectangleResult[0...100])
+//        print("og rectangles results")
         
         func parseMercatorToRectangles(mercatorGrid: [IndividualAuroraSpot], resolution: Int) -> ([AuroraCoordinateRectangle]) {
             var outputRectangleList: [AuroraCoordinateRectangle] = []
@@ -107,7 +126,8 @@ extension ContentView {
              Plan:
                 1. Сycle through a total amount of elements to create a struct with a rectangle corners.
                 2. Based on certain conditions execute one of 4 scenarios
-                3. Filter and append only structs that have any Aurora value that is not 0, if all 4 are zeros, it would be an empty rectangle without gradient.
+                3. Filter and append only structs that have any Aurora value that is not 0, if all 4 are zeros,
+                    it would be an empty rectangle without gradient.
              
              */
 
@@ -199,8 +219,15 @@ extension ContentView {
                             
                         }
                         
-                        let resultRectangle = AuroraCoordinateRectangle(id: UUID(), coordinateList: [BottomLeftCornerLat, BottomleftCornerLon, BottomRightCorner, TopLeftCorner],
-                                                                        auroraList: [AuroraBottomLeftCorner, AuroraBottomRightCorner, AuroraTopLeftCorner, AuroraTopRightCorner])
+                        let resultRectangle = AuroraCoordinateRectangle(id: UUID(),
+                                                                        coordinateList: [BottomLeftCornerLat,
+                                                                                         BottomleftCornerLon,
+                                                                                         BottomRightCorner,
+                                                                                         TopLeftCorner],
+                                                                        auroraList: [AuroraBottomLeftCorner,
+                                                                                     AuroraBottomRightCorner,
+                                                                                     AuroraTopLeftCorner,
+                                                                                     AuroraTopRightCorner])
                         
                         // If any of Aurora values in list is not zero, add toa list.
                         
@@ -220,7 +247,8 @@ extension ContentView {
                         if latitudeIndex == 169 {
                             // 0...170, 171...
                             // Last rectangle in the Latitude line
-                            // I might instead follow a differnt path, since I won't be needing to cycle through each aurora, i would need less value
+                            // I might instead follow a differnt path, since I won't be needing to cycle through each aurora,
+                            // i would need less value
                             // longitudeIndex will be used to determine Longitude Count, 0...359
                             
                             AuroraBottomLeftCorner = mercatorGrid[aurora].aurora
@@ -256,8 +284,15 @@ extension ContentView {
                             
                         }
                         
-                        let resultRectangle = AuroraCoordinateRectangle(id: UUID(), coordinateList: [BottomLeftCornerLat, BottomleftCornerLon, BottomRightCorner, TopLeftCorner],
-                                                                        auroraList: [AuroraBottomLeftCorner, AuroraBottomRightCorner, AuroraTopLeftCorner, AuroraTopRightCorner])
+                        let resultRectangle = AuroraCoordinateRectangle(id: UUID(),
+                                                                        coordinateList: [BottomLeftCornerLat,
+                                                                                         BottomleftCornerLon,
+                                                                                         BottomRightCorner,
+                                                                                         TopLeftCorner],
+                                                                        auroraList: [AuroraBottomLeftCorner,
+                                                                                     AuroraBottomRightCorner,
+                                                                                     AuroraTopLeftCorner,
+                                                                                     AuroraTopRightCorner])
                         
                         for auroraValue in resultRectangle.auroraList {
                             if auroraValue != 0 {
@@ -287,7 +322,8 @@ extension ContentView {
          
         */
 
-        // Create 2 lists, one with gradiend value for each pixel, another it's location on a total grid. Each index of gradient will be equal to index of a position.
+        // Create 2 lists, one with gradiend value for each pixel, another it's location on a total grid.
+        // Each index of gradient will be equal to index of a position.
         
         var gradientTestValuesList: [Double] = []
         var gradientTestIndexList: [Int] = []
@@ -302,7 +338,7 @@ extension ContentView {
 
         }
         
-        
+        //print(rectangleResult)
         
         func createGradientRectangle(inputRectangle: AuroraCoordinateRectangle, resolution: Int) -> (valueList: [Double], indexList: [Int]) {
             var outputValuesList: [Double] = []
@@ -347,7 +383,8 @@ extension ContentView {
              
              coorfinate differnece -2 will create a filler for only empty spots between
              
-             as i write this function, it will only fill coordinate for low left corner, and inbetween other coordinates, everything else will be filled by next iteration
+             as i write this function, it will only fill coordinate for low left corner, and inbetween other coordinates,
+             everything else will be filled by next iteration
              
              
              
@@ -523,7 +560,9 @@ extension ContentView {
             // if width is one, it will output only one item i believe,
             
             for item in 0...(height - 1) {
-                let product = createGradientList(leftValue: auroraHeightFirstLineValue[item], rightValue: auroraHeightLastLineValue[item], width: width)
+                let product = createGradientList(leftValue: auroraHeightFirstLineValue[item],
+                                                 rightValue: auroraHeightLastLineValue[item],
+                                                 width: width)
                 
                 oneBigValuesList.append(contentsOf: product)
                 layeredList.append(product)
@@ -847,8 +886,8 @@ extension ContentView {
         
         let latRad = inputLatitude * Double.pi / 180
         
-        let mercN = log(tan((Double.pi / 4) + (latRad/2)))
-        let outputLatitude = (mapSide / 2) - (mapSide * mercN / (2*Double.pi))
+        let mercN = log(tan((Double.pi / 4) + (latRad / 2)))
+        let outputLatitude = (mapSide / 2) - (mapSide * mercN / (2 * Double.pi))
 
         
         let roundedLongitude = Double(round(outputLongitude))
@@ -895,8 +934,10 @@ extension ContentView {
     }
     
     // not being implemented now
+    //  This method is for looking up a tile number with zoom level
+    // I would need to create similar but that would return 2 lat and 2 lon values.
     
-    func tranformCoordinate(_ latitude: Double, _ longitude: Double, withZoom zoom: Int) -> (x: Int, y: Int) { // for looking up a tile number with zoom level
+    func tranformCoordinate(_ latitude: Double, _ longitude: Double, withZoom zoom: Int) -> (x: Int, y: Int) {
         let tileX = Int(floor((longitude + 180) / 360.0 * pow(2.0, Double(zoom))))
         let tileY = Int(floor((1 - log( tan( latitude * Double.pi / 180.0 ) + 1 / cos( latitude * Double.pi / 180.0 )) / Double.pi ) / 2 * pow(2.0, Double(zoom))))
         
@@ -920,10 +961,15 @@ extension ContentView {
             let client = AuroraClient(downloader: downloader)
             let aurora = try await client.aurora
             newList = aurora.coordinates
+            //newPublicList = newList
+            
+            // save it to a local file?
+            
+            
             
             // For now resultion is declared here. will be automated later.
             
-            //newColorList = convertIncomingData(inputList: newList, resolution: 1024)
+            newColorList = convertIncomingData(inputList: newList, resolution: 512)
             
         } catch {
             self.error = error as? AuroraError ?? .unexpectedError(error: error)

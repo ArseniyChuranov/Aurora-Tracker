@@ -17,8 +17,10 @@
 		AE1805F029820DB100C96DD1 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805E82981CE2300C96DD1 /* TestData.swift */; };
 		AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */; };
 		AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */; };
+		AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */; };
 		AE30ED9A2984C55100B30D65 /* AuroraColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE30ED992984C55100B30D65 /* AuroraColorCode.swift */; };
 		AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */; };
+		AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */; };
 		AE5A4A612996A802000856A3 /* AuroraTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */; };
 		AE5A4A632996BC80000856A3 /* SaveAuroraTiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4A622996BC80000856A3 /* SaveAuroraTiles.swift */; };
 		AE8D4F012981AD7B008AE9A2 /* Aurora_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D4F002981AD7B008AE9A2 /* Aurora_TrackerApp.swift */; };
@@ -58,8 +60,10 @@
 		AE1805EE29820B5300C96DD1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuroraLocation+Preview.swift"; sourceTree = "<group>"; };
 		AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Color.swift"; sourceTree = "<group>"; };
+		AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraRendererCustom.swift; sourceTree = "<group>"; };
 		AE30ED992984C55100B30D65 /* AuroraColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraColorCode.swift; sourceTree = "<group>"; };
 		AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraCoordinateRectangle.swift; sourceTree = "<group>"; };
+		AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculations.swift; sourceTree = "<group>"; };
 		AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraTileOverlay.swift; sourceTree = "<group>"; };
 		AE5A4A622996BC80000856A3 /* SaveAuroraTiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAuroraTiles.swift; sourceTree = "<group>"; };
 		AE8D4EFD2981AD7B008AE9A2 /* Aurora Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aurora Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,10 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				AE1805D22981BDAC00C96DD1 /* Aurora.swift */,
+				AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */,
 				AEA00634298310E100EB1EA6 /* IndividualAuroraSpot.swift */,
 				AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */,
 				AE5A4A622996BC80000856A3 /* SaveAuroraTiles.swift */,
 				AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */,
+				AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */,
 				AE1805D52981BDEA00C96DD1 /* AuroraError.swift */,
 				AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */,
 				AEA006322983107D00EB1EA6 /* AuroraLocationsList.swift */,
@@ -299,6 +305,7 @@
 				AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */,
 				AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */,
 				AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */,
+				AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */,
 				AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */,
 				AE94F3882983314300068AB5 /* AuroraProvider.swift in Sources */,
 				AEF758F62988787100D8CC64 /* AuroraOverlay.swift in Sources */,
@@ -306,6 +313,7 @@
 				AE1805F029820DB100C96DD1 /* TestData.swift in Sources */,
 				AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */,
 				AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */,
+				AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */,
 				AE1805D62981BDEA00C96DD1 /* AuroraError.swift in Sources */,
 				AE30ED9A2984C55100B30D65 /* AuroraColorCode.swift in Sources */,
 				AE94F3862983254D00068AB5 /* AuroraList+Preview.swift in Sources */,

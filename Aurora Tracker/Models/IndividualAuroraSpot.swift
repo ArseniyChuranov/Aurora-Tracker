@@ -10,7 +10,7 @@ import Foundation
 
 // this is an individual struct of an aurora with location and indication.
 
-struct IndividualAuroraSpot: Identifiable {
+struct IndividualAuroraSpot: Identifiable, Encodable {
     var id: UUID
     var longitude: Double
     var latitude: Double

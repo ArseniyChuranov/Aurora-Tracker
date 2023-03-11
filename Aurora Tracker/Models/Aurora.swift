@@ -25,12 +25,20 @@ extension Aurora: Identifiable {
     var id: String { observationTime } // Should serve as a good unique ID.
 }
  
-extension Aurora: Decodable {
+extension Aurora: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case observationTime = "Observation Time"
         case forecastTime = "Forecast Time"
         case coordinates
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(observationTime, forKey: .observationTime)
+        try container.encode(forecastTime, forKey: .forecastTime)
+        try container.encode(coordinates, forKey: .coordinates)
     }
     
     init(from decoder: Decoder) throws {
