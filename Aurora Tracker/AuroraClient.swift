@@ -14,6 +14,8 @@ actor AuroraClient {
             let data = try await downloader.httpData(from: feedURL)
             // save og aurora
             
+            createTileDirectory()
+            
             let outFile = try! FileManager.default.url(for: .documentDirectory,
                                                        in: .userDomainMask,
                                                        appropriateFor: nil,
@@ -22,7 +24,7 @@ actor AuroraClient {
             
             // save original file
             
-            // print("data saved")
+            print("data saved")
             
             try data.write(to: outFile)
             
@@ -54,7 +56,7 @@ actor AuroraClient {
     func createTileDirectory() {
         
         let documentDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-        let dirPathTiles = documentDirectory.appendingPathComponent("Current_aurora")
+        let dirPathTiles = documentDirectory.appendingPathComponent("Tiles")
         
         if !FileManager.default.fileExists(atPath: dirPathTiles!.path()) {
             
@@ -62,7 +64,7 @@ actor AuroraClient {
             
             do {
                 try FileManager.default.createDirectory(atPath: dirPathTiles!.path() , withIntermediateDirectories: true, attributes: nil)
-    
+                print("directory created")
             } catch {
                 print(error.localizedDescription)
             }

@@ -18,6 +18,11 @@ class AuroraMapOverlay: MKTileOverlay {
     private var newList: [IndividualAuroraSpot] = []
     private var maxAurora: Double = 0
     
+    private var topLeftList: [IndividualAuroraSpot] = []
+    private var bottomLeftList: [IndividualAuroraSpot] = []
+    private var topRightList: [IndividualAuroraSpot] = []
+    private var bottomRightList: [IndividualAuroraSpot] = []
+    
     // create a load function and see if it helps? get info from local fileData.
     
     private var loadedData = false
@@ -33,23 +38,16 @@ class AuroraMapOverlay: MKTileOverlay {
         // but later would make sense to shorten functionality to return a picture. look more into this functionality of MKTileOverlay
         
         // For now this method looks for a custom created folder that contains all maps for several layers.
-        // Dad suggested to render and create pictures individually, it's a great idea. I will work on it next.
+        // Dad suggested to render and create pictures individually, it's a great idea. I will work on it.
         
         // Look into loadTile and possibly override it to be able to perform async creation of new tiles for specific coordinates range
         /*
          
          Individual render plan:
-         1. Calculate all visible tiles (center tile + Surrounding tiles)
-         minimum visible tile zoom level is 3-4 as I figured, keep that in mind when creating a method for calculating tiles.
-         2. Calculating a list of all coordinates in each tile, including extra that will represent corners, or creating a one based on corner coordinates.
-         3. Drawing a gradient for each coordinate rectangle.
+         1. Calculate all visible tiles
+         2. Calculate values within tiles.
+         3. Drawing a gradient for each coordinate rectangle. // will be worked on later
          4. Creating a picture, and passing it to the function.
-         
-         Considerations:
-         Method will always draw only certain amount of pixels,
-         if max visible amount if tiles is always 9, then its (256 * 3)^2 = 589 824 pixels. // wrong
-         I would need to check maximum visible amount to calculate precise number, and find a way to optimize it.
-         Storing some pictures to save on redrawing especially dense tiles (zoom level 3-5 where there are a lot of coordinates)
          
          */
         
@@ -75,8 +73,6 @@ class AuroraMapOverlay: MKTileOverlay {
         let stringPath = (tilePath?.path)! + "/"
         var numbersOfItems = 0
         
-        // simple check here for amount of tiles, and if number of them is larger than <Figure out a number>, delete all/
-        
         do {
             numbersOfItems = try FileManager.default.contentsOfDirectory(atPath: stringPath).count
 
@@ -99,39 +95,54 @@ class AuroraMapOverlay: MKTileOverlay {
                 print(error.localizedDescription)
             }
         }
-        
 
         // loaded data will also be used fror a one tine implemintation, like parsing data to a specific way
         
         if loadedData == false {
+            createTileDirectory()
             newList = getData()
             loadedData = true
             
-            // don't filter for now
-            
-            // newList = coordinateCalculate.filterMercatorValues(inputList: newList)
             
             let auroraList = newList.map { $0.aurora }
             
-            //print(auroraList.count)
-            //print("check")
-            
             maxAurora = auroraList.max()!
             
+            let listProduct = createSeparateLists(inputList: newList)
             
-            // got rid of buplication widening for now. messes up values
-            // newList = coordinateCalculate.widenCorrdinateList(inputList: newList)
+            bottomLeftList = listProduct[0]
+            topLeftList = listProduct[1]
+            bottomRightList = listProduct[2]
+            topRightList = listProduct[3]
         }
 
         let coordinateSquare = coordinateCalculate.tileToCoordinate(path.x, path.y, zoom: path.z)
         
+        // write a function that will pass one of four lists
+        
+        var cycleList: [IndividualAuroraSpot] = []
+        
+        if coordinateSquare[0] <= 0 && coordinateSquare[1] < 180 {
+            cycleList = bottomLeftList
+        } else if coordinateSquare[0] >= 0 && coordinateSquare[1] < 180 {
+            cycleList = topLeftList
+        } else if coordinateSquare[0] <= 0 && coordinateSquare[1] >= 180 {
+            cycleList = bottomRightList
+        } else if coordinateSquare[0] >= 0 && coordinateSquare[1] >= 180 {
+            cycleList = topRightList
+        }
+         
+        // pass Z to transform list to mercator proportions?
+        // pass rations and calculate with rations later on
+        
         let auroraTile = coordinateCalculate.createTileAuroraList(inputTileCoordinateList: coordinateSquare,
-                                                                  inputAuroraList: newList)
+                                                                  inputAuroraList: cycleList,
+                                                                  zoom: path.z)
         let tileList = auroraTile.inputList
         let width = auroraTile.width
         let height = auroraTile.height
-        let indexWidth = auroraTile.indexHeight // was auroraTile.indexWidth
-        let indexHeight = auroraTile.indexWidth // was auroraTile.indexHeight
+        let indexWidth = auroraTile.indexWidth
+        let indexHeight = auroraTile.indexHeight
         
         let image = coordinateCalculate.createRectanglePNG(inputList: tileList,
                                                width: width,
@@ -151,71 +162,13 @@ class AuroraMapOverlay: MKTileOverlay {
         }
         
 
-        
-        
-        /*
-         
-         For each tile create a file in one directory that will look like "directoryName/zpath_xpath_ypath.png"
-         then each time / condition / delete all files and create new. that doesnt sound efficient,
-         but i will track memory usage and see if its good enough
-         
-         */
-        
-        // Get to the directory, and check if path exists with path info
-        /*
-        func tileExists(for tileLocalPath: MKTileOverlayPath) -> Bool {
-            
-            let existingPath = tilePath?.appendingPathComponent("\(tileLocalPath.z)/\(tileLocalPath.x)/\(tileLocalPath.y).png")
-            
-            let filePath = existingPath!.path()
-            let fileManager = FileManager.default
-            return fileManager.fileExists(atPath: filePath)
-            
-        }
-         */
-        
-        // print(path) basically url for the whole layout, all of the functionality will be done here.
-        // slowly start getting back on track
-      
-        
-        // data now is saved aurora data that we can use for our purpose, i'll starg with simple filtering
-        
-        
-        // each method here does its functionality several times, create a one time function that will parse data once
-        
-        // pass all calculations here for tile processing.
-       
-        /*
-        if tileExists(for: path) {
-            
-            
-            // wont need soon
-            
-            let existingPath = tilePath?.appendingPathComponent("\(path.z)/\(path.x)/\(path.y).png") // was png
-            tilePath = existingPath!
-            
-        } else {
-            let sampleImage = UIImage(cgImage: createSimpleImage())
-            
-            let fileUrl = tilePath?.appendingPathComponent("sampleImage_1" + ".png")
-            
-            // Create image.
-            
-            if let newImage = sampleImage.pngData() {
-                try? newImage.write(to: fileUrl!)
-            }
-            
-            tilePath = fileUrl
-        }
-        */
-        //coordinateCalculate.createTileAuroraList(inputTileCoordinateList: coordinate,
-        //                                         inputAuroraList: <#T##[IndividualAuroraSpot]#>)
-        
         return fileUrl!
     }
     
     
     func createSimpleImage() -> CGImage {
+        
+        // was used for testing purposes
         
         let color = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.0)
         
@@ -226,10 +179,10 @@ class AuroraMapOverlay: MKTileOverlay {
         var gridList: [UInt32] = []
         
         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-            newColor += UInt32((1) * 255.0) << 24 + // alpha
-            UInt32((blue) * 255.0) << 16 + // blue ?
-            UInt32(0.5 * 255.0) << 8 + // green???
-            UInt32(alpha * 255.0) // what
+            newColor += UInt32((1) * 255.0) << 24 +
+            UInt32((blue) * 255.0) << 16 +
+            UInt32(0.5 * 255.0) << 8 +
+            UInt32(alpha * 255.0)
         }
         
         let totalNum = 256 * 256
@@ -245,7 +198,7 @@ class AuroraMapOverlay: MKTileOverlay {
                                 bitsPerComponent: 8,
                                 bytesPerRow: 4 * 256,
                                 space: CGColorSpace(name: CGColorSpace.sRGB)!,
-                                bitmapInfo: CGBitmapInfo.byteOrder32Big.rawValue + CGImageAlphaInfo.premultipliedLast.rawValue)!  // CGImageAlphaInfo.premultipliedFirst.rawValue) // & CGBitmapInfo.alphaInfoMask.rawValue
+                                bitmapInfo: CGBitmapInfo.byteOrder32Big.rawValue + CGImageAlphaInfo.premultipliedLast.rawValue)!
             
             return ctx.makeImage()!
             
@@ -274,5 +227,73 @@ class AuroraMapOverlay: MKTileOverlay {
             print(error.localizedDescription)
         }
         return list
+    }
+    
+    func createTileDirectory() {
+        
+        let documentDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        let dirPathTiles = documentDirectory.appendingPathComponent("Tiles")
+        
+        if !FileManager.default.fileExists(atPath: dirPathTiles!.path()) {
+            
+            // if directory doesnt exist, create new.
+            
+            do {
+                try FileManager.default.createDirectory(atPath: dirPathTiles!.path() , withIntermediateDirectories: true, attributes: nil)
+                print("directory created")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func createSeparateLists(inputList: [IndividualAuroraSpot]) -> [[IndividualAuroraSpot]] {
+        var outputList: [[IndividualAuroraSpot]] = []
+        
+        var topLeft: [IndividualAuroraSpot] = []
+        var bottomLeft: [IndividualAuroraSpot] = []
+        var topRight: [IndividualAuroraSpot] = []
+        var bottomRight: [IndividualAuroraSpot] = []
+        
+        // consider creating 16 lists indtead, or finding a quicker way to get info and parse it this way,
+        
+        // create a method that will be able to break down one giant list onto 4 lists.
+        // boundaries are: [-90...0, 0...180], [0...90, 0...180], [-90...0, 180...360], [0...90, 180...360]
+
+        
+        // temp solution of providing 4 lists with borders
+        
+        
+        for aurora in inputList {
+            if aurora.latitude <= 0 && aurora.longitude <= 180 {
+                bottomLeft.append(aurora)
+            }
+        }
+        
+        for aurora in inputList {
+            if aurora.latitude >= 0 && aurora.longitude <= 180 {
+                topLeft.append(aurora)
+            }
+        }
+        
+        for aurora in inputList {
+            if aurora.latitude <= 0 && aurora.longitude >= 180 {
+                bottomRight.append(aurora)
+            }
+        }
+            
+        for aurora in inputList {
+            if aurora.latitude >= 0 && aurora.longitude >= 180 {
+                topRight.append(aurora)
+            }
+        }
+
+        outputList.append(bottomLeft)
+        outputList.append(topLeft)
+        outputList.append(bottomRight)
+        outputList.append(topRight)
+        
+        
+        return outputList
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */; };
+		AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51BD29C64E1F007C90CB /* MainMenu.swift */; };
+		AE0F51C129C64EBC007C90CB /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */; };
 		AE1805D32981BDAC00C96DD1 /* Aurora.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805D22981BDAC00C96DD1 /* Aurora.swift */; };
 		AE1805D62981BDEA00C96DD1 /* AuroraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805D52981BDEA00C96DD1 /* AuroraError.swift */; };
 		AE1805DA2981C44F00C96DD1 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1805D92981C44F00C96DD1 /* SampleData.json */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetAuroraInfo.swift; sourceTree = "<group>"; };
+		AE0F51BD29C64E1F007C90CB /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
 		AE1805D22981BDAC00C96DD1 /* Aurora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aurora.swift; sourceTree = "<group>"; };
 		AE1805D52981BDEA00C96DD1 /* AuroraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraError.swift; sourceTree = "<group>"; };
 		AE1805D92981C44F00C96DD1 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
@@ -101,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE0F51BF29C64E94007C90CB /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */,
+				AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		AE1805D42981BDB100C96DD1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +169,7 @@
 				AE94F38F2983361F00068AB5 /* AuroraClient.swift */,
 				AEF758F52988787100D8CC64 /* AuroraOverlay.swift */,
 				AEF758F929888F2600D8CC64 /* AuroraMapView.swift */,
+				AE0F51BF29C64E94007C90CB /* View Models */,
 				AE94F38E2983349B00068AB5 /* Views */,
 				AE1805D42981BDB100C96DD1 /* Models */,
 				AE8D4F042981AD7C008AE9A2 /* Assets.xcassets */,
@@ -182,6 +198,7 @@
 			children = (
 				AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */,
 				AE8D4F022981AD7B008AE9A2 /* ContentView.swift */,
+				AE0F51BD29C64E1F007C90CB /* MainMenu.swift */,
 				AE1805EE29820B5300C96DD1 /* MapView.swift */,
 			);
 			path = Views;
@@ -306,9 +323,12 @@
 				AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */,
 				AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */,
 				AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */,
+				AE0F51C129C64EBC007C90CB /* MainMenuButton.swift in Sources */,
 				AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */,
 				AE94F3882983314300068AB5 /* AuroraProvider.swift in Sources */,
 				AEF758F62988787100D8CC64 /* AuroraOverlay.swift in Sources */,
+				AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */,
+				AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */,
 				AE94F38D2983340600068AB5 /* TestDownloader.swift in Sources */,
 				AE1805F029820DB100C96DD1 /* TestData.swift in Sources */,
 				AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */,

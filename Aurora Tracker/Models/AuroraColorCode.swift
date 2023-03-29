@@ -7,6 +7,7 @@
 
 import SwiftUI
 // create a colorful Scale that will represent Auroras pretty accurate.
+// not implemented now, later might be useful.
 extension IndividualAuroraSpot {
     var color: Color {
         switch aurora {

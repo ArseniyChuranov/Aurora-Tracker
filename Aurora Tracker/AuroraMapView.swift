@@ -13,7 +13,8 @@ import Foundation
 struct AuroraMapView: UIViewRepresentable {
     
     let mapViewDelegate = MapViewDelegate()
-    @Binding var auroraList: [IndividualAuroraSpot] // get info and see if that can be passed
+     // @Binding var auroraList: [IndividualAuroraSpot] // get info and see if that can be passed
+    let annotations: [MKAnnotation] = []
     
     
 
@@ -25,46 +26,68 @@ struct AuroraMapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.delegate = mapViewDelegate
         uiView.translatesAutoresizingMaskIntoConstraints = false
-        // passing info here won't give me info i need.
         uiView.addOverlay(AuroraMapOverlay(), level: .aboveLabels)
-        //print(uiView)
+
     }
 }
 
 private extension AuroraMapView {
-    func addMapOverlay(to view: MKMapView) {
-        /*
-        if !view.overlays.isEmpty {
-            view.removeOverlays(view.overlays)
+    func dropPins() -> [MKAnnotation] {
+        let pinsNum = 85 //  171
+        var startLatitude = 0 // -85
+        
+        var annotationList: [MKAnnotation] = []
+        
+        for _ in 1...pinsNum {
+            let coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: CLLocationDegrees(startLatitude), longitude: 180)
+            
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinates
+            pin.title = String(coordinates.latitude)
+            pin.subtitle = String(coordinates.longitude)
+            
+            startLatitude += 1
+            
+            
+            annotationList.append(pin)
         }
-         */
+
+        return annotationList
+    }
+
+    
+    func addMapOverlay(to view: MKMapView) {
+        
     }
 }
 
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
     
-    // maybe load stuff in the delegate?
+    
+    func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
+        print(annotation.coordinate)
+        let title = annotation.title ?? "Not Found"
+        print(title!)
+    }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let overlay = AuroraMapOverlay()
       
-        // this method gets info that passes to the overlay function and changes it. i can use this info and change this function to get binding info. If i can.
         
-        overlay.canReplaceMapContent = false
+        overlay.canReplaceMapContent = true // later change to false
         overlay.minimumZ = 1
         //overlay.maximumZ = 4
-        
-        // function starts once.
-        
-        //mapView.addOverlay(overlay, level: .aboveLabels)
+
         
         let renderer = MKTileOverlayRenderer(tileOverlay: overlay) // Look into MKTileOverlayRenderer
        
         // Add functionality that would allow to change alpha value.
         
-        renderer.alpha = 0.35 // was 0.25
+        // alpha value for renderer.
+        
+        renderer.alpha = 0.75 // was 0.25 // recent 0.35
         
         return renderer
 

@@ -12,6 +12,9 @@ import UIKit
 import MapKit
 
 
+// Previous method for creating an image. Not implemented. Keep is for any possibly useful pieces of code.
+
+
 class SaveAuroraTiles: ObservableObject {
     
     @Published var mapTileImage: [CGImage] = []
@@ -162,11 +165,13 @@ class SaveAuroraTiles: ObservableObject {
              
              method for breaking down one tile into an appropriate amount of tiles
              example - 512
-             resolution of 512 will yield into 2 of 256 x 256 tiles, number of 1 line of tiles can be calculated if we divide resolution by 256,
+             resolution of 512 will yield into 2 of 256 x 256 tiles,
+             number of 1 line of tiles can be calculated if we divide resolution by 256,
              same number will apply to amount of tiles per row
              
              each list will contain data based on index of 256, with first having elements of index 0-255, and 256-511,
-             same breaking down will be applied to the y axis. i cn create x and y indexes and cycle through them and switch lists based on index value
+             same breaking down will be applied to the y axis.
+             i cn create x and y indexes and cycle through them and switch lists based on index value
              for now i will simplify to use for 512 tiles
              
              direction of list goes from bottom to top, left to right
@@ -189,7 +194,8 @@ class SaveAuroraTiles: ObservableObject {
 
             /*
              
-             items will be added for the whole duration of cycle, so i would need to make sure i wont overrun with indexes and logic
+             items will be added for the whole duration of cycle,
+             so i would need to make sure i wont overrun with indexes and logic
              
              if indexAxisY == resultion, we are on top of grid,
              else if indexAxisY % 256 == 0, it means we can add one point
@@ -313,175 +319,3 @@ class SaveAuroraTiles: ObservableObject {
         }
     }
 }
-
-
-// Previous and not implemented methods.
-
-/*
- 
- if indexAxisY == resolution { // if index is on the top of grid,
-     indexAxisY = 1
-     indexAxisX = indexAxisX + 1
-     listIndex = startYIndex
-     // start a list index from a first valut it was
- } else if indexAxisY % 256 == 0 && indexAxisY != 0 { // if index divides by one tile number, up the new
-     // tileAdressY = newZoomLevel - (indexAxisY / 256) // get an adress for a tile to fill on Y axis
-
-     
-     listIndex = listIndex + 1 // we come to the next list
-     
-     // change the address here:
-     
-     // figure a way to always calculate it
-     // listIndex = ((newZoomLevel - 1) - tileAdressY) - (tileAdressX - newZoomLevel - 1)
-     
- }
- 
- 
- if indexAxisX % 256 == 0 && indexAxisX != 0{
-     // we are at new tile
-     
-     
-     // change it so it starts  different, implement row count
-     listIndex = rowCount + newZoomLevel // ? meaning we jump over the next row of tiles
-     rowCount = newZoomLevel
-     startYIndex = listIndex
-     indexAxisX = 0
-     
-     // should be a new row information
- 
- }
- 
- 
- 
- 
- /*
-  
-  else if indexAxisX % 256 == 0 && indexAxisX != 0 {
-     // same for X
-     print("func 2")
-     tileAdressX = newZoomLevel - (indexAxisX / 256)
- } else {
-     // can fill in results
-     
-     
- }
-  
-  */
- 
-
- 
- 
- // i would need a system that will create a list index based on coordinates
- /*
-  
-  for example: 0 on X and 0 on Y would be top left corner.
-  first item in list eill have lowest x and hoghest y value, highest values are going to be tiles per side - 1
-  
-  */
- 
- 
- // assign value here to a list
- 
- //print(listIndex)
- 
- 
- 
- 
- 
- 
- 
- /*
- if listIndex == (tilesNumber - 1) { // if we are at last tile
-     tileSetList[listIndex].append(item)
-     listIndex = 0
- } else {
-     tileSetList[listIndex].append(item)
-     listIndex = listIndex + 1
-     
- }
-  */
- 
- 
- 
- 
- 
- 
- 
- 
- if indexAxisX % 256 == 0 && indexAxisX != 0{
-     // we are at new tile on X axis,
-     
-     // row count will pe updated here
-     
-     // if we are here, we should have all Y axis tiles filled with 65536 items each
-     
-     rowCount = rowCount + newZoomLevel // row count is previous plus zoom level, thats a start of a new index
-     
-     
-     // last iteration will still go from here. last item will be out of list bound
-     print(indexAxisX) // should be printed only once.
-     
-     listIndex = rowCount
-     startYIndex = listIndex // is where is starts from bottom for y axis
-     //indexAxisX = indexAxisX + 1
-     //indexAxisX = 0
-
- }
- 
- if indexAxisY == resolution { // if top of grid
-     // if index is on the top of grid, reatart y index, append 1 to xindex, equate list index to start from bottom
-     indexAxisY = 0
-     indexAxisX = indexAxisX + 1
-     listIndex = startYIndex
-     
-     tileSetList[listIndex].append(item)
-
- } else if indexAxisY % 256 == 0 && indexAxisX != 0 { // if new tile
-     listIndex = listIndex + 1 // we come to the next list
-     // after this i should have 65536 items in each list.
-     tileSetList[listIndex].append(item)
-     
- } else {
-     tileSetList[listIndex].append(item)
-     
- }
-
- 
- 
- 
- 
- 
- 
- if indexAxisY == resolution { // if top of list
-     indexAxisX = indexAxisX + 1
-     indexAxisY = 0
-     listIndex = listIndex - 1
- }
- 
- if indexAxisY == 256 { // halfway through one cycle?
-     listIndex = listIndex + 1
- }
- 
- // when indexAxisX == 256, it means we are
- 
- if indexAxisX == 256 {
-     // first list should have 131,072 items
-     
-     // now first list is 512 items short
-     listIndex = listIndex + 2
-     indexAxisX = indexAxisX + 1
- }
-
- tileSetList[listIndex].append(item)
- 
- 
- indexAxisY = indexAxisY + 1
- 
- 
- 
- 
- 
- 
- 
- */
