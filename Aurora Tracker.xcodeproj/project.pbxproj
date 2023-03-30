@@ -60,7 +60,7 @@
 		AE1805D92981C44F00C96DD1 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		AE1805DF2981CDC200C96DD1 /* Aurora TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aurora TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1805E12981CDC200C96DD1 /* Aurora_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aurora_TrackerTests.swift; sourceTree = "<group>"; };
-		AE1805E82981CE2300C96DD1 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "Aurora Tracker/Preview Content/TestData.swift"; sourceTree = SOURCE_ROOT; };
+		AE1805E82981CE2300C96DD1 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "Aurora Tracker/Models/TestData.swift"; sourceTree = SOURCE_ROOT; };
 		AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraLocation.swift; sourceTree = "<group>"; };
 		AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Preview.swift"; sourceTree = "<group>"; };
 		AE1805EE29820B5300C96DD1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -130,6 +130,8 @@
 				AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */,
 				AEA006322983107D00EB1EA6 /* AuroraLocationsList.swift */,
 				AE30ED992984C55100B30D65 /* AuroraColorCode.swift */,
+				AE1805E82981CE2300C96DD1 /* TestData.swift */,
+				AE94F3892983325D00068AB5 /* TestDownloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,8 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				AE8D4F082981AD7C008AE9A2 /* Preview Assets.xcassets */,
-				AE1805E82981CE2300C96DD1 /* TestData.swift */,
-				AE94F3892983325D00068AB5 /* TestDownloader.swift */,
 				AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */,
 				AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */,
 				AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */,
@@ -455,6 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,6 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;

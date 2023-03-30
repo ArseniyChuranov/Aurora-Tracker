@@ -14,6 +14,7 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject var provider: AuroraProvider
     // @State private var newUpdatedList: [IndividualAuroraSpot] = []
+    // private let downloader = TestDownloader()
     var newList: [IndividualAuroraSpot] = []
     var newPolygonList: [CLLocationCoordinate2D] = []
     //@State private var tintColor: Color
