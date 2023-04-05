@@ -12,6 +12,7 @@ struct MainMenu: View {
     
     @Binding var auroraList: [IndividualAuroraSpot]
     @EnvironmentObject var provider: AuroraProvider
+    @EnvironmentObject var eventModel: EventModel
     
     @State private var error: AuroraError?
     @State private var hasError = false
@@ -30,16 +31,50 @@ struct MainMenu: View {
         
         VStack {
             NavigationView {
-                NavigationLink(destination:
-                                SheetAuroraInfo(forecastTime: $infoList[0],
-                                                observationTime: $infoList[1])) {
-                    MainMenuButton()
-                        .foregroundColor(.white)
+                List {
+                    NavigationLink(destination:
+                                    SheetAuroraInfo(forecastTime: $infoList[0],
+                                                    observationTime: $infoList[1])) {
+                        MainMenuButton()
+                            .foregroundColor(.white)
+                        
+                        
+                    }
+                    NavigationLink(destination: EventsList()) {
+                        EventsButton()
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button (action: {
+                            isSheetPresented = true
+                        }) {
+                            Image(systemName: "info.circle")
+                        }
+                    }
+                }
+                .sheet(isPresented: $isSheetPresented) {
+                    // input info about current aurora.
+                    
+                    // when used, map creates double layers of tiles, fix that.
+                    VStack {
+                        Text("Forecast Time")
+                        Text(provider.aurora.forecastTime)
+                            .font(.title2)
+                        Text("Observation Time")
+                        Text(provider.aurora.observationTime)
+                            .font(.title2)
+                    }
+                    .presentationDetents([.medium])
+                    .padding()
                 }
             }
+            
         }
         .task {
             await fetchAurora()
+            
+            //
             
             infoList[0] = provider.aurora.forecastTime
             infoList[1] = provider.aurora.observationTime
@@ -73,10 +108,16 @@ extension MainMenu {
     }
 }
 
+
+
 struct MainMenu_Previews: PreviewProvider {
+    // doesn't work
+    static var auroraPreview = IndividualAuroraSpot.preview
+    
     static var previews: some View {
-        MainMenu(auroraList: .constant([IndividualAuroraSpot(longitude: 0,
-                                                            latitude: 0,
-                                                             aurora: 0)]))
+        MainMenu(auroraList: .constant(auroraPreview))
+        .environmentObject(EventModel())
+        .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
+        .environment(\.colorScheme, .dark)
     }
 }

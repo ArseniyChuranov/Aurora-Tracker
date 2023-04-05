@@ -103,10 +103,12 @@ class AuroraMapOverlay: MKTileOverlay {
             newList = getData()
             loadedData = true
             
+            // i may need to shift all coordinates to 180 longitude
             
             let auroraList = newList.map { $0.aurora }
             
             maxAurora = auroraList.max()!
+            
             
             let listProduct = createSeparateLists(inputList: newList)
             
@@ -114,6 +116,12 @@ class AuroraMapOverlay: MKTileOverlay {
             topLeftList = listProduct[1]
             bottomRightList = listProduct[2]
             topRightList = listProduct[3]
+            
+            /*
+            if bottomLeftList.isEmpty || topLeftList.isEmpty || bottomRightList.isEmpty || topRightList.isEmpty {
+                print()
+            }
+             */
         }
 
         let coordinateSquare = coordinateCalculate.tileToCoordinate(path.x, path.y, zoom: path.z)
@@ -131,7 +139,13 @@ class AuroraMapOverlay: MKTileOverlay {
         } else if coordinateSquare[0] >= 0 && coordinateSquare[1] >= 180 {
             cycleList = topRightList
         }
-         
+
+        
+        /*
+        if cycleList.isEmpty {
+            print()
+        }
+         */
         // pass Z to transform list to mercator proportions?
         // pass rations and calculate with rations later on
         
@@ -154,6 +168,7 @@ class AuroraMapOverlay: MKTileOverlay {
         let finalImage = UIImage(cgImage: image)
         
         let urlAppendString = String(path.z) + "_" + String(path.x) + "_" + String(path.y)
+
         
         let fileUrl = tilePath?.appendingPathComponent("\(urlAppendString)" + ".png")
         
@@ -226,7 +241,63 @@ class AuroraMapOverlay: MKTileOverlay {
         } catch {
             print(error.localizedDescription)
         }
-        return list
+        
+        // shift 180 here?
+        
+        var outputList: [IndividualAuroraSpot] = []
+        
+        var firstList: [IndividualAuroraSpot] = []
+        var secondList: [IndividualAuroraSpot] = []
+        
+        let halfListSize = list.count / 2
+        
+        var countIndex = 0
+        var longitudeValue = 0.0
+        
+        for item in 0...(list.count-1) {
+            if countIndex < halfListSize {
+                longitudeValue = list[item].longitude + 180
+                
+                let newValue = IndividualAuroraSpot(longitude: longitudeValue,
+                                                    latitude: list[item].latitude,
+                                                    aurora: list[item].aurora)
+                secondList.append(newValue)
+                
+            } else {
+                longitudeValue = list[item].longitude - 180
+                let newValue = IndividualAuroraSpot(longitude: longitudeValue,
+                                                    latitude: list[item].latitude,
+                                                    aurora: list[item].aurora)
+                
+                firstList.append(newValue)
+                
+            }
+                
+            countIndex += 1
+        }
+
+        outputList.append(contentsOf: firstList)
+        outputList.append(contentsOf: secondList)
+        
+        /*
+        for aurora in list {
+            var newLongitude = 0.0
+            
+            if aurora.longitude > 179 { // =
+                newLongitude = aurora.longitude - 180
+            } else {
+                newLongitude = aurora.longitude + 180
+            }
+
+            let newAurora = IndividualAuroraSpot(longitude: newLongitude,
+                                                 latitude: aurora.latitude,
+                                                 aurora: aurora.aurora)
+            
+            outputList.append(newAurora)
+        }
+
+         */
+        return outputList
     }
     
     func createTileDirectory() {
@@ -255,7 +326,7 @@ class AuroraMapOverlay: MKTileOverlay {
         var topRight: [IndividualAuroraSpot] = []
         var bottomRight: [IndividualAuroraSpot] = []
         
-        // consider creating 16 lists indtead, or finding a quicker way to get info and parse it this way,
+        // consider creating 16 lists instead, or finding a quicker way to get info and parse it this way.
         
         // create a method that will be able to break down one giant list onto 4 lists.
         // boundaries are: [-90...0, 0...180], [0...90, 0...180], [-90...0, 180...360], [0...90, 180...360]

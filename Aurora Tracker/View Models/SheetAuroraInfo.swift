@@ -17,6 +17,12 @@ struct SheetAuroraInfo: View {
     var body: some View {
         AuroraMapView()
             .ignoresSafeArea()
+        /*
+         
+        When used, for some reason renderer renders twice. Look into it.
+         
+         Display info other way
+        
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button (action: {
@@ -28,6 +34,8 @@ struct SheetAuroraInfo: View {
             }
             .sheet(isPresented: $isSheetPresented) {
                 // input info about current aurora.
+                
+                // when used, map creates double layers of tiles, fix that.
                 VStack {
                     Text("Forecast Time")
                     Text(forecastTime)
@@ -38,6 +46,7 @@ struct SheetAuroraInfo: View {
                 }
                 .presentationDetents([.medium])
             }
+        */
     }
 }
 

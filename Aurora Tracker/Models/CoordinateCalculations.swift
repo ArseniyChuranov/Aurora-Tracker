@@ -60,6 +60,8 @@ class CoordinateCalculations {
         var outputList: [Double] = [] // bottomLeftLat, bottomLeftLon, bottomRightLon, topLeftLat
         
         let res: Double = pow(2, Double(zoom))
+        
+        // do something with list? to shift all auroras
 
         let bottomLeftLat = atan( sinh (.pi - (Double(tileY) / res) * 2 * Double.pi)) * (180.0 / .pi)
         let bottomLeftLon = (Double(tileX) / res) * 360.0 // - 180.0
@@ -189,197 +191,205 @@ class CoordinateCalculations {
         //        let longitudeSquaresCount = (maxLongitude.rounded(.up) - minLongitude.rounded(.down))
         
         var initialList: [IndividualAuroraSpot] = []
+        var initialBackupList: [IndividualAuroraSpot] = []
         
+        var allChangedLatitudeAuroraValues: [Double] = []
+        var allChangedLongitudeAuroraValues: [Double] = []
+        
+        
+        var updatedLatitudeAuroraValues: [IndividualAuroraSpot] = []
+        var updatedLongitudeAuroraValues: [IndividualAuroraSpot] = []
    
         
-        if abs(topLatitude - bottomLatitude) > 1 || abs(maxLongitude - minLongitude) > 1 {
-            
-            // multiple values to fill
-            
-            for aurora in inputAuroraList {
-
-                
-                if aurora.longitude >= startLongitudeValue && aurora.longitude <= finishLongitudeValue {
-                    if aurora.latitude >= floorLatitudeValue && aurora.latitude <= celingLatitudeValue {
-                        latitudeList.append(aurora)
-                        initialList.append(aurora)
-                    }
-                }
-            }
+        for aurora in inputAuroraList {
 
             
-            let widthCount = latitudeList[0].latitude
-            let heightCount = latitudeList[0].longitude
-            
-            for item in latitudeList {
-                
-                // same latitude = width
-                
-                if item.latitude == widthCount {
-                    width = width + 1
-                }
-                
-                // same longitude = height
-                
-                if item.longitude == heightCount {
-                    height = height + 1
+            if aurora.longitude >= startLongitudeValue && aurora.longitude <= finishLongitudeValue {
+                if aurora.latitude >= floorLatitudeValue && aurora.latitude <= celingLatitudeValue {
+                    latitudeList.append(aurora)
+                    initialList.append(aurora)
+                    initialBackupList.append(aurora)
                 }
             }
+        }
+
+        
+        let widthCount = latitudeList[0].latitude
+        let heightCount = latitudeList[0].longitude
+        
+        for item in latitudeList {
             
+            // same latitude = width
             
-            var allChangedBottomValues: [Double] = []
-            var allPreviousBottomValues: [Double] = []
-            var allBoundariesBottomValues: [Double] = []
-            
-            var topIndex = height - 1
-            var bottomIndex = 0
-            
-            for _ in 1...width {
-                
-                // this loop changes latitude values.
-                // calculate top and bottom aurora.
-                
-                let bottomAuroraCoordinate = latitudeList[bottomIndex]
-                var bottomAuroraValue = bottomAuroraCoordinate.aurora
-                
-                allBoundariesBottomValues.append(bottomAuroraValue)
-                
-                let nextAuroraValue = latitudeList[bottomIndex + 1].aurora
-                
-                allPreviousBottomValues.append(nextAuroraValue)
-                
-                // calculate new aurora difference applied to an aurora
-                
-                let bottomAuroraDifference = bottomAuroraValue - nextAuroraValue
-                let changedBottomValue = bottomAuroraDifference * differenceBottomLat
-                bottomAuroraValue = nextAuroraValue + changedBottomValue
-                
-                allChangedBottomValues.append(bottomAuroraValue)
-                
-                
-                
-                let newLeftAurora = IndividualAuroraSpot(longitude: bottomAuroraCoordinate.longitude,
-                                                         latitude: bottomLatitude,
-                                                         aurora: bottomAuroraValue)
-                
-                let topCoordinateAurora = latitudeList[topIndex]
-                var topAuroraValue = topCoordinateAurora.aurora
-                let previousAuroraValue = latitudeList[topIndex - 1].aurora
-                
-                let topAuroraDifference = topAuroraValue - previousAuroraValue
-                let changedTopValue = topAuroraDifference * differenceTopLat
-                topAuroraValue = previousAuroraValue + changedTopValue
-                
-                
-                
-                
-                let newRightAurora = IndividualAuroraSpot(longitude: topCoordinateAurora.longitude,
-                                                          latitude: topLatitude,
-                                                          aurora: topAuroraValue)
-                
-                latitudeList[bottomIndex] =  newLeftAurora
-                latitudeList[topIndex] = newRightAurora
-                
-                topIndex = topIndex + (height)
-                bottomIndex = bottomIndex + (height)
-                
+            if item.latitude == widthCount {
+                width = width + 1
             }
             
-            var rightIndex = height * (width - 1)
-            var leftIndex = 0
+            // same longitude = height
             
-            
-            for _ in 1...(height) {
-                
-                // declare aurora coordinate and aurora value
-                
-                let leftAuroraCoordinate = latitudeList[leftIndex]
-                var leftAuroraValue = leftAuroraCoordinate.aurora
-                let nextLeftAuroraValue = latitudeList[leftIndex + height].aurora
-                
-                
-                let leftAuroraDifference = leftAuroraValue - nextLeftAuroraValue
-                let changedLeftValue = leftAuroraDifference * differenceLeftLon // leftLon, since we comparing edge values
-                leftAuroraValue = changedLeftValue + nextLeftAuroraValue
-                
-                // create a new individual spot with a new value
-                
-                let newBottomAurora = IndividualAuroraSpot(longitude: minLongitude,
-                                                           latitude: leftAuroraCoordinate.latitude,
-                                                           aurora: leftAuroraValue)
-                
-                // declare aurora coordinate and new aurora value
-                
-                
-                let topRightCoordinate = latitudeList[rightIndex]
-                var rightAuroraValue = topRightCoordinate.aurora
-                let PreviousRightAurora = latitudeList[rightIndex - height].aurora
-                
-                let rightAuroraDifference = rightAuroraValue - PreviousRightAurora
-                let changedRightValue = rightAuroraDifference * differenceRightLon // rightLon? change to lat
-                rightAuroraValue = changedRightValue + PreviousRightAurora
-                
-                let newTopAurora = IndividualAuroraSpot(longitude: maxLongitude,
-                                                        latitude: topRightCoordinate.latitude,
-                                                        aurora: rightAuroraValue)
-                
-                latitudeList[leftIndex] = newBottomAurora
-                latitudeList[rightIndex] = newTopAurora
-                
-                // we are changing first width and last width values, so BOTTOM and TOP of a rectangle
-                
-                leftIndex = leftIndex + 1
-                rightIndex = rightIndex + 1
+            if item.longitude == heightCount {
+                height = height + 1
             }
-            
-            // returns latitude list
-            
-            // all calculations done above.
-            
-        } else {
-            
-            // create some other calc here
-            // fun basic calculations anyways.
-            // remove it in future, restructure. Honeslty, it doesnt do much aside of creating a future complications
-            
-            for aurora in inputAuroraList {
-       
-                if aurora.longitude >= startLongitudeValue && aurora.longitude <= finishLongitudeValue {
-                    if aurora.latitude >= floorLatitudeValue && aurora.latitude <= celingLatitudeValue {
-                        latitudeList.append(aurora)
-                    }
-                }
-            }
-            
-            let widthCount = latitudeList[0].latitude
-            let heightCount = latitudeList[0].longitude
-            
-            
-            for item in latitudeList {
-                
-                // same latitude = width
-                
-                if item.latitude == widthCount {
-                    width = width + 1
-                }
-                
-                // same longitude = height
-                
-                if item.longitude == heightCount {
-                    height = height + 1
-                }
-            }
-            
-            // this should anyway give anough of a good list
         }
         
+        
+        var allChangedBottomValues: [Double] = []
+        
+        
+        var topIndex = height - 1
+        var bottomIndex = 0
+        
+        for _ in 1...width {
+            
+            // this loop changes latitude values.
+            // calculate top and bottom aurora.
+            
+            let bottomAuroraCoordinate = latitudeList[bottomIndex]
+            var bottomAuroraValue = bottomAuroraCoordinate.aurora
+            
+            let nextAuroraValue = latitudeList[bottomIndex + 1].aurora
+            
+            // calculate new aurora difference applied to an aurora
+            
+            let bottomAuroraDifference = bottomAuroraValue - nextAuroraValue
+            let changedBottomValue = bottomAuroraDifference * differenceBottomLat
+            bottomAuroraValue = bottomAuroraValue - changedBottomValue // nextAuroraValue + changedBottomValue
+            
+            allChangedLatitudeAuroraValues.append(bottomAuroraValue)
+            
+            allChangedBottomValues.append(bottomAuroraValue)
+            
+            let newLeftAurora = IndividualAuroraSpot(longitude: bottomAuroraCoordinate.longitude,
+                                                     latitude: bottomLatitude,
+                                                     aurora: bottomAuroraValue)
+            
+            updatedLatitudeAuroraValues.append(newLeftAurora)
+            
+            /*
+            if bottomAuroraValue != 0 {
+                print(initialList)
+                
+                print(latitudeList[bottomIndex])
+                print(latitudeList[bottomIndex + 1])
+                
+                print(initialList[bottomIndex])
+                print(initialList[bottomIndex + 1])
+                print(bottomAuroraValue)
+                
+                print()
+            }
+            */
+            
+            let topCoordinateAurora = latitudeList[topIndex]
+            var topAuroraValue = topCoordinateAurora.aurora
+            let previousAuroraValue = latitudeList[topIndex - 1].aurora
+            
+            let topAuroraDifference = topAuroraValue - previousAuroraValue
+            let changedTopValue = topAuroraDifference * differenceTopLat
+            topAuroraValue = topAuroraValue - changedTopValue // previousAuroraValue + changedTopValue
+            
+            allChangedLatitudeAuroraValues.append(topAuroraValue)
+
+            let newRightAurora = IndividualAuroraSpot(longitude: topCoordinateAurora.longitude,
+                                                      latitude: topLatitude,
+                                                      aurora: topAuroraValue)
+            
+            updatedLatitudeAuroraValues.append(newRightAurora)
+            
+            latitudeList[bottomIndex] =  newLeftAurora
+            latitudeList[topIndex] = newRightAurora
+            
+            topIndex = topIndex + (height)
+            bottomIndex = bottomIndex + (height)
+            
+        }
+        
+        var rightIndex = height * (width - 1)
+        var leftIndex = 0
+        
+        
+        for _ in 1...(height) {
+            
+            // declare aurora coordinate and aurora value
+            
+            // replaced latitudelist with initialList
+            
+            // need to get it back
+            
+            let leftAuroraCoordinate = initialList[leftIndex]
+            var leftAuroraValue = leftAuroraCoordinate.aurora
+            let nextLeftAuroraValue = initialList[leftIndex + height].aurora
+            
+            
+            let leftAuroraDifference = leftAuroraValue - nextLeftAuroraValue
+            let changedLeftValue = leftAuroraDifference * differenceLeftLon // leftLon, since we comparing edge values
+            leftAuroraValue = leftAuroraValue - changedLeftValue // changedLeftValue + nextLeftAuroraValue
+            
+            // create a new individual spot with a new value
+            
+            allChangedLongitudeAuroraValues.append(leftAuroraValue)
+            
+            let newBottomAurora = IndividualAuroraSpot(longitude: minLongitude,
+                                                       latitude: latitudeList[leftIndex].latitude,
+                                                       aurora: leftAuroraValue)
+            
+            updatedLongitudeAuroraValues.append(newBottomAurora)
+            
+            // declare aurora coordinate and new aurora value
+            
+            
+            let topRightCoordinate = initialList[rightIndex]
+            var rightAuroraValue = topRightCoordinate.aurora
+            let PreviousRightAurora = initialList[rightIndex - height].aurora
+            
+            let rightAuroraDifference = rightAuroraValue - PreviousRightAurora
+            let changedRightValue = rightAuroraDifference * differenceRightLon // rightLon? change to lat
+            rightAuroraValue = rightAuroraValue - changedRightValue // changedRightValue + PreviousRightAurora
+            
+            allChangedLongitudeAuroraValues.append(rightAuroraValue)
+            /*
+            if rightAuroraValue != 0 {
+                print(latitudeList[rightIndex])
+                print(latitudeList[rightIndex - height])
+                
+                
+                print(rightIndex)
+                print(rightIndex - height)
+                
+                print(latitudeList)
+                
+                
+                print(rightAuroraValue)
+                print(PreviousRightAurora)
+                
+                print()
+            }
+            */
+            let newTopAurora = IndividualAuroraSpot(longitude: maxLongitude,
+                                                    latitude: latitudeList[rightIndex].latitude,
+                                                    aurora: rightAuroraValue)
+            
+            updatedLongitudeAuroraValues.append(newTopAurora)
+            
+            latitudeList[leftIndex] = newBottomAurora
+            latitudeList[rightIndex] = newTopAurora
+            
+            // we are changing first width and last width values, so BOTTOM and TOP of a rectangle
+            
+            leftIndex = leftIndex + 1
+            rightIndex = rightIndex + 1
+        }
+        
+        // returns latitude list
+        
+        // all calculations done above.
         
         // make a corner value update
         
         var cornerPixelList: [Int] = []
 //        var initialPixelLst: [Int] = []
         
-//        var cornerAuroraValues: [IndividualAuroraSpot] = []
+        var cornerAuroraValues: [IndividualAuroraSpot] = []
         var initialCornerAuroraValues: [IndividualAuroraSpot] = []
         
         cornerPixelList.append(contentsOf: calculateCornerValuesIndexes(inputWidth: width, inputHeight: height))
@@ -421,7 +431,118 @@ class CoordinateCalculations {
         
         for item in cornerPixelList {
             initialCornerAuroraValues.append(latitudeList[item]) // was latitude list
+            cornerAuroraValues.append(initialList[item])
+            
+            
         }
+        
+        
+        if latitudeList.count > 4 {
+            
+            var bottomLeftAuroraValue: Double = 0
+            var topLeftAuroraValue: Double = 0
+            var bottomRightAuroraValue: Double = 0
+            var topRightAuroraValue: Double = 0
+            
+            // Bottom Left Corner
+            
+//            print(initialCornerAuroraValues)
+//            print(cornerAuroraValues)
+            
+            //print(allChangedLatitudeAuroraValues)
+            //print(allChangedLongitudeAuroraValues)
+            
+            // i guess im on right track, figure out later
+            
+//            print(updatedLatitudeAuroraValues)
+//            print(updatedLongitudeAuroraValues)
+            
+            
+            // i think i can figure which ones i need to pick for my testing, first 2 and last 2 for each, see them
+             
+            
+            bottomLeftAuroraValue = (updatedLatitudeAuroraValues[0].aurora + updatedLongitudeAuroraValues[0].aurora) / 2
+            
+            bottomRightAuroraValue = (updatedLatitudeAuroraValues[updatedLatitudeAuroraValues.count - 2].aurora + updatedLongitudeAuroraValues[1].aurora) / 2
+            
+            topLeftAuroraValue = (updatedLatitudeAuroraValues[1].aurora + updatedLongitudeAuroraValues[updatedLongitudeAuroraValues.count - 2].aurora) / 2
+            
+            topRightAuroraValue = (updatedLatitudeAuroraValues[updatedLatitudeAuroraValues.count - 1].aurora + updatedLongitudeAuroraValues[updatedLongitudeAuroraValues.count - 1].aurora) / 2
+
+            
+            // each value can be calculated by combining 2 calculated values from x and y parallels and divide by 2
+            
+//            bottomLeftAuroraValue = 0.0
+//            bottomLeftAuroraValue = initialCornerAuroraValues[1].aurora + initialCornerAuroraValues[2].aurora
+//            bottomLeftAuroraValue = bottomLeftAuroraValue / 2
+        
+            
+            // top Left Corner
+            
+//            topLeftAuroraValue = 0.0
+//            topLeftAuroraValue = initialCornerAuroraValues[4].aurora + initialCornerAuroraValues[7].aurora
+//            topLeftAuroraValue = topLeftAuroraValue / 2
+            
+            // bottom right corner
+            
+            
+//            bottomRightAuroraValue = 0.0
+//            bottomRightAuroraValue = initialCornerAuroraValues[8].aurora + initialCornerAuroraValues[11].aurora
+//            bottomRightAuroraValue = bottomRightAuroraValue / 2
+            
+            // top right corner
+            
+            
+//            topRightAuroraValue = 0.0
+//            topRightAuroraValue = initialCornerAuroraValues[13].aurora + initialCornerAuroraValues[14].aurora
+//            topRightAuroraValue = topRightAuroraValue / 2
+            
+            /*
+            print(initialList)
+            print(latitudeList)
+            
+             print("new values")
+             print(bottomLeftAuroraValue)
+             print(topLeftAuroraValue)
+             print(bottomRightAuroraValue)
+             print(topRightAuroraValue)
+             
+             print("values to replace")
+             
+             print(latitudeList[0].aurora)
+             print(latitudeList[height - 1].aurora)
+             print(latitudeList[latitudeList.count - height].aurora)
+             print(latitudeList[latitudeList.count - 1].aurora)
+            
+             */
+             
+            latitudeList[0].aurora = bottomLeftAuroraValue
+            latitudeList[height - 1].aurora = topLeftAuroraValue
+            latitudeList[latitudeList.count - height].aurora = bottomRightAuroraValue // -1 wasnt there
+            latitudeList[latitudeList.count - 1].aurora = topRightAuroraValue
+            
+            
+//            print(latitudeList)
+//            print(initialBackupList)
+//            print()
+            
+            //            print(bottomLeftAuroraValue)
+            //            print(topLeftAuroraValue)
+            //            print(bottomRightAuroraValue)
+            //            print(topRightAuroraValue)
+            //            for item in initialCornerAuroraValues {
+            //                print(item.aurora)
+            //            }
+            
+            
+//            print(latitudeList)
+            
+//            print()
+            
+        }
+        
+        
+        
         
         // special case when there are only 4 corner values, and whole rectangle is inside whole coorindate bound.
         
@@ -495,11 +616,28 @@ class CoordinateCalculations {
          instead of passing for each individual coordinate here, i can do it straight in a spreadCoordinate func
          
          */
+        
+        // Do i even need this?
+        
+        
+        
+        
+        if maxLongitude >= 360 {
+            var cycleIndex = 0
+            for item in latitudeList {
+                if item.longitude >= 360 {
+                    let newItem = IndividualAuroraSpot(longitude: 359.0, latitude: item.latitude, aurora: item.aurora)
+                    latitudeList[cycleIndex] = newItem
+                }
+                cycleIndex += 1
+            }
+        }
+         
+        
 
         indexWidth = spreadCoordinatesForRes(minValue: minLongitude,
                                              maxValue: maxLongitude,
                                              dimension: width,
-                                             coordinateList: [],
                                              coordinateType: "Longitude",
                                              zoom: zoom
         )
@@ -507,7 +645,6 @@ class CoordinateCalculations {
         indexHeight = spreadCoordinatesForRes(minValue: bottomLatitude,
                                               maxValue: topLatitude,
                                               dimension: height,
-                                              coordinateList: [],
                                               coordinateType: "Latitude",
                                               zoom: zoom)
         
@@ -532,6 +669,11 @@ class CoordinateCalculations {
 //        print(indexHeight.reversed())
 //        print(latitudeList[0...height-1])
         
+//        print(initialList)
+//        print(latitudeList)
+//        print(rotateList(inputList: latitudeList, height: height, width: width))
+//        print()
+        
         return (latitudeList, width, height, indexWidth, indexHeight)
     }
     
@@ -548,6 +690,43 @@ class CoordinateCalculations {
         return outputLongitude
     }
     
+    // rotate list
+    
+    func rotateList(inputList: [IndividualAuroraSpot], height: Int, width: Int) -> [IndividualAuroraSpot] {
+        // Calculate to which direction i will rotate the list, account for all sizes, min is 4
+        // output list should start with topLeft value, min longitude, max latitude.
+        // Each line should contain same latitude, different longitude values
+        
+        // works now, rotate different direction lmao
+        
+        var outputList: [IndividualAuroraSpot] = []
+        
+        var rowList: [IndividualAuroraSpot] = []
+        var itemIndex = height - 1 // was 0
+        
+        // each side is equals to amount of elements i have per row, and index for next row position
+        
+        for column in 1...height {
+            // cycle through each side, creating a row
+            // secont loop will come here
+            
+            for _ in 0...(width - 1) {
+                // collect items per each row
+                rowList.append(inputList[itemIndex])
+                // itemIndex = itemIndex + Int(height)
+                itemIndex = itemIndex + height
+            }
+            
+            itemIndex = (height - 1) - column
+            //itemIndex = 1 + column
+            outputList.append(contentsOf: rowList)
+            rowList = []
+        }
+        
+        
+        return outputList
+    }
+    
     
     /*
      
@@ -557,19 +736,19 @@ class CoordinateCalculations {
      */
     
     func calculateLatitude(inputCordinate: Double, coordinateZoom: Int) -> Double {
-    
-        
         
         let mapSide = Double(coordinateZoom) // custom square resolution
         
         var resolution = Double(pow(2, mapSide))
         
-        resolution = 255 * resolution // swap top 255? // was 256
+        let newResolution = resolution * 255 // thats a weird solution
+        
+        resolution = 256 * resolution // swap top 255? // was 255, changed to 256
         
         let latRad = inputCordinate * Double.pi / 180
         let mercN = log(tan((Double.pi / 4) + (latRad / 2)))
         
-        let outputLatitude = (resolution / 2) - (resolution * mercN / (2 * Double.pi))
+        let outputLatitude = (resolution / 2) - (newResolution * mercN / (2 * Double.pi))
         
         return outputLatitude
     }
@@ -587,15 +766,41 @@ class CoordinateCalculations {
         
         var testList: [IndividualAuroraSpot] = []
         var newIndexHeight: [Double] = []
-        newIndexHeight = indexHeight  //.reversed()
+        newIndexHeight = indexHeight.reversed()
         var auroraIndex = 0
 
-        for longitude in indexWidth {
+        
+        let rotatedList = rotateList(inputList: inputList, height: height, width: width)
+        
+        /*
+         was
+         
+         for longitude in indexWidth {
+             var originalFlip: [IndividualAuroraSpot] = []
+             for latitude in newIndexHeight {
+                 let newCorrdinate = IndividualAuroraSpot(longitude: Double(longitude),
+                                                          latitude: Double(latitude),
+                                                          aurora: rotatedList[auroraIndex].aurora)
+ //                originalValueList.append(inputList[auroraIndex])
+                 auroraIndex = auroraIndex + 1
+                 originalFlip.append(newCorrdinate)
+                 
+             }
+
+             testList.append(contentsOf: originalFlip)
+             
+             originalFlip = []
+         }
+         
+         
+         */
+
+        for latitude in newIndexHeight {
             var originalFlip: [IndividualAuroraSpot] = []
-            for latitude in newIndexHeight {
+            for longitude in indexWidth {
                 let newCorrdinate = IndividualAuroraSpot(longitude: Double(longitude),
                                                          latitude: Double(latitude),
-                                                         aurora: inputList[auroraIndex].aurora)
+                                                         aurora: rotatedList[auroraIndex].aurora)
 //                originalValueList.append(inputList[auroraIndex])
                 auroraIndex = auroraIndex + 1
                 originalFlip.append(newCorrdinate)
@@ -607,6 +812,21 @@ class CoordinateCalculations {
             originalFlip = []
         }
 
+        // Index width and indexHeight might not be same anymore, since orientation is changed
+        
+        /*
+         
+         fun fact
+         indexHeight and IndexWidth start from lower num to heigher num, so for my new list - accouunt for this
+         
+         height list should be flipped
+         
+         */
+        
+//        print(inputList)
+//        print(rotatedList)
+//        print(testList)
+//        print()
         // create an aurora values list.
         
         let auroraQuickList = testList.map { $0.aurora }
@@ -622,11 +842,105 @@ class CoordinateCalculations {
         }
         
         var gradientPixelArray: [Double] = []
-        //
+        
+        // Testing gradient list function with a simple list
+        // list will have 25 values
+        /*
+        let testHeightList = [0.0, 10.0, 128.0, 245.0, 255.0]
+        let testWidthList = [255.0, 245.0, 128.0, 10.0, 0.0]
+        let testWidth = 5
+        let testHeight = 5
+        let testValuesList = [IndividualAuroraSpot(longitude: 0.0, latitude: 0.0, aurora: 0.81),
+                              IndividualAuroraSpot(longitude: 10.0, latitude: 0.0, aurora: 0.875),
+                              IndividualAuroraSpot(longitude: 128.0, latitude: 0.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 245.0, latitude: 0.0, aurora: 0.375),
+                              IndividualAuroraSpot(longitude: 255.0, latitude: 0.0, aurora: 0.81),
+                              
+                              IndividualAuroraSpot(longitude: 0.0, latitude: 10.0, aurora: 0.75),
+                              IndividualAuroraSpot(longitude: 10.0, latitude: 10.0, aurora: 1),
+                              IndividualAuroraSpot(longitude: 128.0, latitude: 10.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 245.0, latitude: 10.0, aurora: 0.5),
+                              IndividualAuroraSpot(longitude: 255.0, latitude: 10.0, aurora: 0.75),
+                              
+                              IndividualAuroraSpot(longitude: 0.0, latitude: 128.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 10.0, latitude: 128.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 128.0, latitude: 128.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 245.0, latitude: 128.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 255.0, latitude: 128.0, aurora: 0.1),
+                              
+                              IndividualAuroraSpot(longitude: 0.0, latitude: 245.0, aurora: 0.5),
+                              IndividualAuroraSpot(longitude: 10.0, latitude: 245.0, aurora: 0.75),
+                              IndividualAuroraSpot(longitude: 128.0, latitude: 245.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 245.0, latitude: 245.0, aurora: 0.25),
+                              IndividualAuroraSpot(longitude: 255.0, latitude: 245.0, aurora: 0.5),
+                              
+                              IndividualAuroraSpot(longitude: 0.0, latitude: 255.0, aurora: 0.81),
+                              IndividualAuroraSpot(longitude: 10.0, latitude: 255.0, aurora: 0.875),
+                              IndividualAuroraSpot(longitude: 128.0, latitude: 255.0, aurora: 0.1),
+                              IndividualAuroraSpot(longitude: 245.0, latitude: 255.0, aurora: 0.375),
+                              IndividualAuroraSpot(longitude: 255.0, latitude: 255.0, aurora: 0.81),
+        ]
+        */
+        
+        /*
+         
+         let testValuesList = [IndividualAuroraSpot(longitude: 0.0, latitude: 0.0, aurora: 0.81),
+                               IndividualAuroraSpot(longitude: 10.0, latitude: 0.0, aurora: 0.875),
+                               IndividualAuroraSpot(longitude: 128.0, latitude: 0.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 245.0, latitude: 0.0, aurora: 0.375),
+                               IndividualAuroraSpot(longitude: 255.0, latitude: 0.0, aurora: 0.81),
+                               
+                               IndividualAuroraSpot(longitude: 0.0, latitude: 10.0, aurora: 0.75),
+                               IndividualAuroraSpot(longitude: 10.0, latitude: 10.0, aurora: 1),
+                               IndividualAuroraSpot(longitude: 128.0, latitude: 10.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 245.0, latitude: 10.0, aurora: 0.5),
+                               IndividualAuroraSpot(longitude: 255.0, latitude: 10.0, aurora: 0.75),
+                               
+                               IndividualAuroraSpot(longitude: 0.0, latitude: 128.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 10.0, latitude: 128.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 128.0, latitude: 128.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 245.0, latitude: 128.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 255.0, latitude: 128.0, aurora: 0.1),
+                               
+                               IndividualAuroraSpot(longitude: 0.0, latitude: 245.0, aurora: 0.5),
+                               IndividualAuroraSpot(longitude: 10.0, latitude: 245.0, aurora: 0.75),
+                               IndividualAuroraSpot(longitude: 128.0, latitude: 245.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 245.0, latitude: 245.0, aurora: 0.25),
+                               IndividualAuroraSpot(longitude: 255.0, latitude: 245.0, aurora: 0.5),
+                               
+                               IndividualAuroraSpot(longitude: 0.0, latitude: 255.0, aurora: 0.81),
+                               IndividualAuroraSpot(longitude: 10.0, latitude: 255.0, aurora: 0.875),
+                               IndividualAuroraSpot(longitude: 128.0, latitude: 255.0, aurora: 0.1),
+                               IndividualAuroraSpot(longitude: 245.0, latitude: 255.0, aurora: 0.375),
+                               IndividualAuroraSpot(longitude: 255.0, latitude: 255.0, aurora: 0.81),
+         ]
+         
+         */
+        
+        
+        
         for aurora in auroraQuickList {
             if aurora != 0 {
-                
+                /*
                 // create for each line a new color for test?
+                print("inputList")
+                print(inputList)
+                print("rotated list")
+                print(rotatedList)
+                print("rotated list with new values")
+                print(testList)
+                print()
+                 
+                 */
+                /*
+                 previous
+                 
+                let experiment = createGradientList(inputList: testList,
+                                                    height: height,
+                                                    width: width,
+                                                    heightIndex: newIndexHeight,
+                                                    widthIndex: indexWidth)
+                 */
                 
                 let experiment = createGradientList(inputList: testList,
                                                     height: height,
@@ -634,6 +948,13 @@ class CoordinateCalculations {
                                                     heightIndex: newIndexHeight,
                                                     widthIndex: indexWidth)
                 
+                /*
+                let experiment = createGradientList(inputList: testValuesList,
+                                                    height: testHeight,
+                                                    width: testWidth,
+                                                    heightIndex: testHeightList,
+                                                    widthIndex: testWidthList)
+                */
                 gradientPixelArray = experiment
                 break
                 
@@ -652,7 +973,6 @@ class CoordinateCalculations {
             auroraAlpha = 1.0 / maxAurora // this is amount of increments from 0 to 1 based on aurora strength
         }
         
-        
         // Create color scheme for overlay image
         
         let color = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.0)
@@ -660,6 +980,22 @@ class CoordinateCalculations {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         
         // For each gradient value add either a value or an empty pixel
+
+        /*
+         
+         original color
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32((currentAuroraAlpha) * 255.0) << 24 +
+             UInt32((blue) * 255.0) << 16 +
+             UInt32((1) * 255.0) << 8 +
+             UInt32(alpha * 255.0)
+             
+             pixelGrid.append(newColor)
+             
+         }
+         
+         */
         
         var emptyColor: UInt32 = 0
         
@@ -675,6 +1011,18 @@ class CoordinateCalculations {
             print(indexWidth)
             print(newIndexHeight)
             print()
+        }
+        
+        var calcIndex = 0
+        
+        for item in gradientPixelArray {
+            if item < 0.0 || item.isNaN {
+                print(item)
+                
+                print(gradientPixelArray[calcIndex...calcIndex+100])
+                print()
+                }
+            calcIndex = calcIndex + 1
         }
 
         for item in gradientPixelArray {
@@ -697,8 +1045,44 @@ class CoordinateCalculations {
             }
             
         }
+        
+        func rotateList(inputList: [IndividualAuroraSpot], height: Int, width: Int) -> [IndividualAuroraSpot] {
+            // Calculate to which direction i will rotate the list, account for all sizes, min is 4
+            // output list should start with topLeft value, min longitude, max latitude.
+            // Each line should contain same latitude, different longitude values
+            
+            // works now, rotate different direction lmao
+            
+            var outputList: [IndividualAuroraSpot] = []
+            
+            var rowList: [IndividualAuroraSpot] = []
+            var itemIndex = height - 1 // was 0
+            
+            // each side is equals to amount of elements i have per row, and index for next row position
+            
+            for column in 1...height {
+                // cycle through each side, creating a row
+                // secont loop will come here
+                
+                for _ in 0...(width - 1) {
+                    // collect items per each row
+                    rowList.append(inputList[itemIndex])
+                    // itemIndex = itemIndex + Int(height)
+                    itemIndex = itemIndex + height
+                }
+                
+                itemIndex = (height - 1) - column
+                //itemIndex = 1 + column
+                outputList.append(contentsOf: rowList)
+                rowList = []
+            }
+            
+            
+            return outputList
+        }
 
         // function to rotate an image 90degrees, Will be removed later, since creates extra processing.
+        // rotates only squares
         
         func rotateImage(inputImage: [UInt32]) -> [UInt32] {
             var outputImage: [UInt32] = []
@@ -735,6 +1119,12 @@ class CoordinateCalculations {
         
         // temp function to create images.
 
+        // find orientation for a list picture, from it structure my data in that order for me to understand it easier.
+        
+        // Oreientation for a bitmap picture is topLeft -> topRight, bottomLeft -> bottomRight.
+        // Current list oreitntation is topLeft -> bottomLeft
+        
+        
         func createSimpleImage(inputList: [UInt32]) -> CGImage {
             
             var gridList = inputList
@@ -755,7 +1145,14 @@ class CoordinateCalculations {
         }
 
         
-        let finalImage = createSimpleImage(inputList: rotateImage(inputImage: pixelGrid))
+        if pixelGrid.count != 65536 {
+            print(pixelGrid.count)
+            print()
+        }
+        
+        let finalImage = createSimpleImage(inputList: pixelGrid) // no rotation is needed now?
+        // lmao what have i done
+//        let finalImage = createSimpleImage(inputList: funPixelList)
 
         
         return finalImage
@@ -788,7 +1185,6 @@ class CoordinateCalculations {
     func spreadCoordinatesForRes(minValue: Double,
                                  maxValue: Double,
                                  dimension: Int,
-                                 coordinateList: [Double],
                                  coordinateType: String,
                                  zoom: Int) -> [Double] {
         
@@ -796,7 +1192,28 @@ class CoordinateCalculations {
             print(maxValue)
             print(minValue)
         }
+        
+        // Later i would need to rework this whole function.
+        
+        var experimentalListRounded: [Double] = []
 
+        
+        /*
+         
+         It's reasonable to assume that i should rewrite this whle function.
+         
+         i would need to create an elegant and simple tactics to translate coordinate borders to correct coordinate
+            on 256 x 256 tile
+         
+         First would be to Use function with mercator projections for both longitude and latitude
+         
+         first coordinate will be 0, last coordinate might be 255
+         
+         drop old function and move on to a new, precise one.
+         
+         */
+        
+        
         var differenceList: [Double] = []
 
         // lazy way to get a result
@@ -814,6 +1231,8 @@ class CoordinateCalculations {
         
         var longitudeMercatorList: [Double] = []
         var latitudeMercatorList: [Double] = []
+        
+        var experimentalLongitudeListRounded: [Double] = []
  
         
         //        print(wholeCoordinateList)
@@ -838,9 +1257,12 @@ class CoordinateCalculations {
                 latitudeMercatorList.append(lat)
             }
 
+            var roundedValuesSimple: [Double] = []
+            
             for item in 0...latitudeMercatorList.count-2 {
                 let appendValue = latitudeMercatorList[item] - latitudeMercatorList[item + 1]
                 differenceList.append(appendValue)
+                roundedValuesSimple.append(appendValue.rounded())
             }
             
             var sumOfStuff = 0.0
@@ -848,14 +1270,83 @@ class CoordinateCalculations {
             for item in differenceList {
                 sumOfStuff = sumOfStuff + item
             }
+            
+            var possiblyPixelList: [Double] = []
+            var possiblyRoundedPixelList: [Double] = []
+            
+            var initialValue = 0.0
+            
+            for item in differenceList {
+                initialValue += item
+                possiblyPixelList.append(initialValue)
+                possiblyRoundedPixelList.append(initialValue.rounded())
+            }
+            
+            var experimentalList: [Double] = []
+
+            
+            for item in latitudeMercatorList {
+                let maybeSolution = latitudeMercatorList[0] - item
+                experimentalList.append(maybeSolution)
+                experimentalListRounded.append(maybeSolution.rounded())
+            }
+            
+            if experimentalListRounded[1] == 0.0 {
+                experimentalListRounded[1] = 1.0
+            }
+            
+            
+            if experimentalListRounded.count > 3 {
+                if experimentalListRounded[experimentalListRounded.count - 2] >= 255.0 {
+                    
+                    experimentalListRounded[experimentalListRounded.count - 2] = 254.0
+                    
+//                    print(experimentalListRounded)
+//                    print(latitudeMercatorList)
+//                    print()
+                    
+                    // I have an idea for a solution?
+                    /*
+                    if experimentalListRounded.count == latitudeMercatorList.count {
+                        // extra value got there?
+                        experimentalListRounded.remove(at: experimentalListRounded.count - 1)
+                        experimentalListRounded[experimentalListRounded.count - 1] == 255.0
+                    }
+                     */
+                    // experimentalListRounded[experimentalListRounded.count - 2] = 254.0
+                }
+            }
+             
+        
+//            print(latitudeMercatorList)
+//            print(experimentalList)
+//            print(experimentalListRounded)
+            
+            
+            
+            /*
+            print(differenceList) // list with proportions that can be used for pixels
+            print(possiblyPixelList)
+            print(roundedValuesSimple)
+            print(possiblyRoundedPixelList)
+            let count = differenceList.reduce(0, {x, y in x + y})
+             */
+            // print(count)
+            /*
+            if sumOfStuff.rounded() != 255 {
+                print(experimentalListRounded)
+                print(latitudeMercatorList)
+                print()
+            }
+            */
+//            print(sumOfStuff)
+//            print()
+        
         }
         
         
         // Longitude method does't work properly for me so far. I would need to figure this out later.
-        
-        
-        /*
-        
+
         if coordinateType == "Longitude" {
             
             // process longitude values according to ratios.
@@ -864,7 +1355,6 @@ class CoordinateCalculations {
                 wholeLongitudeCoordinateList.append(startLongitudeListIndex)
                 startLongitudeListIndex += 1
             }
-            
             
             wholeLongitudeCoordinateList[0] = minValue
             wholeLongitudeCoordinateList[wholeLongitudeCoordinateList.count - 1] = maxValue
@@ -878,11 +1368,19 @@ class CoordinateCalculations {
                 let appendValue = abs(longitudeMercatorList[item] - longitudeMercatorList[item + 1])
                 differenceList.append(appendValue)
             }
+            
+            for item in longitudeMercatorList {
+                let maybeSolution = abs(longitudeMercatorList[0] - item)
+                // experimentalList.append(maybeSolution)
+                experimentalLongitudeListRounded.append(maybeSolution.rounded())
+            }
+            
+//            print(longitudeMercatorList)
+//            print(experimentalLongitudeListRounded)
+//            print()
 
         }
 
-         
-         */
         
         var outputList: [Double] = []
 
@@ -1033,165 +1531,56 @@ class CoordinateCalculations {
         }
         
         
-        // removes last item? always?
-        
-        //        if actualIndexes[actualIndexes.count - 2] > actualIndexes[actualIndexes.count - 1] {
-        //            print(actualIndexes)
-        //            print("actual dimension number is \(dimension)")
-        //            print("actual index count is \(actualIndexes.count)")
-        //        }
-        
-        
-        //        print("actual dimension number is \(dimension)")
-        //        print("actual index count is \(actualIndexes.count)")
-        //        print(dimension)
-        
-        //        print(wholeCoordinateList)
-        //        print(latitudeMercatorList)
-        
-        /*
+
         
         if coordinateType == "Longitude" {
-            
-            var roundedLonList: [Double] = []
-            var potentiallyNewLonList: [Double] = []
-            
-            var roundedSum = 0.0
-            
-            potentiallyNewLonList.append(0.0)
-            
-            for item in differenceList { // ?
-                let roundedItem = item.rounded()
-                roundedSum = roundedSum + roundedItem
-                roundedLonList.append(roundedItem)
-                potentiallyNewLonList.append(roundedSum)
-            }
-            
-            if potentiallyNewLonList.count > 2 {
-                if potentiallyNewLonList[1] == 0.0 {
-                    potentiallyNewLonList[1] = 1.0
-                }
-            }
-            
-            if potentiallyNewLonList[potentiallyNewLonList.count - 2] >= 255.0 {
-                potentiallyNewLonList[potentiallyNewLonList.count - 2] = 254.0
-            }
-            
-            if potentiallyNewLonList[potentiallyNewLonList.count - 1] != 255.0 {
-                potentiallyNewLonList[potentiallyNewLonList.count - 1] = 255.0
-            }
-            
-            actualIndexes = []
-            actualIndexes = potentiallyNewLonList
-            
+//            print("Experimental Longitude List")
+//            print(experimentalLongitudeListRounded)
+//            print(experimentalLongitudeListRounded.count)
+//            print("Actual Indexes")
 //            print(actualIndexes)
+//            print(actualIndexes.count)
             
+            differenceList = []
+            
+            for item in 0...longitudeMercatorList.count-2 {
+                let appendValue = longitudeMercatorList[item] - longitudeMercatorList[item + 1]
+                differenceList.append(appendValue)
+            }
+            //let count = differenceList.reduce(0, {x, y in x + y})
+            //print(count)
+            
+            if experimentalLongitudeListRounded.count != actualIndexes.count {
+                
+                experimentalLongitudeListRounded.remove(at: experimentalLongitudeListRounded.count - 2)
+                print()
+            }
+            
+            // print("Longitude")
+            
+            actualIndexes = experimentalLongitudeListRounded
         }
-         
-         */
-        
         
         if coordinateType == "Latitude" {
             
-            // This solution was made in a day, and has terrible solutions. It will be fixed later.
+//            print("Actual Indexes")
+//            print(actualIndexes)
+//            print(actualIndexes.count)
             
-            var roundedLatList: [Double] = []
-            var potenrinallyNewList: [Double] = []
+//            print("Experimental Latitude List")
+//            print(experimentalListRounded)
+//            print(experimentalListRounded.count)
             
-            var roundedSum = 0.0
+            // print("Latitude")
             
-            potenrinallyNewList.append(0.0)
-            
-            for item in differenceList {
-                let roundedItem = item.rounded()
-                roundedSum = roundedSum + roundedItem
-                roundedLatList.append(roundedItem)
-                potenrinallyNewList.append(roundedSum)
-            }
-            
-            var newListWithCorrectedleftovers: [Double] = []
-            
-            var newLeftoverIndex = 0.0
-            
-            var newAppendingValue = 0.0
-            
-            
-            if potenrinallyNewList.count > 2 {
-
-                newListWithCorrectedleftovers.append(newAppendingValue)
-   
-                for item in differenceList {
-                    newLeftoverIndex = newLeftoverIndex + (item - item.rounded(.down))
-
-                    var newAppendingIndex = 0.0
-                    
-                    if newLeftoverIndex >= 0.75 {
-                        newAppendingIndex = item.rounded(.down) + 1
-                        newLeftoverIndex = 0
-                    } else {
-                        newAppendingIndex = item.rounded(.down)
-                    }
-                    
-                    newAppendingValue = newAppendingValue + newAppendingIndex
-                    
-                    newListWithCorrectedleftovers.append(newAppendingValue)
-                }
-                
-                if newListWithCorrectedleftovers[1] == 0.0 {
-                    newListWithCorrectedleftovers[1] = 1.0
-                }
-                
-                if newListWithCorrectedleftovers[newListWithCorrectedleftovers.count - 2] >= 255.0 {
-                    newListWithCorrectedleftovers[newListWithCorrectedleftovers.count - 2] = 254.0 // temp!!!
-                }
-                
-                if newListWithCorrectedleftovers[newListWithCorrectedleftovers.count - 1] != 255.0 {
-                    newListWithCorrectedleftovers[newListWithCorrectedleftovers.count - 1] = 255.0 // temp!!!
-                }
-                
-            }
-            
-
-            if potenrinallyNewList.count > 2 {
-                
-                if potenrinallyNewList[1] == 0.0 {
-                    potenrinallyNewList[1] = 1.0
-                }
-                
-                if potenrinallyNewList[potenrinallyNewList.count - 2] >= 255.0 {
-                    potenrinallyNewList[potenrinallyNewList.count - 2] = 254.0 // temp!!!
-                }
-            }
-            
-            if potenrinallyNewList[potenrinallyNewList.count - 1] != 255.0 {
-                potenrinallyNewList[potenrinallyNewList.count - 1] = 255.0 // temp!!!
-            }
-            
-            actualIndexes = []
-            actualIndexes = newListWithCorrectedleftovers
-            
-            if actualIndexes.isEmpty {
-                actualIndexes.append(0.0)
-                actualIndexes.append(255.0)
-            }
-            
-            if actualIndexes[0] != 0.0 {
-                var tempList = actualIndexes
-                actualIndexes[0] = 0.0
-                actualIndexes.append(contentsOf: tempList)
-            }
-            
-            if actualIndexes.isEmpty {
-                print(differenceList)
-                print(latitudeMercatorList)
-                print(minValue)
-                print(maxValue)
-                print()
-            }
-
+            actualIndexes = experimentalListRounded
         }
+        /*
         
-
+        if coordinateType == "Longitude" {
+            actualIndexes = experimentalLongitudeListRounded
+        }
+         */
         
         return actualIndexes
     }
@@ -1232,7 +1621,7 @@ class CoordinateCalculations {
          Current function plan:
          
          1. Accept list with coordinates spread to 0...255 range
-         2. Rotate list 90 Degress while its relatively small
+         2. Rotate list 90 Degress while its relatively small // passing already rotated list
          3. For each Height value create a list with width values, changing width value to incremental difference
          4. (do later?) Create a list of 0 size 256 items. This would be an initial Line list
          5. For each Height value create a list with width values, each longitude index == position on line list, fill aurora
@@ -1240,8 +1629,12 @@ class CoordinateCalculations {
          7. Append all lists into one.
          
          */
-        
-        var outputList: [Double] = []
+        /*
+        if inputList.count < 25 {
+            print(inputList)
+        }
+        */
+        // var outputList: [Double] = []
         
         // Rotate list? // will do later, since other part is as important
         // initialize a width column list
@@ -1255,30 +1648,44 @@ class CoordinateCalculations {
         var auroraColumnList: [Double] = []
         var auroraRowList: [Double] = []
         
-        for item in 0...(width - 1) {
-            auroraRowList.append(inputList[item * height].aurora)
+        // these two might be wrong
+        
+        for item in inputList[0...(width - 1)] {
+            auroraRowList.append(item.aurora)
         }
         
-        for item in inputList[0...height - 1] {
-            auroraColumnList.append(item.aurora)
+        /*
+         
+         for item in 0...(width - 1) {
+             auroraRowList.append(inputList[item * height].aurora)
+         }
+         
+         */
+        auroraColumnList.append(inputList[0].aurora)
+        
+        for item in 1...height - 1 {
+            auroraColumnList.append(inputList[item * width].aurora)
         }
         
-        var columnList: [Double] = []
+        //var columnList: [Double] = []
         var rowList: [Double] = []
         var emptyZeroList: [Double] = []
         
         for _ in 0...255 {
-            columnList.append(0.0)
+            //columnList.append(0.0)
             rowList.append(0.0)
             emptyZeroList.append(0.0)
         }
         
         var cycleIndex = 0
         
-        for item in heightList {
-            columnList[Int(item)] = auroraColumnList[cycleIndex]
-            cycleIndex += 1 // replace with this
-        }
+        //var reversedColumnList = columnList
+        //reversedColumnList = reversedColumnList.reversed()
+        
+        //for item in heightList.reversed() {
+        //    columnList[Int(item)] = auroraColumnList[cycleIndex]
+        //   cycleIndex += 1 // replace with this
+        //}
         
         cycleIndex = 0
         
@@ -1286,9 +1693,17 @@ class CoordinateCalculations {
             rowList[Int(item)] = auroraRowList[cycleIndex]
             cycleIndex += 1
         }
+
+        /*
         
+        print(height)
+        print(width)
+        print(inputList[0...width-1])
+        print(rowList) // should be only first 256 values with zeros
+        print(columnList) // should be reversed?
+        print()
         
-        
+         */
         /*
          
          Make it simpler now delete older calculations and replace with a newer simpler way
@@ -1335,17 +1750,33 @@ class CoordinateCalculations {
             if firstZero {
                 distanceDifferenceList = distanceDifferenceList.reversed()
             }
-
+            /*
+            var localCycleIndex = 0
+            
+            for item in distanceDifferenceList {
+                if item == 0 {
+//                    print(inputFuncList)
+                    //distanceDifferenceList.remove(at: localCycleIndex)
+                    //print(distanceDifferenceList)
+                    
+//                    print()
+                    
+                }
+                localCycleIndex += 1
+            }
+             */
+            
             return distanceDifferenceList
+        
             
         }
         
         // calculating empty spacess between values. can be useful later.
+    
+        // var zeroCount = 0
         
-        var zeroCountList: [Int] = []
-        var zeroCount = 0
-        
-        for item in columnList {
+        /*
+        for item in columnList { // was not reversed
             if item == 0.0 {
                 zeroCount = zeroCount + 1
             } else {
@@ -1361,7 +1792,7 @@ class CoordinateCalculations {
         if zeroCount != 0 {
             zeroCountList.append(zeroCount)
         }
-        
+        */
         
         var secondAuroraColumnList: [Double] = []
         
@@ -1378,8 +1809,26 @@ class CoordinateCalculations {
         // also create a list with coordinate values
         // maybe as well create a fill list?
         
-        for row in 0...(width - 1) {
-            for item in inputList[(height * row)...((height * (row + 1)) - 1)] {
+        
+        /*
+         was
+         
+         for row in 0...(width - 1) {
+             for item in inputList[(height * row)...((height * (row + 1)) - 1)] {
+                 tempRowList.append(item.aurora)
+                 
+             }
+             listWithOriginaHeighValues.append(tempRowList) // was NOT reversed
+             
+             tempRowList = []
+         }
+         
+         
+         
+         */
+        
+        for row in 0...(height - 1) {
+            for item in inputList[(width * row)...((width * (row + 1)) - 1)] {
                 tempRowList.append(item.aurora)
                 
             }
@@ -1412,13 +1861,13 @@ class CoordinateCalculations {
   
         
         let zeroRowCount = differenceBetweenCoordinateValues(inputFuncList: widthList) // use coordinate instead
-        var zeroColumnCount = differenceBetweenCoordinateValues(inputFuncList: heightList) // use coordinate instead
+        let zeroColumnCount = differenceBetweenCoordinateValues(inputFuncList: heightList) // use coordinate instead
         
         // zeroColumnCount = zeroColumnCount.reversed() // what?
 
-//        let indexOfItemsToFill = 0
-//        var listCountCycle = 0
-//        var wholeValue = true
+        // let indexOfItemsToFill = 0
+        //var listCountCycle = 0
+        // var wholeValue = true
         
         
         // create a func to calculate zeros and just append with amount to each list?
@@ -1437,10 +1886,214 @@ class CoordinateCalculations {
         
         
         var tempLineList: [[Double]] = []
-        var possibleFinalList: [Double] = []
         
         // write temp function to return only dots with values.
         
+        // print(inputList)
+        
+        /*
+        print(listWithOriginaHeighValues) // should be height amount of lists, each having width amount of values
+        print()
+         
+         */
+        /*
+         was
+         for list in listWithOriginaHeighValues {
+             
+             var colIndexNum = 0
+             var tempColList: [Double] = []
+             
+             for item in 1...list.count-1  {
+                 
+                 tempColList.append(list[item - 1])
+                 
+                 if zeroColumnCount[colIndexNum] > 0 {
+                     var reversedList = zeroColumnCount
+ //                    reversedList = reversedList.reversed()
+                     for _ in 1...reversedList[colIndexNum] {
+                         tempColList.append(list[item - 1])
+                     }
+                 }
+                 colIndexNum += 1
+                 
+             }
+             
+             tempColList.append(list[colIndexNum])
+             
+             tempLineList.append(tempColList.reversed()) // was not reversed
+             
+             tempColList = []
+             colIndexNum = 0
+         }
+         
+         
+         */
+        
+        /*
+         
+         to create gradient, we have at least 3 coordinate values, and 2 aurora values
+         each whole value will be in the end and in the beginning
+         append first item, then cycle through a list and append other items
+         
+         
+         */
+        
+        var newGradientColumnList: [[Double]] = []
+        
+        // append first list to a new list
+        
+        newGradientColumnList.append(listWithOriginaHeighValues[0])
+        
+        var nextRowListIndex = 1
+        // i can use zeroCount?
+        
+        // print(zeroCountList)
+        
+        
+        
+        // print all values so i see what am i working with
+        /*
+        print(zeroColumnCount) // correct orientation
+        print(zeroRowCount) // correct orientation
+        print(inputList) // top -> left -> right -> bottom, correct
+        // print(columnList) // not correct, try columnList.reversed
+        print(rowList) // correct
+        print(listWithOriginaHeighValues)
+        print()
+        */
+        
+        
+        for item in zeroColumnCount { // zeroCountList
+            // for each zero value i will create gradient lists, and append them min value is 1, max value is 255?
+            // calculate how many times it will cycle
+            // current and previous lists with values
+            
+            // previous - current
+            // 6 - 5 - 1
+            // 5 - 6 = -1, (-1 * steps, from 0 to 1) + 6
+            
+            if item != 0 {
+                let currentList = listWithOriginaHeighValues[nextRowListIndex]
+                let previousList = listWithOriginaHeighValues[nextRowListIndex - 1]
+                // list with incremental difference between current and previous list
+                var differenceBetweenCurrentAndPreviousValues: [Double] = []
+                
+                var incrementCycleListIndex = 0
+                
+                for value in currentList {
+                    let newIncrementalValue = previousList[incrementCycleListIndex] - value
+                    incrementCycleListIndex += 1
+                    
+                    if newIncrementalValue.isNaN || newIncrementalValue.isInfinite {
+                        print(value)
+                        print(previousList[incrementCycleListIndex])
+                        print()
+                        
+                    }
+                    
+                    differenceBetweenCurrentAndPreviousValues.append(newIncrementalValue)
+                }
+                
+    //            print(previousList)
+    //            print(currentList)
+    //            print(differenceBetweenCurrentAndPreviousValues)
+    //            print()
+                
+                var listOfAppendingValues: [[Double]] = []
+                
+                for increment in 0...item {
+                    // new empty list that we will append values to
+                    var newListItemIndex = 0
+                    var appendingNewValuesList: [Double] = []
+                    // here goes main cycle
+                    // for each value in current list, add increments, from 0 to last item
+                    
+                   //  var incrementingValue = fullIncrementValue - Double(increment / item)
+                    let incrementingValue = Double(increment) / Double(item)
+                    
+                    if incrementingValue.isNaN || incrementingValue.isInfinite {
+                        print(Double(increment))
+                        print(Double(item))
+                        print()
+                    }
+                    
+                    for itemFromCurrentList in currentList {
+                        let newAppendingValue = itemFromCurrentList + (differenceBetweenCurrentAndPreviousValues[newListItemIndex] * Double(incrementingValue))
+                        
+                        if newAppendingValue.isNaN || newAppendingValue.isInfinite {
+                            print(itemFromCurrentList)
+                            print(differenceBetweenCurrentAndPreviousValues[newListItemIndex])
+                            print(Double(incrementingValue))
+                        }
+                        
+                        appendingNewValuesList.append(newAppendingValue)
+                        newListItemIndex += 1
+                    }
+                    
+                    listOfAppendingValues.append(appendingNewValuesList)
+    //                print(appendingNewValuesList)
+    //                print()
+                }
+                
+                newGradientColumnList.append(contentsOf: listOfAppendingValues.reversed())
+                
+            } else {
+                // append next thing ??
+                
+                newGradientColumnList.append(listWithOriginaHeighValues[nextRowListIndex])
+//                print(newGradientColumnList.count)
+//                print()
+            }
+            
+//            print(listOfAppendingValues.count)
+//            print(newGradientColumnList)
+//            print()
+            
+            
+            nextRowListIndex += 1
+        }
+        
+        if newGradientColumnList.count > 256 {
+            //ONLY TEMP
+            newGradientColumnList.remove(at: newGradientColumnList.count - 1)
+        }
+        
+        
+//        print(newGradientColumnList.count)
+//        print()
+        
+        
+        
+        // cycle through each list with a create gradient function and return a main list
+        
+        var finalOutputList: [Double] = []
+        
+        for list in newGradientColumnList {
+            let newGradientList = fillLineWithGradient(inputLine: list, lengthZeros: zeroRowCount) //zeroRowCount
+            finalOutputList.append(contentsOf: newGradientList)
+        }
+        
+        if finalOutputList.count != 65536 {
+            //print(finalOutputList.count)
+            //print(newGradientColumnList)
+            
+            let deleteIndex = 65536
+            
+            let upperRange = finalOutputList.count
+            
+            
+            for _ in 65536...upperRange - 1 {
+                finalOutputList.remove(at: deleteIndex)
+            }
+            
+            print(heightIndex)
+            print(widthIndex)
+            print(finalOutputList.count)
+            print()
+        }
+        
+        //print(newGradientColumnList)
+        //print()
         
         
         for list in listWithOriginaHeighValues {
@@ -1452,8 +2105,8 @@ class CoordinateCalculations {
                 
                 tempColList.append(list[item - 1])
                 
-                if zeroColumnCount[colIndexNum] > 0 {
-                    var reversedList = zeroColumnCount
+                if zeroRowCount[colIndexNum] > 0 {
+                    let reversedList = zeroRowCount
 //                    reversedList = reversedList.reversed()
                     for _ in 1...reversedList[colIndexNum] {
                         tempColList.append(list[item - 1])
@@ -1465,7 +2118,7 @@ class CoordinateCalculations {
             
             tempColList.append(list[colIndexNum])
             
-            tempLineList.append(tempColList.reversed()) // was not reversed
+            tempLineList.append(tempColList) // was not reversed // was .reversed(), i changed it
             
             tempColList = []
             colIndexNum = 0
@@ -1478,7 +2131,7 @@ class CoordinateCalculations {
         
         var rowListIndex = 0
         
-        var lstValue = tempLineList[tempLineList.count-1]
+        let lstValue = tempLineList[tempLineList.count-1]
         
         tempLineList.remove(at: tempLineList.count-1)
         
@@ -1488,7 +2141,7 @@ class CoordinateCalculations {
             
             var tempFullList: [Double] = []
             
-            for _ in 0...zeroRowCount[rowListIndex] {
+            for _ in 0...zeroColumnCount[rowListIndex] {
                 tempFullList.append(contentsOf: list)
             }
             rowListIndex += 1
@@ -1503,20 +2156,66 @@ class CoordinateCalculations {
         // current method was used to create a gradient tile. I still have to fix input data to make sure it looks good.
         // Not implemented.
         
+        
+        // write a new function for gradient
+        
+        
+        // cycle through
+        
+        // write this into a file, so i can read each item individyally.
+        
+        let listWithoutGradientWidth: [[Double]] = []
+        
+        // for now do not use
+        
+        // MAIN FUNCTION
+        
+        // RESTRUCTURE
+        
+        /*
+         
+         Main goal of this function would be to implement line per line function of creating gradient between all values
+         
+         Each line would be checked for existing values and fill them up
+         
+         it would be smart to create a list of 256 items with lists thaty only needs to be filled, and then process them
+         
+         it might take a bit more time, but for now it would be cleaner.
+         
+         for now, separate into two functions for clean implementation
+         
+         */
+        
+        
+        // swapped row for column count
+        
         /*
         
         for list in listWithOriginaHeighValues {
             
             if !wholeValue {
-                if zeroRowCount[listCountCycle - 1] < 0 {
+                if zeroColumnCount[listCountCycle - 1] < 0 {
                     wholeValue = true
                 }
             }
             
             if wholeValue {
                 
-                let gradientProduct = fillLineWithGradient(inputLine: list, lengthZeros: zeroColumnCount)
+                let gradientProduct = fillLineWithGradient(inputLine: list, lengthZeros: zeroRowCount)
                 possibleFinalList.append(contentsOf: gradientProduct) // was reversed
+                listWithoutGradientWidth.append(list)
+                
+                var calcIndex = 0
+                
+                for item in gradientProduct {
+                    if item < 0.0 || item.isNaN {
+                        print(item)
+                        
+                        print(gradientProduct)
+                        print()
+                        }
+                    calcIndex = calcIndex + 1
+                }
                 
 //                print("reversed column with full items \(list.reversed())")
 //                print("number of zero elements with full items \(zeroColumnCount)")
@@ -1529,57 +2228,97 @@ class CoordinateCalculations {
                 
             } else {
                 
-                let fillItems = zeroRowCount[listCountCycle - 1] - 1
-                
-                // generates previous values, then
-                
-                //                var incrementValue = 0.0
-                var incrementIndex = 0
-                var newValueList: [Double] = []
-                let previousList = listWithOriginaHeighValues[listCountCycle - 1]
+                // if fillItems is zero, skip whole thing i guess
                 
                 
+                let fillItems = zeroColumnCount[listCountCycle - 1] // was - 1
                 
-                for auroraValue in list {
-                    let newItem = calculateIncrement(inputFirstNum: previousList[incrementIndex],
-                                                     inputSecondNum: auroraValue,
-                                                     distance: indexOfItemsToFill - 1)
+                // if fillItems is 0, no items to fill
+                
+                // items to fill should not be less that 0, i need to restructure whole thing
+                
+                if fillItems > 0 {
+                    // generates previous values, then
                     
-                    incrementIndex = incrementIndex + 1
-                    newValueList.append(newItem)
-                }
-                
-                var incrementLoopIndex = 0
-                
-                let incrementValueBase = 1 / Double(fillItems)
-                
-                
-                for newItemList in 0...fillItems {
+                    //                var incrementValue = 0.0
+                    var incrementIndex = 0
+                    var newValueList: [Double] = []
+                    let previousList = listWithOriginaHeighValues[listCountCycle - 1]
                     
-                    let incrementDegree = Double(newItemList) * incrementValueBase
-                    // new value list is just a list with increments.
                     
-                    var updatedAppendingList: [Double] = []
                     
-                    for increment in newValueList {
-                        let newValue = previousList[incrementLoopIndex] + (increment * incrementDegree)
+                    for auroraValue in list {
+                        let newItem = calculateIncrement(inputFirstNum: previousList[incrementIndex],
+                                                         inputSecondNum: auroraValue,
+                                                         distance: indexOfItemsToFill - 1)
                         
-                        incrementLoopIndex = incrementLoopIndex + 1
-                        updatedAppendingList.append(newValue)
+                        incrementIndex = incrementIndex + 1
+                        newValueList.append(newItem)
                     }
                     
-                    incrementLoopIndex = 0
+                    var incrementLoopIndex = 0
+                    
+                    let incrementValueBase = 1 / Double(fillItems)
+                    
+                    
+                    for newItemList in 0...fillItems {
+                        
+                        let incrementDegree = Double(newItemList) * incrementValueBase
+                        // new value list is just a list with increments.
+                        
+                        var updatedAppendingList: [Double] = []
+                        
+                        for increment in newValueList {
+                            let newValue = previousList[incrementLoopIndex] + (increment * incrementDegree)
+                            
+                            incrementLoopIndex = incrementLoopIndex + 1
+                            updatedAppendingList.append(newValue)
+                        }
+                        
+                        incrementLoopIndex = 0
 
-                    
-                    
-                    let gradientProduct = fillLineWithGradient(inputLine: updatedAppendingList, lengthZeros: zeroColumnCount)
-                    possibleFinalList.append(contentsOf: gradientProduct) // was reversed
-
-                    
+                        
+                        
+                        listWithoutGradientWidth.append(updatedAppendingList)
+                        let gradientProduct = fillLineWithGradient(inputLine: updatedAppendingList, lengthZeros: zeroRowCount)
+                        possibleFinalList.append(contentsOf: gradientProduct) // was reversed
+                        
+                        var calcIndex = 0
+                        
+                        for item in gradientProduct {
+                            if item < 0.0 || item.isNaN {
+                                print(item)
+                                
+                                print(gradientProduct)
+                                print()
+                                }
+                            calcIndex = calcIndex + 1
+                        }
+                        
+    //                    print(gradientProduct)
+    //                    print()
+ 
+                    }
                 }
-
-                let gradientProduct = fillLineWithGradient(inputLine: list, lengthZeros: zeroColumnCount)
-                possibleFinalList.append(contentsOf: gradientProduct) // waas rever
+                
+                listWithoutGradientWidth.append(list)
+                let gradientProduct = fillLineWithGradient(inputLine: list, lengthZeros: zeroRowCount)
+                
+                var calcIndex = 0
+                
+                for item in gradientProduct {
+                    if item < 0.0 || item.isNaN {
+                        print(item)
+                        
+                        print(gradientProduct)
+                        print()
+                        }
+                    calcIndex = calcIndex + 1
+                }
+                
+//                print(gradientProduct)
+//                print()
+//                possibleFinalList.append(contentsOf: gradientProduct) // waas rever
 
                 
             }
@@ -1592,7 +2331,7 @@ class CoordinateCalculations {
         
         // function that fills line with gradient
         
-        
+        */
         func fillLineWithGradient(inputLine: [Double], lengthZeros: [Int] ) -> [Double] {
             // cycle through each item, if it's non zero, append
             // if it is zero, create /empty spots/ times values list and append
@@ -1601,8 +2340,8 @@ class CoordinateCalculations {
             //                                                                 inputSecondNum: item,
             //                                                                 distance: distance)
             
-            var zeroList = lengthZeros
-            zeroList = zeroList.reversed()
+            // var zeroList = lengthZeros
+            // zeroList = zeroList.reversed() was reversed, now its normal
             
             var outputList: [Double] = []
             
@@ -1680,23 +2419,57 @@ class CoordinateCalculations {
                 
             }
             
+            for item in outputList {
+                if item.isNaN || item.isInfinite {
+                    print(inputLine)
+                    print(lengthZeros)
+                    
+                    print(outputList)
+                    print()
+                }
+            }
+            
             
             //            outputList.append(inputLine[inputLine.count - 1])
 
-            
+            /*
             if outputList.count != 256 {
                 print(outputList)
                 print(outputList.count)
                 print()
             }
+            */
+//            print(lengthZeros)
+//            print(inputLine)
+//            print(outputList)
+//            print()
             
-            //            print(outputList)
-//                        print()
-            
-            return outputList.reversed()
+            return outputList // .reversed()
         }
         
-        */
+        
+        
+        do {
+            
+            let data = try JSONEncoder().encode(listWithoutGradientWidth) // ???
+            
+            let fileURL = try! FileManager.default.url(for: .documentDirectory,
+                                        in: .userDomainMask,
+                                        appropriateFor: nil,
+                                        create: false)
+            .appendingPathComponent("outputList.json")
+            
+            try data.write(to: fileURL)
+
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        
+//        print(inputList)
+//        print(listWithOriginaHeighValues)
+       // print()
+    
         
         // copy a coordinateFill list with new values
         
@@ -1717,15 +2490,21 @@ class CoordinateCalculations {
             
         }
         
+
         // calculating increment for addition
         
         func calculateIncrement(inputFirstNum: Double, inputSecondNum: Double, distance: Int) -> Double {
             
             // Increment will be a difference between 2 aurora values / distance. Can be negative or positive
             // Increment will be added in cycle for each step to a previous number
-
-            
             let increment = (inputFirstNum - inputSecondNum) / Double(distance)
+            
+            if increment.isNaN || increment.isInfinite {
+                print(increment)
+                print(inputFirstNum)
+                print(inputSecondNum)
+                print()
+            }
             
             return increment
         }
@@ -1776,10 +2555,9 @@ class CoordinateCalculations {
             return indexesList
         }
 
+       //  outputList = possibleFinalList
         
-        outputList = possibleFinalList
-        
-        return outputTenpList // outputList
+        return finalOutputList // outputTenpList // outputList
     }
     
 }

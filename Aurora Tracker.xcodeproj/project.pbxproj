@@ -10,6 +10,7 @@
 		AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */; };
 		AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51BD29C64E1F007C90CB /* MainMenu.swift */; };
 		AE0F51C129C64EBC007C90CB /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */; };
+		AE0F6E2C29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */; };
 		AE1805D32981BDAC00C96DD1 /* Aurora.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805D22981BDAC00C96DD1 /* Aurora.swift */; };
 		AE1805D62981BDEA00C96DD1 /* AuroraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805D52981BDEA00C96DD1 /* AuroraError.swift */; };
 		AE1805DA2981C44F00C96DD1 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1805D92981C44F00C96DD1 /* SampleData.json */; };
@@ -22,6 +23,13 @@
 		AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */; };
 		AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */; };
 		AE30ED9A2984C55100B30D65 /* AuroraColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE30ED992984C55100B30D65 /* AuroraColorCode.swift */; };
+		AE42CF7629D7D2AD00E1C00B /* EventsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF7529D7D2AD00E1C00B /* EventsList.swift */; };
+		AE42CF7829D7D2C000E1C00B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF7729D7D2C000E1C00B /* EventCell.swift */; };
+		AE42CF7A29D7DFE300E1C00B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF7929D7DFE300E1C00B /* EventModel.swift */; };
+		AE42CF7C29D7E04A00E1C00B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF7B29D7E04A00E1C00B /* Event.swift */; };
+		AE42CF7F29D7FB0700E1C00B /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = AE42CF7E29D7FB0700E1C00B /* Events.json */; };
+		AE42CF8129D8038B00E1C00B /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF8029D8038B00E1C00B /* EventDetail.swift */; };
+		AE42CF8329D8106E00E1C00B /* EventsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF8229D8106E00E1C00B /* EventsButton.swift */; };
 		AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */; };
 		AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */; };
 		AE5A4A612996A802000856A3 /* AuroraTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */; };
@@ -55,6 +63,7 @@
 		AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetAuroraInfo.swift; sourceTree = "<group>"; };
 		AE0F51BD29C64E1F007C90CB /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
+		AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndividualAuroraSpot+Preview.swift"; sourceTree = "<group>"; };
 		AE1805D22981BDAC00C96DD1 /* Aurora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aurora.swift; sourceTree = "<group>"; };
 		AE1805D52981BDEA00C96DD1 /* AuroraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraError.swift; sourceTree = "<group>"; };
 		AE1805D92981C44F00C96DD1 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
@@ -68,6 +77,13 @@
 		AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Color.swift"; sourceTree = "<group>"; };
 		AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraRendererCustom.swift; sourceTree = "<group>"; };
 		AE30ED992984C55100B30D65 /* AuroraColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraColorCode.swift; sourceTree = "<group>"; };
+		AE42CF7529D7D2AD00E1C00B /* EventsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsList.swift; sourceTree = "<group>"; };
+		AE42CF7729D7D2C000E1C00B /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		AE42CF7929D7DFE300E1C00B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		AE42CF7B29D7E04A00E1C00B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AE42CF7E29D7FB0700E1C00B /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
+		AE42CF8029D8038B00E1C00B /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		AE42CF8229D8106E00E1C00B /* EventsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsButton.swift; sourceTree = "<group>"; };
 		AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraCoordinateRectangle.swift; sourceTree = "<group>"; };
 		AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculations.swift; sourceTree = "<group>"; };
 		AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraTileOverlay.swift; sourceTree = "<group>"; };
@@ -111,6 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */,
+				AE42CF8229D8106E00E1C00B /* EventsButton.swift */,
+				AE42CF7529D7D2AD00E1C00B /* EventsList.swift */,
+				AE42CF7729D7D2C000E1C00B /* EventCell.swift */,
+				AE42CF8029D8038B00E1C00B /* EventDetail.swift */,
 				AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */,
 			);
 			path = "View Models";
@@ -120,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				AE1805D22981BDAC00C96DD1 /* Aurora.swift */,
+				AE42CF7929D7DFE300E1C00B /* EventModel.swift */,
+				AE42CF7B29D7E04A00E1C00B /* Event.swift */,
 				AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */,
 				AEA00634298310E100EB1EA6 /* IndividualAuroraSpot.swift */,
 				AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */,
@@ -142,6 +164,14 @@
 				AE1805E12981CDC200C96DD1 /* Aurora_TrackerTests.swift */,
 			);
 			path = "Aurora TrackerTests";
+			sourceTree = "<group>";
+		};
+		AE42CF7D29D7FAD400E1C00B /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				AE42CF7E29D7FB0700E1C00B /* Events.json */,
+			);
+			path = Recources;
 			sourceTree = "<group>";
 		};
 		AE8D4EF42981AD7B008AE9A2 = {
@@ -174,6 +204,7 @@
 				AE0F51BF29C64E94007C90CB /* View Models */,
 				AE94F38E2983349B00068AB5 /* Views */,
 				AE1805D42981BDB100C96DD1 /* Models */,
+				AE42CF7D29D7FAD400E1C00B /* Recources */,
 				AE8D4F042981AD7C008AE9A2 /* Assets.xcassets */,
 				AE1805D92981C44F00C96DD1 /* SampleData.json */,
 				AE8D4F062981AD7C008AE9A2 /* Aurora_Tracker.entitlements */,
@@ -189,6 +220,7 @@
 				AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */,
 				AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */,
 				AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */,
+				AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -292,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE42CF7F29D7FB0700E1C00B /* Events.json in Resources */,
 				AE8D4F092981AD7C008AE9A2 /* Preview Assets.xcassets in Resources */,
 				AE1805DA2981C44F00C96DD1 /* SampleData.json in Resources */,
 				AE8D4F052981AD7C008AE9A2 /* Assets.xcassets in Resources */,
@@ -318,19 +351,25 @@
 				AE5A4A632996BC80000856A3 /* SaveAuroraTiles.swift in Sources */,
 				AE1805ED2981E1F000C96DD1 /* Aurora+Preview.swift in Sources */,
 				AE5A4A612996A802000856A3 /* AuroraTileOverlay.swift in Sources */,
+				AE42CF8129D8038B00E1C00B /* EventDetail.swift in Sources */,
 				AEF758FA29888F2600D8CC64 /* AuroraMapView.swift in Sources */,
 				AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */,
 				AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */,
+				AE42CF7C29D7E04A00E1C00B /* Event.swift in Sources */,
 				AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */,
+				AE42CF7829D7D2C000E1C00B /* EventCell.swift in Sources */,
 				AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */,
+				AE42CF7629D7D2AD00E1C00B /* EventsList.swift in Sources */,
 				AE0F51C129C64EBC007C90CB /* MainMenuButton.swift in Sources */,
 				AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */,
 				AE94F3882983314300068AB5 /* AuroraProvider.swift in Sources */,
+				AE0F6E2C29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift in Sources */,
 				AEF758F62988787100D8CC64 /* AuroraOverlay.swift in Sources */,
 				AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */,
 				AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */,
 				AE94F38D2983340600068AB5 /* TestDownloader.swift in Sources */,
 				AE1805F029820DB100C96DD1 /* TestData.swift in Sources */,
+				AE42CF8329D8106E00E1C00B /* EventsButton.swift in Sources */,
 				AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */,
 				AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */,
 				AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */,
@@ -339,6 +378,7 @@
 				AE94F3862983254D00068AB5 /* AuroraList+Preview.swift in Sources */,
 				AE94F38C2983328C00068AB5 /* HTTPDataDownloader.swift in Sources */,
 				AE8D4F032981AD7B008AE9A2 /* ContentView.swift in Sources */,
+				AE42CF7A29D7DFE300E1C00B /* EventModel.swift in Sources */,
 				AE8D4F012981AD7B008AE9A2 /* Aurora_TrackerApp.swift in Sources */,
 				AE1805D32981BDAC00C96DD1 /* Aurora.swift in Sources */,
 			);
@@ -456,6 +496,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -509,6 +550,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -543,11 +585,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -581,11 +625,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

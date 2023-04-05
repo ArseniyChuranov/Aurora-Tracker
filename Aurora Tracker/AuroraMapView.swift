@@ -57,19 +57,22 @@ private extension AuroraMapView {
 
     
     func addMapOverlay(to view: MKMapView) {
-        
+        if !view.overlays.isEmpty {
+            view.removeOverlays(view.overlays)
+        }
     }
 }
 
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
     
-    
+    /*
     func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
         print(annotation.coordinate)
         let title = annotation.title ?? "Not Found"
         print(title!)
     }
+     */
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -79,6 +82,8 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         overlay.canReplaceMapContent = true // later change to false
         overlay.minimumZ = 1
         //overlay.maximumZ = 4
+        
+        //Every time i use info feature, this function reloads. Learn hot to stop processes.
 
         
         let renderer = MKTileOverlayRenderer(tileOverlay: overlay) // Look into MKTileOverlayRenderer
@@ -87,7 +92,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         
         // alpha value for renderer.
         
-        renderer.alpha = 0.75 // was 0.25 // recent 0.35
+        renderer.alpha = 1 // 0.75 // was 0.25 // recent 0.35
         
         return renderer
 

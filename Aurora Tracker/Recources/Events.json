@@ -1,0 +1,31 @@
+
+[
+    {
+        "id": 1001,
+        "name": "Aurora",
+        "subtitle": "About Aurora",
+        "description": "The Northern Lights, also known as Aurora Borealis, is a natural light display that occurs in the polar regions. It is a breathtaking phenomenon that captures the imaginations of people around the world. The lights appear as a colorful display of green, red, purple, and blue lights that dance across the night sky. The Northern Lights are caused by solar winds that interact with the Earth's magnetic field, creating electrically charged particles that collide with gas particles in the Earth's atmosphere. The result is a display of light that seems to move and change shape as the particles are influenced by the magnetic fields of the Earth. The best places to see the Northern Lights are in Alaska, Canada, Norway, Sweden, Finland, and Iceland, although they can occasionally be seen in other locations. This stunning phenomenon is a must-see for anyone who loves nature and wants to experience one of the world's most beautiful displays of light.",
+        "iconName": "auroraIcon",
+        "imageName": "auroraImage"
+    },
+    {
+        "id": 1002,
+        "name": "Solar Wind",
+        "subtitle": "About Solar Wind",
+        "description": "Solar wind is a stream of charged particles, mainly protons and electrons, that flow from the Sun's atmosphere at speeds ranging from 400 to 800 km/s. The solar wind is constantly blowing out into space and can have a significant impact on the Earth's magnetic field and atmosphere. When the solar wind interacts with the Earth's magnetic field, it can create a variety of effects, including the Northern Lights. The charged particles from the solar wind collide with the Earth's atmosphere, causing the gases to glow and produce a colorful display of lights in the night sky. The Northern Lights, also known as Aurora Borealis, are most commonly seen in the polar regions, where the Earth's magnetic field is strongest and the solar wind particles are most likely to interact with the atmosphere. The beauty of the Northern Lights is due in part to the complex interaction between the solar wind, the Earth's magnetic field, and the atmosphere.",
+        "iconName": "solarWindIcon",
+        "imageName": "solarWindImage"
+    },
+    {
+        "id": 1003,
+        "name": "Coronal Mass Ejection",
+        "subtitle": "About Coronal Mass Ejection",
+        "description": "Coronal mass ejection (CME) is a massive burst of solar wind and magnetic fields that are released from the Sun's corona. This phenomenon can occur after a solar flare or a filament eruption on the Sun's surface. When a CME is directed toward Earth, it can cause significant disruptions to the Earth's magnetic field and atmosphere. When the charged particles from a CME interact with the Earth's magnetic field, they can create intense auroras, including the Northern Lights. The Northern Lights are most commonly seen in the polar regions, where the Earth's magnetic field is strongest and the CME particles are most likely to interact with the atmosphere. The beauty of the Northern Lights is due in part to the complex interaction between the CME particles, the Earth's magnetic field, and the atmosphere. CMEs can also cause disruptions to satellite and communication systems on Earth. Scientists continue to study CMEs and their effects on Earth in order to better understand and prepare for these events.",
+        "iconName": "coronalMassEjectionIcon",
+        "imageName": "coronalMassEjectionImage"
+    }
+    
+]
+
+
+
