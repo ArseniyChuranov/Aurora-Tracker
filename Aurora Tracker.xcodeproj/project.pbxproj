@@ -19,7 +19,6 @@
 		AE1805ED2981E1F000C96DD1 /* Aurora+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */; };
 		AE1805EF29820B5300C96DD1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805EE29820B5300C96DD1 /* MapView.swift */; };
 		AE1805F029820DB100C96DD1 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805E82981CE2300C96DD1 /* TestData.swift */; };
-		AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */; };
 		AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */; };
 		AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */; };
 		AE30ED9A2984C55100B30D65 /* AuroraColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE30ED992984C55100B30D65 /* AuroraColorCode.swift */; };
@@ -73,7 +72,6 @@
 		AE1805EA2981DC5600C96DD1 /* AuroraLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraLocation.swift; sourceTree = "<group>"; };
 		AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Preview.swift"; sourceTree = "<group>"; };
 		AE1805EE29820B5300C96DD1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuroraLocation+Preview.swift"; sourceTree = "<group>"; };
 		AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aurora+Color.swift"; sourceTree = "<group>"; };
 		AE214D8F29B3ECA100F56724 /* AuroraRendererCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraRendererCustom.swift; sourceTree = "<group>"; };
 		AE30ED992984C55100B30D65 /* AuroraColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraColorCode.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				AE8D4F082981AD7C008AE9A2 /* Preview Assets.xcassets */,
 				AE1805EC2981E1F000C96DD1 /* Aurora+Preview.swift */,
 				AE94F3852983254D00068AB5 /* AuroraList+Preview.swift */,
-				AE1805F129820DDE00C96DD1 /* AuroraLocation+Preview.swift */,
 				AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */,
 			);
 			path = "Preview Content";
@@ -282,7 +279,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					AE1805DE2981CDC200C96DD1 = {
 						CreatedOnToolsVersion = 14.2;
@@ -353,7 +350,6 @@
 				AE5A4A612996A802000856A3 /* AuroraTileOverlay.swift in Sources */,
 				AE42CF8129D8038B00E1C00B /* EventDetail.swift in Sources */,
 				AEF758FA29888F2600D8CC64 /* AuroraMapView.swift in Sources */,
-				AE1805F229820DDE00C96DD1 /* AuroraLocation+Preview.swift in Sources */,
 				AE94F3902983361F00068AB5 /* AuroraClient.swift in Sources */,
 				AE42CF7C29D7E04A00E1C00B /* Event.swift in Sources */,
 				AE1805EB2981DC5600C96DD1 /* AuroraLocation.swift in Sources */,
@@ -401,6 +397,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2M25927RFN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -426,6 +423,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2M25927RFN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -478,6 +476,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -538,6 +537,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -565,7 +565,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Aurora Tracker/Aurora_Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Aurora Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M25927RFN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -585,7 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -605,7 +606,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Aurora Tracker/Aurora_Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Aurora Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M25927RFN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -625,7 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

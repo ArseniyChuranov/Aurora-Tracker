@@ -242,7 +242,7 @@ class AuroraMapOverlay: MKTileOverlay {
             print(error.localizedDescription)
         }
         
-        // shift 180 here?
+        // shift 180 here
         
         var outputList: [IndividualAuroraSpot] = []
         

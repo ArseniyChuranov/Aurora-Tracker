@@ -72,6 +72,9 @@ struct MainMenu: View {
             
         }
         .task {
+            // This async function calls for actual data, disable if needed to work with sample data.
+            // Last updates sample data will be written to aurora.json file in documents directory.
+            
             await fetchAurora()
             
             //
@@ -109,15 +112,16 @@ extension MainMenu {
 }
 
 
-
-struct MainMenu_Previews: PreviewProvider {
-    // doesn't work
-    static var auroraPreview = IndividualAuroraSpot.preview
-    
-    static var previews: some View {
-        MainMenu(auroraList: .constant(auroraPreview))
-        .environmentObject(EventModel())
-        .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
-        .environment(\.colorScheme, .dark)
-    }
-}
+/*
+ struct MainMenu_Previews: PreviewProvider {
+ // doesn't work
+ static var auroraPreview = IndividualAuroraSpot.preview
+ 
+ static var previews: some View {
+ MainMenu(auroraList: .constant(auroraPreview))
+ .environmentObject(EventModel())
+ .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
+ .environment(\.colorScheme, .dark)
+ }
+ }
+ */
