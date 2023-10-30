@@ -1,0 +1,1828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "909BFEFC-520B-45A9-B5F2-E5D6F9175BF7"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E41243C3-DBB9-424B-AAF9-22C338DE7CAA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "829"
+            endingLineNumber = "829"
+            landmarkName = "createRectanglePNG(inputList:width:height:indexWidth:indexHeight:maxAurora:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38164797-8073-4E2C-93CE-71BBAA80128E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F99C1B34-ACBC-424D-9EF5-B34E60F3DDD5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFAD8386-BFF5-49D5-9C2D-9E63AE2FF31F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/AuroraClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "aurora"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDBC40FA-15C5-4960-8623-686B3B26D6EB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A893E9F-2E39-4B25-9655-312F871B57A8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "getData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4A893E9F-2E39-4B25-9655-312F871B57A8 - ecfa6cb2f2f8102f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.getData() -&gt; Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "2432">
+               </Location>
+               <Location
+                  uuid = "4A893E9F-2E39-4B25-9655-312F871B57A8 - ecfa6cb2f2f8104c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.getData() -&gt; Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "2432">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F76A10EC-100A-49DF-BF86-B368B09AA118"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1115"
+            endingLineNumber = "1115"
+            landmarkName = "wholeNumberProcessing(inputAuroraList:minLongitude:maxLongitude:bottomLatitude:topLatitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C871732-49A8-4A57-947A-FA614B681764"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1443"
+            endingLineNumber = "1443"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0C871732-49A8-4A57-947A-FA614B681764 - dc056dbef45cf359"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1545"
+                  endingLineNumber = "1545"
+                  offsetFromSymbolStart = "17944">
+               </Location>
+               <Location
+                  uuid = "0C871732-49A8-4A57-947A-FA614B681764 - dc056dbef45cf2d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1541"
+                  endingLineNumber = "1541"
+                  offsetFromSymbolStart = "17696">
+               </Location>
+               <Location
+                  uuid = "0C871732-49A8-4A57-947A-FA614B681764 - dc056dbef45cf2d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1541"
+                  endingLineNumber = "1541"
+                  offsetFromSymbolStart = "17744">
+               </Location>
+               <Location
+                  uuid = "0C871732-49A8-4A57-947A-FA614B681764 - dc056dbef45cf3dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1549"
+                  endingLineNumber = "1549"
+                  offsetFromSymbolStart = "17944">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F29697AB-659E-49CF-A156-1754872FBB84"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1154"
+            endingLineNumber = "1154"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F29697AB-659E-49CF-A156-1754872FBB84 - dc056dbef45c9cb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1218"
+                  endingLineNumber = "1218"
+                  offsetFromSymbolStart = "2064">
+               </Location>
+               <Location
+                  uuid = "F29697AB-659E-49CF-A156-1754872FBB84 - dc056dbef45c9f05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1205"
+                  endingLineNumber = "1205"
+                  offsetFromSymbolStart = "1920">
+               </Location>
+               <Location
+                  uuid = "F29697AB-659E-49CF-A156-1754872FBB84 - dc056dbef45c9f05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1205"
+                  endingLineNumber = "1205"
+                  offsetFromSymbolStart = "1924">
+               </Location>
+               <Location
+                  uuid = "F29697AB-659E-49CF-A156-1754872FBB84 - dc056dbef45c9d34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1222"
+                  endingLineNumber = "1222"
+                  offsetFromSymbolStart = "2064">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "037FB88E-7024-4575-8783-B02481378852"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1112"
+            endingLineNumber = "1112"
+            landmarkName = "CoordinateCalculations"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70B4C262-A625-48BA-9673-535B00DD9343"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1257"
+            endingLineNumber = "1257"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70B4C262-A625-48BA-9673-535B00DD9343 - dc056dbef45cefa4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1334"
+                  endingLineNumber = "1334"
+                  offsetFromSymbolStart = "8320">
+               </Location>
+               <Location
+                  uuid = "70B4C262-A625-48BA-9673-535B00DD9343 - dc056dbef45cefa4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1334"
+                  endingLineNumber = "1334"
+                  offsetFromSymbolStart = "8460">
+               </Location>
+               <Location
+                  uuid = "70B4C262-A625-48BA-9673-535B00DD9343 - dc056dbef45cecee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1340"
+                  endingLineNumber = "1340"
+                  offsetFromSymbolStart = "7232">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "354E16DD-7F32-4D4F-BC7D-1EAA0DA785D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1300"
+            endingLineNumber = "1300"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DCCF813-64C0-4537-A171-90958671BDC6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1250"
+            endingLineNumber = "1250"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5DCCF813-64C0-4537-A171-90958671BDC6 - a965cf9f20cc780b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateList: Swift.Array&lt;Swift.Double&gt;, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1391"
+                  endingLineNumber = "1391"
+                  offsetFromSymbolStart = "6988">
+               </Location>
+               <Location
+                  uuid = "5DCCF813-64C0-4537-A171-90958671BDC6 - a965cf9f20cc746b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.spreadCoordinatesForRes(minValue: Swift.Double, maxValue: Swift.Double, dimension: Swift.Int, coordinateList: Swift.Array&lt;Swift.Double&gt;, coordinateType: Swift.String, zoom: Swift.Int) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1359"
+                  endingLineNumber = "1359"
+                  offsetFromSymbolStart = "7604">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7D35057-625F-4D70-B6FA-9F33A4AFC20A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1471"
+            endingLineNumber = "1471"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA07E6A9-972E-4D18-ACB9-5438BAC1245B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DA07E6A9-972E-4D18-ACB9-5438BAC1245B - 102ee6797dbfd60f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "4672">
+               </Location>
+               <Location
+                  uuid = "DA07E6A9-972E-4D18-ACB9-5438BAC1245B - 102ee6797dbfd62e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "4064">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D48C2185-0159-4717-AE5F-084B34B7B5B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D48C2185-0159-4717-AE5F-084B34B7B5B3 - 102ee6797dbfdb35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "3224">
+               </Location>
+               <Location
+                  uuid = "D48C2185-0159-4717-AE5F-084B34B7B5B3 - 102ee6797dbfdb35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "3700">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "643B96AD-D348-43CA-BE28-4826402D95CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "643B96AD-D348-43CA-BE28-4826402D95CA - 102ee6797dbfdb9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "3184">
+               </Location>
+               <Location
+                  uuid = "643B96AD-D348-43CA-BE28-4826402D95CA - 102ee6797dbfdb9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.AuroraMapOverlay.url(forTilePath: __C.MKTileOverlayPath) -&gt; Foundation.URL"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/AuroraTileOverlay.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "3104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6EFB92D-20DE-4149-9D3D-88C5BBFB2590"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Preview Content/AuroraLocation+Preview.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB5519B4-B47F-46CC-AD7F-7FDEF456E4B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "894"
+            endingLineNumber = "894"
+            landmarkName = "createRectanglePNG(inputList:width:height:indexWidth:indexHeight:maxAurora:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FB5519B4-B47F-46CC-AD7F-7FDEF456E4B5 - 9abfcd4e5cb3f3ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createRectanglePNG(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;, maxAurora: Swift.Double) -&gt; __C.CGImageRef"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "935"
+                  endingLineNumber = "935"
+                  offsetFromSymbolStart = "9672">
+               </Location>
+               <Location
+                  uuid = "FB5519B4-B47F-46CC-AD7F-7FDEF456E4B5 - 9abfcd4e5cb3f066"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createRectanglePNG(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;, maxAurora: Swift.Double) -&gt; __C.CGImageRef"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "929"
+                  endingLineNumber = "929"
+                  offsetFromSymbolStart = "9524">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E78A5520-B0FB-4185-9B1A-00F111699B99"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1739"
+            endingLineNumber = "1739"
+            landmarkName = "createGradientList(inputList:height:width:heightIndex:widthIndex:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E78A5520-B0FB-4185-9B1A-00F111699B99 - caf2ce9abab61067"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createGradientList(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, height: Swift.Int, width: Swift.Int, heightIndex: Swift.Array&lt;Swift.Double&gt;, widthIndex: Swift.Array&lt;Swift.Double&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1775"
+                  endingLineNumber = "1775"
+                  offsetFromSymbolStart = "6524">
+               </Location>
+               <Location
+                  uuid = "E78A5520-B0FB-4185-9B1A-00F111699B99 - caf2ce9abab61038"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createGradientList(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, height: Swift.Int, width: Swift.Int, heightIndex: Swift.Array&lt;Swift.Double&gt;, widthIndex: Swift.Array&lt;Swift.Double&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1774"
+                  endingLineNumber = "1774"
+                  offsetFromSymbolStart = "6320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC0B494C-3035-4E95-AA34-D9D3B427E8AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1748"
+            endingLineNumber = "1748"
+            landmarkName = "createGradientList(inputList:height:width:heightIndex:widthIndex:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AC0B494C-3035-4E95-AA34-D9D3B427E8AF - caf2ce9abab6116f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createGradientList(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, height: Swift.Int, width: Swift.Int, heightIndex: Swift.Array&lt;Swift.Double&gt;, widthIndex: Swift.Array&lt;Swift.Double&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1783"
+                  endingLineNumber = "1783"
+                  offsetFromSymbolStart = "7016">
+               </Location>
+               <Location
+                  uuid = "AC0B494C-3035-4E95-AA34-D9D3B427E8AF - caf2ce9abab6116f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createGradientList(inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, height: Swift.Int, width: Swift.Int, heightIndex: Swift.Array&lt;Swift.Double&gt;, widthIndex: Swift.Array&lt;Swift.Double&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1783"
+                  endingLineNumber = "1783"
+                  offsetFromSymbolStart = "6848">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44136C7C-C94C-412D-AF6D-A8141FB828CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1880"
+            endingLineNumber = "1880"
+            landmarkName = "fillLineWithGradient(inputLine:lengthZeros:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "44136C7C-C94C-412D-AF6D-A8141FB828CF - 4bdc32524f96c195"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "fillLineWithGradient(inputLine: Swift.Array&lt;Swift.Double&gt;, lengthZeros: Swift.Array&lt;Swift.Int&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1917"
+                  endingLineNumber = "1917"
+                  offsetFromSymbolStart = "2020">
+               </Location>
+               <Location
+                  uuid = "44136C7C-C94C-412D-AF6D-A8141FB828CF - 4bdc32524f96c057"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "fillLineWithGradient(inputLine: Swift.Array&lt;Swift.Double&gt;, lengthZeros: Swift.Array&lt;Swift.Int&gt;) -&gt; Swift.Array&lt;Swift.Double&gt;"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1915"
+                  endingLineNumber = "1915"
+                  offsetFromSymbolStart = "1948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DC6D3BF-2849-4E2C-9012-F5660BC29236"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1926"
+            endingLineNumber = "1926"
+            landmarkName = "calculateIncrement(inputFirstNum:inputSecondNum:distance:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE4AB0A2-7B8B-48F2-B6FD-E8E3CF5FFA31"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "993"
+            endingLineNumber = "993"
+            landmarkName = "createRectanglePNG(inputList:width:height:indexWidth:indexHeight:maxAurora:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C0020BD-715D-4A5A-BC1E-65ECD8A3BC19"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB994363-596E-4CC6-81AB-3151DE625D0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "882"
+            endingLineNumber = "882"
+            landmarkName = "createRectanglePNG(inputList:width:height:indexWidth:indexHeight:maxAurora:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A3859EE-02F5-4563-82B7-065E665B0612"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1100"
+            endingLineNumber = "1100"
+            landmarkName = "createRectanglePNG(inputList:width:height:indexWidth:indexHeight:maxAurora:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDFE3340-6A83-4450-BB18-7B36C9BF5CFA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1458"
+            endingLineNumber = "1458"
+            landmarkName = "spreadCoordinatesForRes(minValue:maxValue:dimension:coordinateType:zoom:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13B85DB0-2B48-4EA3-8DF9-E146FA21CD1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1717"
+            endingLineNumber = "1717"
+            landmarkName = "createGradientList(inputList:height:width:heightIndex:widthIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88EB91CB-3FBC-44BB-ADEA-C59BA5BA8C17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1806"
+            endingLineNumber = "1806"
+            landmarkName = "createGradientList(inputList:height:width:heightIndex:widthIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69472b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "641"
+                  endingLineNumber = "641"
+                  offsetFromSymbolStart = "13480">
+               </Location>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69472b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "641"
+                  endingLineNumber = "641"
+                  offsetFromSymbolStart = "13572">
+               </Location>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69474c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "644"
+                  endingLineNumber = "644"
+                  offsetFromSymbolStart = "13572">
+               </Location>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69468e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
+                  offsetFromSymbolStart = "13772">
+               </Location>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69468e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
+                  offsetFromSymbolStart = "13608">
+               </Location>
+               <Location
+                  uuid = "76629BF0-D7F2-4DF1-B999-8E1A4D94B679 - 3108dc054a69468e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
+                  offsetFromSymbolStart = "13808">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A548C93C-C83B-4CFB-A8EB-15D3F4E5BB6D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "654"
+            endingLineNumber = "654"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A548C93C-C83B-4CFB-A8EB-15D3F4E5BB6D - 3108dc054a689d29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1215"
+                  endingLineNumber = "1215"
+                  offsetFromSymbolStart = "23776">
+               </Location>
+               <Location
+                  uuid = "A548C93C-C83B-4CFB-A8EB-15D3F4E5BB6D - 3108dc054a689d29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1215"
+                  endingLineNumber = "1215"
+                  offsetFromSymbolStart = "23768">
+               </Location>
+               <Location
+                  uuid = "A548C93C-C83B-4CFB-A8EB-15D3F4E5BB6D - 3108dc054a694a64"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "620"
+                  endingLineNumber = "620"
+                  offsetFromSymbolStart = "13028">
+               </Location>
+               <Location
+                  uuid = "A548C93C-C83B-4CFB-A8EB-15D3F4E5BB6D - 3108dc054a694a64"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "620"
+                  endingLineNumber = "620"
+                  offsetFromSymbolStart = "12912">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/Coordinate Finder/CoordinateFinder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "findSquareDimensions(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C - 5f1088a9f8c7a541"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateFinder.findSquareDimensions(Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;) -&gt; (height: Swift.Int, width: Swift.Int)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/Coordinate%20Finder/CoordinateFinder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "936">
+               </Location>
+               <Location
+                  uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C - 5f1088a9f8c7a541"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateFinder.findSquareDimensions(Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;) -&gt; (height: Swift.Int, width: Swift.Int)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/Coordinate%20Finder/CoordinateFinder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1008">
+               </Location>
+               <Location
+                  uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C - 5f1088a9f8c7a46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateFinder.findSquareDimensions(Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;) -&gt; (height: Swift.Int, width: Swift.Int)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/Coordinate%20Finder/CoordinateFinder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "936">
+               </Location>
+               <Location
+                  uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C - 5f1088a9f8c7a46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateFinder.findSquareDimensions(Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;) -&gt; (height: Swift.Int, width: Swift.Int)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/Coordinate%20Finder/CoordinateFinder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  uuid = "AB24B5D4-317F-4A1C-81FD-43B470E0431C - 5f1088a9f8c7a46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateFinder.findSquareDimensions(Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;) -&gt; (height: Swift.Int, width: Swift.Int)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/Coordinate%20Finder/CoordinateFinder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1024">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A026629D-0EC6-4B97-AD30-653A1351CB52"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "136CE022-4D3D-4D4C-935A-44829F7CE16E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/AuroraTileOverlay.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "url(forTilePath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "591C3FF7-833A-4AC8-94AD-E06B0DE53432"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "591C3FF7-833A-4AC8-94AD-E06B0DE53432 - 3108dc054a697d11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "471"
+                  endingLineNumber = "471"
+                  offsetFromSymbolStart = "13240">
+               </Location>
+               <Location
+                  uuid = "591C3FF7-833A-4AC8-94AD-E06B0DE53432 - 3108dc054a697d11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "471"
+                  endingLineNumber = "471"
+                  offsetFromSymbolStart = "12844">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "465"
+                  endingLineNumber = "465"
+                  offsetFromSymbolStart = "7892">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "9604">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7308">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7284">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7384">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7356">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7420">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7448">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7412">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7440">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7428">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - 3108dc054a697e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "464"
+                  endingLineNumber = "464"
+                  offsetFromSymbolStart = "7452">
+               </Location>
+               <Location
+                  uuid = "B715CEC0-C11A-4994-A8BD-26FA7A22751F - eda373603455cc3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int, stopOnThis: Swift.Bool) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "465"
+                  endingLineNumber = "465"
+                  offsetFromSymbolStart = "7312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "8140">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "10060">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7764">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7740">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7840">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7812">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7876">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7904">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7868">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7896">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7884">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - 3108dc054a697d3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "7908">
+               </Location>
+               <Location
+                  uuid = "8679A208-3D84-4368-BCDC-F4771F5635C9 - eda373603455cf77"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int, stopOnThis: Swift.Bool) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "471"
+                  endingLineNumber = "471"
+                  offsetFromSymbolStart = "7768">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "790AC22B-FFF4-4528-AF0C-F4A071CFA72F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "790AC22B-FFF4-4528-AF0C-F4A071CFA72F - 3108dc054a691576"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "286"
+                  endingLineNumber = "286"
+                  offsetFromSymbolStart = "5104">
+               </Location>
+               <Location
+                  uuid = "790AC22B-FFF4-4528-AF0C-F4A071CFA72F - 3108dc054a691517"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "7012">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77C8E05F-CAF6-4D92-8D3F-402A7B18C12A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora Tracker/Models/CoordinateCalculations.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
+            landmarkName = "createTileAuroraList(inputTileCoordinateList:inputAuroraList:zoom:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77C8E05F-CAF6-4D92-8D3F-402A7B18C12A - 3108dc054a69793f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "501"
+                  endingLineNumber = "501"
+                  offsetFromSymbolStart = "8816">
+               </Location>
+               <Location
+                  uuid = "77C8E05F-CAF6-4D92-8D3F-402A7B18C12A - 3108dc054a69793f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aurora_Tracker.CoordinateCalculations.createTileAuroraList(inputTileCoordinateList: Swift.Array&lt;Swift.Double&gt;, inputAuroraList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, zoom: Swift.Int) -&gt; (inputList: Swift.Array&lt;Aurora_Tracker.IndividualAuroraSpot&gt;, width: Swift.Int, height: Swift.Int, indexWidth: Swift.Array&lt;Swift.Double&gt;, indexHeight: Swift.Array&lt;Swift.Double&gt;)"
+                  moduleName = "Aurora Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arseniy/Desktop/XCode%20Projects/Aurora%20Tracker/Aurora%20Tracker/Models/CoordinateCalculations.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "501"
+                  endingLineNumber = "501"
+                  offsetFromSymbolStart = "8916">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

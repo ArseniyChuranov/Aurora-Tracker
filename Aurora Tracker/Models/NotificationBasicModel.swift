@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import UserNotifications
+
+struct BasicNotification {
+
+}

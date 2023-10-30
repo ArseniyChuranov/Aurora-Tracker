@@ -77,22 +77,21 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let overlay = AuroraMapOverlay()
-      
         
         overlay.canReplaceMapContent = true // later change to false
         overlay.minimumZ = 1
         //overlay.maximumZ = 4
         
-        //Every time i use info feature, this function reloads. Learn hot to stop processes.
+        //Every time I use info feature, this function reloads. Learn how to stop processes.
 
-        
+        let polygonRend = MKPolygonRenderer()
         let renderer = MKTileOverlayRenderer(tileOverlay: overlay) // Look into MKTileOverlayRenderer
        
         // Add functionality that would allow to change alpha value.
         
         // alpha value for renderer.
         
-        renderer.alpha = 1 // 0.75 // was 0.25 // recent 0.35
+        renderer.alpha = 0.70 // 0.75 // was 0.25 // recent 0.35
         
         return renderer
 

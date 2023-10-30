@@ -23,11 +23,15 @@ class AuroraMapOverlay: MKTileOverlay {
     private var topRightList: [IndividualAuroraSpot] = []
     private var bottomRightList: [IndividualAuroraSpot] = []
     
+    var clock = ContinuousClock()
+    
     // create a load function and see if it helps? get info from local fileData.
     
     private var loadedData = false
     
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
+        
+        let startMeasure = BasicTimer().startCC()
         
         
         // loads a lot of tiles, for each would need to create a drawing function.
@@ -107,10 +111,52 @@ class AuroraMapOverlay: MKTileOverlay {
             
             let auroraList = newList.map { $0.aurora }
             
-            maxAurora = auroraList.max()!
             
+            maxAurora = auroraList.max()!
+//            print(maxAurora)
+            
+            // highest data = 100 so far, change colors on base 30 - 60 - 100
+            
+            if maxAurora > 40 {
+                // notification for high aurora
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { [self]success, error in
+                    if success {
+                        let notification = UNMutableNotificationContent()
+                        notification.title = "High Aurora Probability!"
+                        notification.body = "Highest possible chance of aurora observation is \(self.maxAurora) %! Don't miss it!"
+                        notification.sound = UNNotificationSound.default
+                        
+                        // this is what triggers notification
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+                        
+                        // request? read into it
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: trigger)
+                        
+                        UNUserNotificationCenter.current().add(request)
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            
+            func returnNotification(notification: UNNotificationRequest) async {
+                print("notification was sent to work")
+                do {
+                    try await UNUserNotificationCenter.current().add(notification)
+                    print("notification should be dispatched")
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            
+           
             
             let listProduct = createSeparateLists(inputList: newList)
+            
+
+            
             
             bottomLeftList = listProduct[0]
             topLeftList = listProduct[1]
@@ -123,8 +169,12 @@ class AuroraMapOverlay: MKTileOverlay {
             }
              */
         }
-
+  
         let coordinateSquare = coordinateCalculate.tileToCoordinate(path.x, path.y, zoom: path.z)
+        
+        
+//        print(coordinateSquareResult)
+//        print()
         
         // write a function that will pass one of four lists
         
@@ -149,21 +199,29 @@ class AuroraMapOverlay: MKTileOverlay {
         // pass Z to transform list to mercator proportions?
         // pass rations and calculate with rations later on
         
+       
         let auroraTile = coordinateCalculate.createTileAuroraList(inputTileCoordinateList: coordinateSquare,
                                                                   inputAuroraList: cycleList,
                                                                   zoom: path.z)
+        
+        
+        
         let tileList = auroraTile.inputList
         let width = auroraTile.width
         let height = auroraTile.height
         let indexWidth = auroraTile.indexWidth
         let indexHeight = auroraTile.indexHeight
         
+
         let image = coordinateCalculate.createRectanglePNG(inputList: tileList,
                                                width: width,
                                                height: height,
                                                indexWidth: indexWidth,
                                                indexHeight: indexHeight,
                                                maxAurora: maxAurora)
+        
+        //print(imageProduction)
+        //print()
         
         let finalImage = UIImage(cgImage: image)
         
@@ -176,7 +234,8 @@ class AuroraMapOverlay: MKTileOverlay {
             try? newImage.write(to: fileUrl!)
         }
         
-
+        BasicTimer().endCC(startMeasure)
+        
         return fileUrl!
     }
     
@@ -228,7 +287,7 @@ class AuroraMapOverlay: MKTileOverlay {
         var list: [IndividualAuroraSpot] = []
         
         let fileDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-        let auroraPath = fileDirectory.appendingPathComponent("aurora.json")!
+        let auroraPath = fileDirectory.appendingPathComponent("aurora.json")! // aurora.json // auroraStorm.json
         
         do {
             let file = try FileHandle(forReadingFrom: auroraPath)

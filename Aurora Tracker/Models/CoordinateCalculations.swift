@@ -56,6 +56,8 @@ class CoordinateCalculations {
     // For each tile returns corner values of requested tile.
     
     func tileToCoordinate(_ tileX: Int, _ tileY: Int, zoom: Int) -> ([Double]) {
+        
+        // corner values are necessary for calculating accurate tiles.
 
         var outputList: [Double] = [] // bottomLeftLat, bottomLeftLon, bottomRightLon, topLeftLat
         
@@ -133,7 +135,7 @@ class CoordinateCalculations {
         return outputList
     }
     
-    // function that based on tile coordinates wll output all aurora values that would cover all tile with data
+    // function that based on tile coordinates will output all aurora values that would cover all tile with data
     
     func createTileAuroraList(inputTileCoordinateList: [Double],
                               inputAuroraList: [IndividualAuroraSpot],
@@ -143,8 +145,31 @@ class CoordinateCalculations {
                                              indexWidth: [Double],
                                              indexHeight: [Double]) {
         
-
-        var latitudeList: [IndividualAuroraSpot] = []
+        //        let start = BasicTimer().startTimer()
+        
+        // 10/3 upd - artefacts only on 180 longitude
+        
+        /*
+         
+         BREAK THIS FUNCTION DOWN
+         for each step create a function, make them reusable. Create a separate module specifically for this
+         
+         apply this for each huge function!!!
+         
+         also look for values, a lot of them are seem to have duplicates, and duplicate calculations.
+         
+         for each function clean everything and move to a deparate file, comment each action to make sure it can be easily followed
+         
+         
+         Put all of the sorting through other functions, then for parsing and updating data use a switch method.
+         This will allow to optimize some steps and quicker get needed result.
+         
+         
+         */
+        
+        
+        
+        var latitudeList: [IndividualAuroraSpot] = [] // rename it, to make it more clear.
         
         // actual corner coordinates
         
@@ -160,10 +185,10 @@ class CoordinateCalculations {
         let startLongitudeValue = minLongitude.rounded(.down)
         let finishLongitudeValue = maxLongitude.rounded(.up)
         
-//        let topLatitudeDiff = abs(celingLatitudeValue - topLatitude) // difference between celing and input value
-//        let bottomLatitudeDiff = abs(bottomLatitude - floorLatitudeValue) // difference between bottom and floor
-//        let rightLongitudeDiff = abs(startLongitudeValue - minLongitude) // difference between start and right longitude
-//        let leftLongitudeDiff = abs(maxLongitude - finishLongitudeValue) // difference between end and left latitude
+        //        let topLatitudeDiff = abs(celingLatitudeValue - topLatitude) // difference between celing and input value
+        //        let bottomLatitudeDiff = abs(bottomLatitude - floorLatitudeValue) // difference between bottom and floor
+        //        let rightLongitudeDiff = abs(startLongitudeValue - minLongitude) // difference between start and right longitude
+        //        let leftLongitudeDiff = abs(maxLongitude - finishLongitudeValue) // difference between end and left latitude
         
         // dimensions of a square
         
@@ -177,21 +202,31 @@ class CoordinateCalculations {
         
         // differences between border values and actual values, used to create an accurate aurora value
         
-        // this is fixes stripes. Spent 2 weeks figuring it, and 3 seconds fixing it.
+        // previous
         
-        let differenceTopLat = topLatitude.rounded(.up) - topLatitude // topLatitude - topLatitude.rounded(.down)
-        let differenceBottomLat = bottomLatitude - bottomLatitude.rounded(.down)
-        let differenceLeftLon = minLongitude - minLongitude.rounded(.down) // ?
+        /*
+         
+         let differenceTopLat = topLatitude.rounded(.up) - topLatitude // topLatitude - topLatitude.rounded(.down)
+         let differenceBottomLat = bottomLatitude - bottomLatitude.rounded(.down)
+         let differenceLeftLon = minLongitude - minLongitude.rounded(.down) // ?
+         
+         // this one feels more accurate too
+         
+         let differenceRightLon = maxLongitude.rounded(.up) - maxLongitude
+         
+         */
         
-        // this one feels more accurate too
         
-        let differenceRightLon = (maxLongitude.rounded(.down) + 1.0) - maxLongitude
+        // previous method used!!!
+        // (maxLongitude.rounded(.down) + 1.0) - maxLongitude
+        
+        
         // maxLongitude - maxLongitude.rounded(.down) - previous var.
         
         // maxLongitude.rounded(.up) - maxLongitude
         
-//        let latitudeSquaresCount = (topLatitude.rounded(.up) - bottomLatitude.rounded(.down))
-//        let longitudeSquaresCount = (maxLongitude.rounded(.up) - minLongitude.rounded(.down))
+        //        let latitudeSquaresCount = (topLatitude.rounded(.up) - bottomLatitude.rounded(.down))
+        //        let longitudeSquaresCount = (maxLongitude.rounded(.up) - minLongitude.rounded(.down))
         
         var initialList: [IndividualAuroraSpot] = []
         var initialBackupList: [IndividualAuroraSpot] = []
@@ -204,7 +239,7 @@ class CoordinateCalculations {
         
         var updatedLatitudeAuroraValues: [IndividualAuroraSpot] = []
         var updatedLongitudeAuroraValues: [IndividualAuroraSpot] = []
-   
+        
         
         for aurora in inputAuroraList {
             // Cycle through list and append anything that fits inside tile.
@@ -217,7 +252,28 @@ class CoordinateCalculations {
                 }
             }
         }
-
+        
+        let firstCornerLat = initialList[0].latitude // out ouf bound value, less than bottomLet
+        let firstCornerLon = initialList[0].longitude // out of bound value, less that minLong
+        
+        let lastCornerLat = initialList[initialList.count - 1].latitude  // out of bound lat, highest
+        let lastCornerLon = initialList[initialList.count - 1].longitude // out of bound, highest lon
+        
+        let differenceTopLat = lastCornerLat - topLatitude
+        let differenceBottomLat = bottomLatitude - firstCornerLat
+        let differenceLeftLon = minLongitude - firstCornerLon
+        let differenceRightLon = lastCornerLon - maxLongitude
+        
+        //        let differenceTopLat = topLatitude.rounded(.up) - topLatitude // topLatitude - topLatitude.rounded(.down)
+        //        let differenceBottomLat = bottomLatitude - bottomLatitude.rounded(.down)
+        //        let differenceLeftLon = minLongitude - minLongitude.rounded(.down) // ?
+        
+        // this one feels more accurate too
+        
+        //        let differenceRightLon = maxLongitude.rounded(.up) - maxLongitude
+        
+        //        print()
+        
         // Calculate Int for width and height.
         
         let widthCount = latitudeList[0].latitude
@@ -240,17 +296,31 @@ class CoordinateCalculations {
         
         
         var allChangedBottomValues: [Double] = []
-        
+        var allPreviousBottomBottomValues: [Double] = []
+        var allPreviousBottomTopValues: [Double] = []
         
         var topIndex = height - 1
         // var topIndex = height - 1
         var bottomIndex = 0
         
+        // rewrite to a function, avoid reusing two similar pieces of code, condense into a global function.
+        
         for _ in 1...width {
             
             // this loop changes latitude values.
             // calculate top and bottom aurora.
-
+            
+            /*
+             
+             CRUCIAL
+             
+             1st - calculate arurora from inner to outer based on difference from 0...1 (next whole lat/lon)
+             2nd - calculate new aurora from dots made on previous one
+             
+             
+             
+             */
+            
             
             let bottomAuroraCoordinate = latitudeList[bottomIndex]
             var bottomAuroraValue = bottomAuroraCoordinate.aurora
@@ -258,6 +328,9 @@ class CoordinateCalculations {
             let nextAuroraValue = latitudeList[bottomIndex + 1].aurora
             
             // calculate new aurora difference applied to an aurora
+            
+            allPreviousBottomTopValues.append(nextAuroraValue)
+            allPreviousBottomBottomValues.append(bottomAuroraValue)
             
             let bottomAuroraDifference = bottomAuroraValue - nextAuroraValue
             let changedBottomValue = bottomAuroraDifference * differenceBottomLat
@@ -273,21 +346,6 @@ class CoordinateCalculations {
             
             updatedLatitudeAuroraValues.append(newLeftAurora)
             
-            /*
-            if bottomAuroraValue != 0 {
-                print(initialList)
-                
-                print(latitudeList[bottomIndex])
-                print(latitudeList[bottomIndex + 1])
-                
-                print(initialList[bottomIndex])
-                print(initialList[bottomIndex + 1])
-                print(bottomAuroraValue)
-                
-                print()
-            }
-            */
-            
             let topCoordinateAurora = latitudeList[topIndex]
             var topAuroraValue = topCoordinateAurora.aurora
             let previousAuroraValue = latitudeList[topIndex - 1].aurora
@@ -296,25 +354,129 @@ class CoordinateCalculations {
             let changedTopValue = topAuroraDifference * differenceTopLat
             topAuroraValue = topAuroraValue - changedTopValue // previousAuroraValue + changedTopValue
             
+            // create a list of new values and other values inbetween
+            
             allChangedLatitudeAuroraValues.append(topAuroraValue)
-
+            
             let newRightAurora = IndividualAuroraSpot(longitude: topCoordinateAurora.longitude,
                                                       latitude: topLatitude,
                                                       aurora: topAuroraValue)
             
             updatedLatitudeAuroraValues.append(newRightAurora)
             
-            latitudeList[bottomIndex] =  newLeftAurora
+            latitudeList[bottomIndex] = newLeftAurora
             latitudeList[topIndex] = newRightAurora
-            
-            
-            // initialList[bottomIndex] = newLeftAurora
-            // initialList[topIndex] = newRightAurora
             
             topIndex = topIndex + (height)
             bottomIndex = bottomIndex + (height)
             
         }
+        
+        
+        // creates a rectangle for each corner, not necessary for now.
+        
+        // creates a list with corner rectangle values (corner and one nearby for each direction)
+        
+        func calculateCornerValuesIndexes(inputWidth: Int, inputHeight: Int) -> [Int] {
+            var outputIndexesList: [Int] = []
+            // calculations will be done on order, to form 4 indexes. each 4 sets will represent
+            // rectangle with bottomLeft, topLeft, bottomRight, topRight sides,
+            
+            // this method is good for big squares, for small ones it starts to break apart
+            // rethink whole concept
+            
+            outputIndexesList.append(0)
+            outputIndexesList.append(1)
+            outputIndexesList.append(height)
+            outputIndexesList.append(height + 1)
+            
+            outputIndexesList.append(height - 2)
+            outputIndexesList.append(height - 1)
+            outputIndexesList.append(height + height - 2)
+            outputIndexesList.append(height + height - 1)
+            
+            let lastIndex = (height * width) - 1
+            
+            outputIndexesList.append(lastIndex - (2 * height) + 1)
+            outputIndexesList.append((height * width) - (2 * height) + 1)
+            outputIndexesList.append((height * width) - height)
+            outputIndexesList.append(lastIndex - height + 2)
+            
+            
+            outputIndexesList.append(lastIndex - height - 1)
+            outputIndexesList.append(lastIndex - height)
+            outputIndexesList.append(lastIndex - 1)
+            outputIndexesList.append(lastIndex)
+            
+            return outputIndexesList
+        }
+        
+        var cornerPixelList: [Int] = []
+        
+        var cornerAuroraValues: [IndividualAuroraSpot] = []
+        var initialCornerAuroraValues: [IndividualAuroraSpot] = []
+        
+        cornerPixelList.append(contentsOf: calculateCornerValuesIndexes(inputWidth: width, inputHeight: height))
+        
+        // while values of corners here are untouched we can follow with some changes so later we can acuratley replace all corner values
+        
+        var bottomCutOffValues: [IndividualAuroraSpot] = []
+        var originalListValues: [IndividualAuroraSpot] = []
+        
+        for item in cornerPixelList {
+            
+            originalListValues.append(initialList[item]) // all corner values in all changed list
+            bottomCutOffValues.append(latitudeList[item])
+        }
+        
+        // now we have a 16 value list with corner values that va can extract and use
+        
+        //print(originalListValues)
+        //print(latitudeList)
+        
+        // bottom left corver value
+        
+        // write custom difference for each case?
+        
+        if originalListValues[2].longitude < minLongitude {
+            print(originalListValues[2].longitude)
+            print(minLongitude)
+            print()
+        }
+        
+        if originalListValues[8].longitude > maxLongitude {
+            print(originalListValues[8].longitude)
+            print(maxLongitude)
+            print()
+        }
+        
+        // where I calculate corner values
+        
+        let newLeftLonDiff = originalListValues[2].longitude - minLongitude
+        let newRightLonDiff = maxLongitude - originalListValues[8].longitude
+        
+        let leftBottomCornerDifference = bottomCutOffValues[0].aurora - bottomCutOffValues[2].aurora
+        // was differenceLeftLon
+        let leftBottomCornerFinalVal = (leftBottomCornerDifference * newLeftLonDiff) + bottomCutOffValues[2].aurora
+        
+        // ceiling value difference
+        let leftTopCornerDifference = bottomCutOffValues[5].aurora - bottomCutOffValues[7].aurora
+        // was differenceLeftLon
+        let leftTopCornerFinalVal = (leftTopCornerDifference * newLeftLonDiff) + bottomCutOffValues[7].aurora
+        
+        // flip sides for now
+        
+        let rightBottomCornerDifference = bottomCutOffValues[10].aurora - bottomCutOffValues[8].aurora
+        // was differenceRightLon
+        let rightBottomCornerFinalVal = (rightBottomCornerDifference * newRightLonDiff) + bottomCutOffValues[8].aurora
+        
+        
+        let rightTopCornerDifference = bottomCutOffValues[15].aurora - bottomCutOffValues[13].aurora
+        // was differenceRightLon
+        let rightTopCornerFinalVal = (rightTopCornerDifference * newRightLonDiff) + bottomCutOffValues[13].aurora
+        
+        //print(leftBottomCornerFinalVal)
+        //print()
         
         var rightIndex = height * (width - 1)
         var leftIndex = 0
@@ -330,6 +492,8 @@ class CoordinateCalculations {
             let leftAuroraCoordinate = initialList[leftIndex]
             var leftAuroraValue = leftAuroraCoordinate.aurora
             let nextLeftAuroraValue = initialList[leftIndex + height].aurora
+            
+            // strong zoom around 359 our of bound, parse data to account for this
             
             
             let leftAuroraDifference = leftAuroraValue - nextLeftAuroraValue
@@ -357,30 +521,13 @@ class CoordinateCalculations {
             let changedRightValue = rightAuroraDifference * differenceRightLon // rightLon? change to lat
             rightAuroraValue = rightAuroraValue - changedRightValue // changedRightValue + PreviousRightAurora
             
-            allChangedLongitudeAuroraValues.append(rightAuroraValue)
-            /*
-            if rightAuroraValue != 0 {
-                print(latitudeList[rightIndex])
-                print(latitudeList[rightIndex - height])
-                
-                
-                print(rightIndex)
-                print(rightIndex - height)
-                
-                print(latitudeList)
-                
-                
-                print(rightAuroraValue)
-                print(PreviousRightAurora)
-                
-                print()
-            }
-            */
+            // allChangedLongitudeAuroraValues.append(rightAuroraValue)
+
             let newTopAurora = IndividualAuroraSpot(longitude: maxLongitude,
                                                     latitude: latitudeList[rightIndex].latitude,
                                                     aurora: rightAuroraValue)
             
-            updatedLongitudeAuroraValues.append(newTopAurora)
+            // updatedLongitudeAuroraValues.append(newTopAurora)
             
             latitudeList[leftIndex] = newBottomAurora
             latitudeList[rightIndex] = newTopAurora
@@ -391,53 +538,42 @@ class CoordinateCalculations {
             rightIndex = rightIndex + 1
         }
         
-        // returns latitude list
+        // finalization of corner values up to a certain size. later needs to be improved.
         
-        // all calculations done above.
+        latitudeList[0].aurora = leftBottomCornerFinalVal // finalBottomLeftAurora
+        latitudeList[height - 1].aurora = leftTopCornerFinalVal // finalTopLeftCorner
+        latitudeList[latitudeList.count - height].aurora = rightBottomCornerFinalVal // finalBottomRightCorner
+        latitudeList[latitudeList.count - 1].aurora = rightTopCornerFinalVal // finalTopRightCorner
         
-        // make a corner value update
+        // Accuracy method, will be changed later to avoid this step.
         
-        var cornerPixelList: [Int] = []
-//        var initialPixelLst: [Int] = []
-        
-        var cornerAuroraValues: [IndividualAuroraSpot] = []
-        var initialCornerAuroraValues: [IndividualAuroraSpot] = []
-        
-        cornerPixelList.append(contentsOf: calculateCornerValuesIndexes(inputWidth: width, inputHeight: height))
-        
-        // creates a rectangle for each corner, not necessary for now.
-        
-        // creates a list with corner rectangle values (corner and one nearby for each direction)
-        
-        func calculateCornerValuesIndexes(inputWidth: Int, inputHeight: Int) -> [Int] {
-            var outputIndexesList: [Int] = []
-            // calculations will be dont on order, to form 4 indexes. each 4 sets will represent
-            // rectangle with bottomLeft, topLeft, bottomRight, topRight sides,
-            
-            outputIndexesList.append(0)
-            outputIndexesList.append(1)
-            outputIndexesList.append(height)
-            outputIndexesList.append(height + 1)
-            
-            outputIndexesList.append(height - 2)
-            outputIndexesList.append(height - 1)
-            outputIndexesList.append(height + height - 2)
-            outputIndexesList.append(height + height - 1)
-            
-            let lastIndex = (height * width) - 1
-            
-            outputIndexesList.append(lastIndex - (2 * height) + 1)
-            outputIndexesList.append(lastIndex - (2 * height) + 2)
-            outputIndexesList.append(lastIndex - height + 1)
-            outputIndexesList.append(lastIndex - height + 2)
-            
-            outputIndexesList.append(lastIndex - height - 1)
-            outputIndexesList.append(lastIndex - height)
-            outputIndexesList.append(lastIndex - 1)
-            outputIndexesList.append(lastIndex)
-            
-            return outputIndexesList
+        if maxLongitude >= 360 {
+            var cycleIndex = 0
+            for item in latitudeList {
+                if item.longitude >= 360 {
+                    let newItem = IndividualAuroraSpot(longitude: 359.0, latitude: item.latitude, aurora: item.aurora)
+                    latitudeList[cycleIndex] = newItem
+                }
+                cycleIndex += 1
+            }
         }
+        
+        
+        // when the amount in main lists is less than 16, calculations are not correct due to square calculation system
+        
+        /*
+         
+         as of now i would need to write later all conditions and why 16 point system can fail on some of them
+         
+         then i should account for al cases and figure a most optiman way for each, this should help
+         
+         for smaller zooms in that area go through cases and see why some things are consistently breaking
+         
+         */
+        
+      
+        
+        /*
 
         // create values with indexes, process them?
         
@@ -445,55 +581,31 @@ class CoordinateCalculations {
         // var finalValuesList: [Double] = []
         
         for item in cornerPixelList {
-            initialCornerAuroraValues.append(latitudeList[item]) // all corner values in all changed list
-            cornerAuroraValues.append(initialList[item])
+            
+            
+            initialCornerAuroraValues.append(initialList[item]) // all corner values in all changed list
+            cornerAuroraValues.append(latitudeList[item])
             initialValuesList.append(initialBackupList[item].aurora)
         }
         
-        
-        if latitudeList.count > 4 {
-            
-            var bottomLeftAuroraValue: Double = 0
-            var topLeftAuroraValue: Double = 0
-            var bottomRightAuroraValue: Double = 0
-            var topRightAuroraValue: Double = 0
-            
-            // Bottom Left Corner
-            
-//            print(initialCornerAuroraValues)
-//            print(cornerAuroraValues)
-            
-            //print(allChangedLatitudeAuroraValues)
-            //print(allChangedLongitudeAuroraValues)
-            
-            // Current solution, not accurate, needs to be revisited.
-             
-            
-            bottomLeftAuroraValue = (updatedLatitudeAuroraValues[0].aurora + updatedLongitudeAuroraValues[0].aurora) / 2
-            
-            bottomRightAuroraValue = (updatedLatitudeAuroraValues[updatedLatitudeAuroraValues.count - 2].aurora + updatedLongitudeAuroraValues[1].aurora) / 2
-            
-            topLeftAuroraValue = (updatedLatitudeAuroraValues[1].aurora + updatedLongitudeAuroraValues[updatedLongitudeAuroraValues.count - 2].aurora) / 2
-            
-            topRightAuroraValue = (updatedLatitudeAuroraValues[updatedLatitudeAuroraValues.count - 1].aurora + updatedLongitudeAuroraValues[updatedLongitudeAuroraValues.count - 1].aurora) / 2
-            
-            
-            latitudeList[0].aurora = bottomLeftAuroraValue
-            latitudeList[height - 1].aurora = topLeftAuroraValue
-            latitudeList[latitudeList.count - height].aurora = bottomRightAuroraValue // -1 wasnt there
-            latitudeList[latitudeList.count - 1].aurora = topRightAuroraValue
-    
-        }
+         */
+//        print(initialCornerAuroraValues)
+//        print(cornerAuroraValues)
+//        print(initialValuesList)
         
         // special case when there are only 4 corner values, and whole rectangle is inside whole coorindate bound.
         
         if latitudeList.count == 4 { // within 1 coordinate
+            
+            // also write similar stuff for case when width is 2, and height is more that 2 (stretched latitude)
             
             // unique condition, can be used overall for any 2 sided things.
             
             // even this might be redundant.
             
             // leave this function for later
+            
+            // This is also all incorrect i think?
             
             var bottomLeftAuroraValue: Double = 0
             var topLeftAuroraValue: Double = 0
@@ -543,18 +655,7 @@ class CoordinateCalculations {
             
         }
 
-        // Accuracy method, will be changed later to avoid this step.
         
-        if maxLongitude >= 360 {
-            var cycleIndex = 0
-            for item in latitudeList {
-                if item.longitude >= 360 {
-                    let newItem = IndividualAuroraSpot(longitude: 359.0, latitude: item.latitude, aurora: item.aurora)
-                    latitudeList[cycleIndex] = newItem
-                }
-                cycleIndex += 1
-            }
-        }
          
         // Create new coordinates with ratios through mercator, 0...255
 
@@ -570,7 +671,16 @@ class CoordinateCalculations {
                                               dimension: height,
                                               coordinateType: "Latitude",
                                               zoom: zoom)
+        /*
+        if latitudeList.count < 20 {
+            print(latitudeList)
+            print(initialBackupList)
+            print()
+            
+        }
+         */
         
+//        BasicTimer().endTimer(start, functionName: "createTileAuroraList")
         
         return (latitudeList, width, height, indexWidth, indexHeight)
     }
@@ -663,6 +773,8 @@ class CoordinateCalculations {
         
         // Would be simplified in future.
         
+//        let start = BasicTimer().startTimer()
+        
         var testList: [IndividualAuroraSpot] = []
         var newIndexHeight: [Double] = []
         newIndexHeight = indexHeight.reversed()
@@ -702,6 +814,7 @@ class CoordinateCalculations {
         var gradientPixelArray: [Double] = []
  
         // Cycle through list, see if there are any aurora values, if there are - create a picture, else pass an empty list
+ 
         
         for aurora in auroraQuickList {
             if aurora != 0 {
@@ -723,10 +836,10 @@ class CoordinateCalculations {
         
         var pixelGrid: [UInt32] = []
         
-        var auroraAlpha: Double = 0
+        // var auroraAlpha: Double = 0
         
         if maxAurora != 0 {
-            auroraAlpha = 1.0 / maxAurora // this is amount of increments from 0 to 1 based on aurora strength
+            let auroraAlpha = 1.0 / maxAurora // this is amount of increments from 0 to 1 based on aurora strength
         }
         
         // Create color scheme for overlay image
@@ -784,17 +897,92 @@ class CoordinateCalculations {
         }
         
         // cycling through values and appending a value to a colorl list based on value from Aurora Double List.
+        
+        // create an accurate representation
+        
+        // 0...10...50...90...100
 
         for item in gradientPixelArray {
-            if item > 0 {
+            if item >= 100 {
+                
+                // Red
+                
                 var newColor: UInt32 = 0
-                let currentAuroraAlpha = Double(item) * auroraAlpha
                 
                 if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-                    newColor += UInt32((currentAuroraAlpha) * 255.0) << 24 +
-                    UInt32((blue) * 255.0) << 16 +
-                    UInt32((1) * 255.0) << 8 +
-                    UInt32(alpha * 255.0)
+                    newColor += UInt32(1.0 * 255.0) << 24 +
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32(green * 255.0) << 8 +
+                    UInt32(1.0 * 255.0)
+                    
+                    pixelGrid.append(newColor)
+                }
+                
+            } else if item > 90 {
+                
+                // make orange -> red
+                
+                var newColor: UInt32 = 0
+                
+                let colorGradientValue = Double(item - 90) / 10  //34 // 1...
+                
+                if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+                    newColor += UInt32(1.0 * 255.0) << 24 +
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32((0.5 - (colorGradientValue / 2)) * 255.0) << 8 +
+                    UInt32(1.0 * 255.0)
+                    
+                    pixelGrid.append(newColor)
+                }
+                
+            } else if item > 50 {
+                
+                // make yellow -> orange
+                
+                var newColor: UInt32 = 0
+                
+                let colorGradientValue = Double(item - 50) / 40  //34 // 1...
+                
+                if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+                    newColor += UInt32(1.0 * 255.0) << 24 +
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32((1.0 - (colorGradientValue / 2)) * 255.0) << 8 +
+                    UInt32(1.0 * 255.0)
+                    
+                    pixelGrid.append(newColor)
+                }
+                
+            } else if item > 10 {
+                
+                // Green -> Yellow
+                
+                var newColor: UInt32 = 0
+                
+                let colorGradientValue = Double(item - 10) / 40 // 1...30 values used for gradient increment // 66?
+                
+                if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+                    newColor += UInt32(1.0 * 255.0) << 24 + // (1.0 - currentAuroraAlpha)
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32(1.0 * 255.0) << 8 +
+                    UInt32((0.5 + (colorGradientValue / 2)) * 255.0)
+                    
+                    pixelGrid.append(newColor)
+                    
+                }
+                
+            } else if item > 0 {
+                
+                // Make alpha -> Green
+                
+                var newColor: UInt32 = 0
+                
+                let colorGradientValue = Double(item) / 10 // 1...30 values used for gradient increment
+                
+                if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+                    newColor += UInt32(colorGradientValue * 255.0) << 24 + // current was before
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32(1.0 * 255.0) << 8 +
+                    UInt32((colorGradientValue / 2) * 255.0)
                     
                     pixelGrid.append(newColor)
                     
@@ -901,6 +1089,7 @@ class CoordinateCalculations {
                 
                 return ctx.makeImage()!
             }
+
             
             return cgImg
         }
@@ -912,6 +1101,9 @@ class CoordinateCalculations {
         }
         
         let finalImage = createSimpleImage(inputList: pixelGrid)
+        
+        // BasicTimer().endTimer(start, functionName: "createRectanglePNG")
+
         
         return finalImage
     }
@@ -944,6 +1136,8 @@ class CoordinateCalculations {
                                  dimension: Int,
                                  coordinateType: String,
                                  zoom: Int) -> [Double] {
+        
+//        let start = BasicTimer().startTimer()
         
         if dimension == 0 {
             print(maxValue)
@@ -1046,6 +1240,7 @@ class CoordinateCalculations {
                 experimentalListRounded[1] = 1.0
             }
             
+            // This is not good, and should be remade.
             
             if experimentalListRounded.count > 3 {
                 if experimentalListRounded[experimentalListRounded.count - 2] >= 255.0 {
@@ -1289,6 +1484,8 @@ class CoordinateCalculations {
         }
          */
         
+//        BasicTimer().endTimer(start, functionName: "spreadCoordinatesForRes")
+        
         return actualIndexes
     }
     
@@ -1322,6 +1519,8 @@ class CoordinateCalculations {
                             width: Int,
                             heightIndex: [Double],
                             widthIndex: [Double]) -> [Double] {
+        
+//        let start = BasicTimer().startTimer()
         
         /*
          
@@ -1487,7 +1686,7 @@ class CoordinateCalculations {
         
         var nextRowListIndex = 1
         
-        // Main cycle for creting 256 columns with Gradient values.
+        // Main cycle for creating 256 columns with Gradient values.
         
         for item in zeroColumnCount { // zeroCountList
             // for each zero value i will create gradient lists, and append them min value is 1, max value is 255
@@ -1730,9 +1929,162 @@ class CoordinateCalculations {
             return increment
         }
 
+        // BasicTimer().endTimer(start, functionName: "createGradient")
         
         return finalOutputList
     }
     
 }
     
+/*
+ 
+ for item in gradientPixelArray {
+     if item >= 100 {
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(currentAuroraAlpha * 255.0) << 24 +
+             UInt32(blue * 255.0) << 16 +
+             UInt32(green * 255.0) << 8 +
+             UInt32(1.0 * 255.0)
+             
+             pixelGrid.append(newColor)
+         }
+         
+     } else if item >= 60 && item < 100 {
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(currentAuroraAlpha * 255.0) << 24 +
+             UInt32(blue * 255.0) << 16 +
+             UInt32((1.0 - currentAuroraAlpha) * 255.0) << 8 +
+             UInt32(1.0 * 255.0)
+             
+             pixelGrid.append(newColor)
+         }
+         
+     } else if item >= 30 && item < 60 {
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(currentAuroraAlpha * 255.0) << 24 + // (1.0 - currentAuroraAlpha)
+             UInt32(blue * 255.0) << 16 + // red
+             UInt32(1.0 * 255.0) << 8 + // green?
+             UInt32((1.0 - currentAuroraAlpha) * 255.0) // blue?
+             
+             pixelGrid.append(newColor)
+             
+         }
+         
+     } else if item > 0 && item < 30 {
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32((currentAuroraAlpha) * 255.0) << 24 + // current was before
+             UInt32(blue * 255.0) << 16 +
+             UInt32(currentAuroraAlpha * 255.0) << 8 +
+             UInt32(alpha * 255.0)
+             
+             pixelGrid.append(newColor)
+             
+         }
+         
+     } else if item < 0.0 {
+         // negative values mean error in calculations.
+         print(item)
+     } else {
+         pixelGrid.append(emptyColor)
+     }
+     
+ }
+
+ 
+ 
+ 
+ for item in gradientPixelArray {
+     if item >= 100 {
+         
+         // Create a new gradient line and make it orange -> Red
+         
+         
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(1.0 * 255.0) << 24 +
+             UInt32(blue * 255.0) << 16 +
+             UInt32(green * 255.0) << 8 +
+             UInt32(1.0 * 255.0)
+             
+             pixelGrid.append(newColor)
+         }
+         
+     } else if item >= 66 && item < 100 {
+         
+         // make Yellow -> Orange
+         
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         let colorGradientValue = Double(item - 66.0) / 34  //34 // 1...
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(1.0 * 255.0) << 24 +
+             UInt32(blue * 255.0) << 16 +
+             UInt32((1.0 - colorGradientValue) * 255.0) << 8 +
+             UInt32(1.0 * 255.0)
+             
+             pixelGrid.append(newColor)
+         }
+         
+     } else if item > 34 && item < 66 {
+         
+         
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         let colorGradientValue = Double(item - 34.0) / 34 // 1...30 values used for gradient increment // 66?
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(1.0 * 255.0) << 24 + // (1.0 - currentAuroraAlpha)
+             UInt32(blue * 255.0) << 16 +
+             UInt32(1.0 * 255.0) << 8 +
+             UInt32(colorGradientValue * 255.0)
+             
+             pixelGrid.append(newColor)
+             
+         }
+         
+     } else if item > 0 {
+         
+         // Make green -> Yellow
+         
+         var newColor: UInt32 = 0
+         let currentAuroraAlpha = Double(item) * auroraAlpha
+         
+         let colorGradientValue = Double(item) / 34 // 1...30 values used for gradient increment
+         
+         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+             newColor += UInt32(colorGradientValue * 255.0) << 24 + // current was before
+             UInt32(blue * 255.0) << 16 +
+             UInt32(colorGradientValue * 255.0) << 8 +
+             UInt32(0.0 * 255.0)
+             
+             pixelGrid.append(newColor)
+             
+         }
+         
+     } else if item < 0.0 {
+         // negative values mean error in calculations.
+         print(item)
+     } else {
+         pixelGrid.append(emptyColor)
+     }
+     
+ }
+ 
+ */
