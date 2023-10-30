@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SheetAuroraInfo: View {
+struct AuroraMapViewButton: View {
     
     @Binding var forecastTime: String
     @Binding var observationTime: String
@@ -50,8 +50,8 @@ struct SheetAuroraInfo: View {
     }
 }
 
-struct SheetAuroraInfo_Previews: PreviewProvider {
+struct AuroraMapViewButton_Previews: PreviewProvider {
     static var previews: some View {
-        SheetAuroraInfo(forecastTime: .constant("time"), observationTime: .constant("timee"))
+        AuroraMapViewButton(forecastTime: .constant("time"), observationTime: .constant("timee"))
     }
 }

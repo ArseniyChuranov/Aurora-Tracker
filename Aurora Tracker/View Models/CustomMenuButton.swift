@@ -7,19 +7,26 @@
 
 import SwiftUI
 
-struct EventsButton: View {
+struct CustomMenuButton: View {
+    
+    let mainFont = Font.title.lowercaseSmallCaps()
+    let buttonFont = Font.system(.largeTitle, design: .serif, weight: .bold)
+    @Binding var text: String
+
     var body: some View {
         VStack {
-            Text("Events")
+            Text(text)
                 .font(.title2)
+                .font(buttonFont)
         }
         .padding()
         .foregroundColor(.blue)
+        .cornerRadius(14.0)
     }
 }
 
 struct EventsButton_Previews: PreviewProvider {
     static var previews: some View {
-        EventsButton()
+        CustomMenuButton(text: .constant("Text"))
     }
 }
