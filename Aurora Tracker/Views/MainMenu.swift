@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import UserNotifications
+import Network
 
 struct MainMenu: View {
     
@@ -22,87 +23,139 @@ struct MainMenu: View {
     
     @State private var isSheetPresented = false
     @State private var isFetchinAurora = false
+    @State private var connectionAvaliable = false
     
-    @State private var textForButton = "Get new data!"
+    @State private var textForButton = "Update Forecast"
+    @State private var forecastInfo = "Current Forecast Info"
+    
+    @State private var bounds = UIScreen.main.bounds
+    
+    @State private var fistAuroraFetched = false
     
     var body: some View {
         
+        // make sure that at least once aurora is updated.
         
-        // Create a sample data set to test rectangle functions and overlays, make colors simple.
-        
-        /*
-         
-         Create a menu view, with a button that will navigate to the map.
-         
-         Button {
-             
-             //  simple button to fetch new aurora. play with labels
-             
-             
-             Task {
-                 if !isFetchinAurora {
-                     await fetchAurora()
-                     
-                     infoList[0] = provider.aurora.forecastTime
-                     infoList[1] = provider.aurora.observationTime
-                 }
-             }
-             
-         } label: {
-             Text(textForButton)
-         }
-         
-         */
-        
-        VStack {
-            NavigationView {
+        let width = bounds.width
+        let height = bounds.height
+        let cellWidth = width * 0.9
+            
+            NavigationStack {
+                
                 VStack {
-                    List {
-                        NavigationLink(destination:
-                                        SheetAuroraInfo(forecastTime: $infoList[0],
-                                                        observationTime: $infoList[1])) {
-                            MainMenuButton()
-                                .foregroundColor(.white)
+                    NavigationLink(destination:
+                                    AuroraMapViewLink(forecastTime: $infoList[0],
+                                                    observationTime: $infoList[1])) {
+                        ZStack {
                             
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                .frame(maxWidth: cellWidth, maxHeight: 200)
                             
+                            HStack {
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                                
+                                Text("See Map")
+                                
+                                Spacer()
+                                
+                                Image(systemName: "globe")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 50)
+                                    .foregroundColor(.white)
+                                
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 10)
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                            }
+                            .padding()
                         }
-                        NavigationLink(destination: EventsList()) {
-                            EventsButton()
-                        }
+                        .foregroundColor(.white)
                     }
                     
-                    
                     Button {
-                        
-                        //  simple button to fetch new aurora. play with labels
-                        
-                        
-                        Task {
-                            if !isFetchinAurora {
-                                await fetchAurora()
-                                
-                                infoList[0] = provider.aurora.forecastTime
-                                infoList[1] = provider.aurora.observationTime
-                            }
+                        if !isSheetPresented {
+                            isSheetPresented = true
                         }
                         
                     } label: {
-                        Text(textForButton)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button (action: {
-                            isSheetPresented = true
-                        }) {
-                            Image(systemName: "info.circle")
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                .frame(maxWidth: cellWidth, maxHeight: 100)
+                            
+                            HStack {
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                                
+                                Text(forecastInfo)
+                                
+                                Spacer()
+                                
+                                Image(systemName: "info.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 50)
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                            }
+                            .padding()
                         }
+                        .foregroundColor(.white)
                     }
+            
+                    // forecast update button.
+                    Button {
+                        Task {
+                            if !isFetchinAurora {
+                                textForButton = "Updating..."
+                                await fetchAurora()
+                                textForButton = "Update Forecast"
+                            }
+                        }
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                .frame(maxWidth: cellWidth, maxHeight: 100)
+                            
+                            HStack {
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                                
+                                Text(textForButton)
+                                
+                                Spacer()
+                                
+                                Image(systemName: "arrow.clockwise.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 50)
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                                    .frame(width: width - cellWidth)
+                            }
+                            .padding()
+                        }
+                        .foregroundColor(.white)
+
+                    }
+                    
+                    Text("Note: Internet connection is required to observe latest Aurora Forecast.")
+                        .italic()
                 }
                 .sheet(isPresented: $isSheetPresented) {
                     // input info about current aurora.
-                    
-                    // when used, map creates double layers of tiles, fix that.
                     VStack {
                         Text("Forecast Time")
                         Text(provider.aurora.forecastTime)
@@ -114,38 +167,21 @@ struct MainMenu: View {
                     .presentationDetents([.medium])
                     .padding()
                 }
-            }
-            
-            
-            /*
-             
-             .onSubmit {
-                 
-         }
-             
-             */
+                
         }
         .task {
-            // This async function calls for actual data, disable if needed to work with sample data.
-            // Last updates sample data will be written to aurora.json file in documents directory.
             
-            /*
-             
-             To ensure accurate data representation in future, figure a system that will fetch data once in a while
-             
-             Create an appropriate time based on device settings, fetch data, and return some kind of notification
-             
-             as well as create a notification center that will ensure notifications are set up the way customer wants
-             
-             */
+            if !fistAuroraFetched {
+                await fetchAurora()
+                fistAuroraFetched = true
+            }
             
-//            await fetchAurora()
+            // should work on startup
+            // takes a long time. make it background?
             
-            //
+            // if no internet?
             
-            // infoList[0] = provider.aurora.forecastTime
-            // infoList[1] = provider.aurora.observationTime
- 
+            // await fetchAurora()
         }
     }
 }
@@ -158,17 +194,24 @@ extension MainMenu {
             
 //            Actual Data from Database online
             
-            textForButton = "loading"
+            // textForButton = "loading"
+            
+            print("starting aurora")
             
             isFetchinAurora = true
             try await provider.fetchAurora()
             
+            print("Aurora done")
+            
 //             Sample Data
             
+//     
 //            let downloader = TestDownloader()
 //            let client = AuroraClient(downloader: downloader)
 //            let aurora = try await client.aurora
-            // newList = aurora.coordinates
+            
+            
+            // not used // newList = aurora.coordinates
 
             
         } catch {
@@ -177,23 +220,233 @@ extension MainMenu {
         }
         
         isFetchinAurora = false
-        textForButton = "Get new data!"
+        // textForButton = "Get new data!"
     }
+    
 }
 
-
 /*
+
  struct MainMenu_Previews: PreviewProvider {
  // doesn't work
  static var auroraPreview = IndividualAuroraSpot.preview
  
  static var previews: some View {
- MainMenu(auroraList: .constant(auroraPreview))
- .environmentObject(EventModel())
- .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
- .environment(\.colorScheme, .dark)
+     MainMenu(auroraList: .constant(auroraPreview))
+         .environmentObject(EventModel())
+         .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
+         // .environment(\.colorScheme, .dark)
+    }
  }
+
+
+ */
+
+/*
+ 
+ import SwiftUI
+ import MapKit
+ import UserNotifications
+
+ struct MainMenu: View {
+     
+     @Binding var auroraList: [IndividualAuroraSpot]
+     @EnvironmentObject var provider: AuroraProvider
+     @EnvironmentObject var eventModel: EventModel
+     
+     @State private var error: AuroraError?
+     @State private var hasError = false
+     
+     @State private var infoList: [String] = ["0", "1"]
+     
+     @State private var isSheetPresented = false
+     @State private var isFetchinAurora = false
+     
+     @State private var textForButton = "Get new data!"
+     
+     var body: some View {
+         
+         
+         // Create a sample data set to test rectangle functions and overlays, make colors simple.
+         
+         /*
+          
+          Create a menu view, with a button that will navigate to the map.
+          
+          Button {
+              
+              //  simple button to fetch new aurora. play with labels
+              
+              
+              Task {
+                  if !isFetchinAurora {
+                      await fetchAurora()
+                      
+                      infoList[0] = provider.aurora.forecastTime
+                      infoList[1] = provider.aurora.observationTime
+                  }
+              }
+              
+          } label: {
+              Text(textForButton)
+          }
+          
+          */
+         
+         VStack {
+             NavigationView {
+                 VStack {
+                     
+                     List {
+                         NavigationLink(destination:
+                                         SheetAuroraInfo(forecastTime: $infoList[0],
+                                                         observationTime: $infoList[1])) {
+                             MainMenuButton()
+                                 .foregroundColor(.white)
+                             
+                             
+                         }
+                         NavigationLink(destination: EventsList()) {
+                             EventsButton()
+                         }
+                     }
+                     
+                     
+                     /*
+                     NavigationLink(destination: EventsList()) {
+                         EventsButton()
+                     }
+                     */
+                     
+                     Button {
+                         
+                         //  simple button to fetch new aurora. play with labels
+                         
+                         
+                         Task {
+                             if !isFetchinAurora {
+                                 await fetchAurora()
+                                 
+                                 infoList[0] = provider.aurora.forecastTime
+                                 infoList[1] = provider.aurora.observationTime
+                             }
+                         }
+                         
+                     } label: {
+                         Text(textForButton)
+                     }
+                 }
+                 .toolbar {
+                     ToolbarItem(placement: .navigationBarTrailing) {
+                         Button (action: {
+                             isSheetPresented = true
+                         }) {
+                             Image(systemName: "info.circle")
+                         }
+                     }
+                 }
+                 .sheet(isPresented: $isSheetPresented) {
+                     // input info about current aurora.
+                     
+                     // when used, map creates double layers of tiles, fix that.
+                     VStack {
+                         Text("Forecast Time")
+                         Text(provider.aurora.forecastTime)
+                             .font(.title2)
+                         Text("Observation Time")
+                         Text(provider.aurora.observationTime)
+                             .font(.title2)
+                     }
+                     .presentationDetents([.medium])
+                     .padding()
+                 }
+             }
+             
+             
+             /*
+              
+              .onSubmit {
+                  
+          }
+              
+              */
+         }
+         .task {
+             
+             await fetchAurora()
+             // This async function calls for actual data, disable if needed to work with sample data.
+             // Last updates sample data will be written to aurora.json file in documents directory.
+             
+             /*
+              
+              To ensure accurate data representation in future, figure a system that will fetch data once in a while
+              
+              Create an appropriate time based on device settings, fetch data, and return some kind of notification
+              
+              as well as create a notification center that will ensure notifications are set up the way customer wants
+              
+              */
+             
+ //            await fetchAurora()
+             
+             //
+             
+             // infoList[0] = provider.aurora.forecastTime
+             // infoList[1] = provider.aurora.observationTime
+  
+         }
+     }
  }
+
+
+ extension MainMenu {
+     
+     func fetchAurora() async {
+         do {
+             
+ //            Actual Data from Database online
+             
+             textForButton = "loading"
+             
+             isFetchinAurora = true
+             try await provider.fetchAurora()
+             
+ //             Sample Data
+             
+ //
+ //            let downloader = TestDownloader()
+ //            let client = AuroraClient(downloader: downloader)
+ //            let aurora = try await client.aurora
+             
+             
+             // not used // newList = aurora.coordinates
+
+             
+         } catch {
+             self.error = error as? AuroraError ?? .unexpectedError(error: error)
+             self.hasError = true
+         }
+         
+         isFetchinAurora = false
+         textForButton = "Get new data!"
+     }
+ }
+
+
+
+  struct MainMenu_Previews: PreviewProvider {
+  // doesn't work
+  static var auroraPreview = IndividualAuroraSpot.preview
+  
+  static var previews: some View {
+      MainMenu(auroraList: .constant(auroraPreview))
+          .environmentObject(EventModel())
+          .environmentObject(AuroraProvider(client: AuroraClient(downloader: TestDownloader())))
+          // .environment(\.colorScheme, .dark)
+     }
+  }
+
+ 
  */
 
 

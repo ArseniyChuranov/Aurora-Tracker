@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct AuroraMapViewButton: View {
+struct AuroraMapViewLink: View {
     
     @Binding var forecastTime: String
     @Binding var observationTime: String
+    // @Binding var isFirstAuroraFetched: Bool
     
     @State private var isSheetPresented = false
     
@@ -48,10 +49,11 @@ struct AuroraMapViewButton: View {
             }
         */
     }
+    
 }
 
-struct AuroraMapViewButton_Previews: PreviewProvider {
+struct AuroraMapViewLink_Previews: PreviewProvider {
     static var previews: some View {
-        AuroraMapViewButton(forecastTime: .constant("time"), observationTime: .constant("timee"))
+        AuroraMapViewLink(forecastTime: .constant("time"), observationTime: .constant("timee"))
     }
 }

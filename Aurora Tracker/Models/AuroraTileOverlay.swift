@@ -23,6 +23,8 @@ class AuroraMapOverlay: MKTileOverlay {
     private var topRightList: [IndividualAuroraSpot] = []
     private var bottomRightList: [IndividualAuroraSpot] = []
     
+    private var newWideList: [IndividualAuroraSpot] = []
+    
     var clock = ContinuousClock()
     
     // create a load function and see if it helps? get info from local fileData.
@@ -31,7 +33,7 @@ class AuroraMapOverlay: MKTileOverlay {
     
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
         
-        let startMeasure = BasicTimer().startCC()
+        // let startMeasure = BasicTimer().startCC()
         
         
         // loads a lot of tiles, for each would need to create a drawing function.
@@ -154,8 +156,21 @@ class AuroraMapOverlay: MKTileOverlay {
            
             
             let listProduct = createSeparateLists(inputList: newList)
+           
+            newWideList = coordinateCalculate.widenCoordinatesLastColFast(inputList: newList)
             
 
+            /*
+             
+             
+             
+             
+             MAKE SURE A LOT OF FUNCTIONS ARE NOT BEING USED EACH CALL
+             
+        
+             
+             */
+            
             
             
             bottomLeftList = listProduct[0]
@@ -190,6 +205,12 @@ class AuroraMapOverlay: MKTileOverlay {
             cycleList = topRightList
         }
 
+        for aurora in newList {
+            if aurora.aurora < 0.0 {
+                print(aurora)
+                print()
+            }
+        }
         
         /*
         if cycleList.isEmpty {
@@ -199,10 +220,28 @@ class AuroraMapOverlay: MKTileOverlay {
         // pass Z to transform list to mercator proportions?
         // pass rations and calculate with rations later on
         
+        
+        var stopCalculations = false
+        
+        if path.z == 4 && path.x == 15 && path.y == 10 {
+            stopCalculations = true
+        }
+        
+        // widen coordinates here
+        
+        
+        /*
+         
+         T E S T    T H I S    M E S S
+         
+         */
+
+
        
         let auroraTile = coordinateCalculate.createTileAuroraList(inputTileCoordinateList: coordinateSquare,
-                                                                  inputAuroraList: cycleList,
-                                                                  zoom: path.z)
+                                                                  inputAuroraList: newWideList, //cycleList
+                                                                  zoom: path.z,
+                                                                  calc: stopCalculations)
         
         
         
@@ -214,11 +253,12 @@ class AuroraMapOverlay: MKTileOverlay {
         
 
         let image = coordinateCalculate.createRectanglePNG(inputList: tileList,
-                                               width: width,
-                                               height: height,
-                                               indexWidth: indexWidth,
-                                               indexHeight: indexHeight,
-                                               maxAurora: maxAurora)
+                                                           width: width,
+                                                           height: height,
+                                                           indexWidth: indexWidth,
+                                                           indexHeight: indexHeight,
+                                                           maxAurora: maxAurora,
+                                                           calc: stopCalculations)
         
         //print(imageProduction)
         //print()
@@ -234,7 +274,7 @@ class AuroraMapOverlay: MKTileOverlay {
             try? newImage.write(to: fileUrl!)
         }
         
-        BasicTimer().endCC(startMeasure)
+        // BasicTimer().endCC(startMeasure)
         
         return fileUrl!
     }
@@ -389,6 +429,9 @@ class AuroraMapOverlay: MKTileOverlay {
         
         // create a method that will be able to break down one giant list onto 4 lists.
         // boundaries are: [-90...0, 0...180], [0...90, 0...180], [-90...0, 180...360], [0...90, 180...360]
+        
+        // create new boundaries here to avoid out of bound values
+        // implement a good system of appending 
 
         
         // temp solution of providing 4 lists with borders

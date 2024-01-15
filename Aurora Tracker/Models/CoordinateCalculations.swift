@@ -76,7 +76,33 @@ class CoordinateCalculations {
         return outputList
     }
     
-    // function to create extra spaces for outOfBound values that would be repearted, will help to create a simpler function.
+    func widenCoordinatesLastColFast(inputList: [IndividualAuroraSpot]) -> [IndividualAuroraSpot] {
+        var outputList: [IndividualAuroraSpot] = []
+        
+        var LastList: [IndividualAuroraSpot] = []
+        
+        for item in 0...181 {
+            LastList.append(inputList[item])
+        }
+        
+        var appList: [IndividualAuroraSpot] = []
+        
+        for item in LastList {
+            var tempAur = item
+            
+            tempAur.longitude = 360
+            
+            appList.append(tempAur)
+        }
+        
+        outputList = inputList
+        
+        outputList.append(contentsOf: appList)
+        
+        return outputList;
+    }
+    
+    // function to create extra spaces for outOfBound values that would be repeated, will help to create a simpler function.
     // Not Implemented.
     
     func widenCorrdinateList(inputList: [IndividualAuroraSpot]) -> [IndividualAuroraSpot] {
@@ -132,6 +158,7 @@ class CoordinateCalculations {
         
         outputList.append(contentsOf: createNewColumn(inputRawList: lastColumn))
         
+        
         return outputList
     }
     
@@ -139,7 +166,8 @@ class CoordinateCalculations {
     
     func createTileAuroraList(inputTileCoordinateList: [Double],
                               inputAuroraList: [IndividualAuroraSpot],
-                              zoom: Int) -> (inputList: [IndividualAuroraSpot],
+                              zoom: Int,
+                              calc: Bool) -> (inputList: [IndividualAuroraSpot],
                                              width: Int,
                                              height: Int,
                                              indexWidth: [Double],
@@ -168,6 +196,8 @@ class CoordinateCalculations {
          */
         
         
+        // experimental fix - implement widen coordinates function.
+        
         
         var latitudeList: [IndividualAuroraSpot] = [] // rename it, to make it more clear.
         
@@ -179,11 +209,12 @@ class CoordinateCalculations {
         let minLongitude = inputTileCoordinateList[1]
         
         // Outer boundaries for latitude and longitude describing a larger square where actual coordinates fit
+    
         
         let celingLatitudeValue = topLatitude.rounded(.up)
         let floorLatitudeValue = bottomLatitude.rounded(.down)
         let startLongitudeValue = minLongitude.rounded(.down)
-        let finishLongitudeValue = maxLongitude.rounded(.up)
+        let finishLongitudeValue = maxLongitude.rounded(.up) // this changes 359 to 360, avoid this
         
         //        let topLatitudeDiff = abs(celingLatitudeValue - topLatitude) // difference between celing and input value
         //        let bottomLatitudeDiff = abs(bottomLatitude - floorLatitudeValue) // difference between bottom and floor
@@ -243,6 +274,10 @@ class CoordinateCalculations {
         
         for aurora in inputAuroraList {
             // Cycle through list and append anything that fits inside tile.
+            
+            
+            // maybe in future create a min_value_address and max_value_adress,
+            // and based on this just input each element that is inbetween (too much extra data, look into it)
             
             if aurora.longitude >= startLongitudeValue && aurora.longitude <= finishLongitudeValue {
                 if aurora.latitude >= floorLatitudeValue && aurora.latitude <= celingLatitudeValue {
@@ -340,6 +375,10 @@ class CoordinateCalculations {
             
             allChangedBottomValues.append(bottomAuroraValue)
             
+            if bottomAuroraValue < 0 {
+                print()
+            }
+            
             let newLeftAurora = IndividualAuroraSpot(longitude: bottomAuroraCoordinate.longitude,
                                                      latitude: bottomLatitude,
                                                      aurora: bottomAuroraValue)
@@ -353,6 +392,10 @@ class CoordinateCalculations {
             let topAuroraDifference = topAuroraValue - previousAuroraValue
             let changedTopValue = topAuroraDifference * differenceTopLat
             topAuroraValue = topAuroraValue - changedTopValue // previousAuroraValue + changedTopValue
+            
+            if topAuroraValue < 0 {
+                print()
+            }
             
             // create a list of new values and other values inbetween
             
@@ -438,6 +481,8 @@ class CoordinateCalculations {
         
         // write custom difference for each case?
         
+        /*
+        
         if originalListValues[2].longitude < minLongitude {
             print(originalListValues[2].longitude)
             print(minLongitude)
@@ -450,7 +495,11 @@ class CoordinateCalculations {
             print()
         }
         
+         
+         */
         // where I calculate corner values
+        
+        var auroraValuesList: [Double] = []
         
         let newLeftLonDiff = originalListValues[2].longitude - minLongitude
         let newRightLonDiff = maxLongitude - originalListValues[8].longitude
@@ -459,10 +508,14 @@ class CoordinateCalculations {
         // was differenceLeftLon
         let leftBottomCornerFinalVal = (leftBottomCornerDifference * newLeftLonDiff) + bottomCutOffValues[2].aurora
         
+        auroraValuesList.append(leftBottomCornerFinalVal)
+        
         // ceiling value difference
         let leftTopCornerDifference = bottomCutOffValues[5].aurora - bottomCutOffValues[7].aurora
         // was differenceLeftLon
         let leftTopCornerFinalVal = (leftTopCornerDifference * newLeftLonDiff) + bottomCutOffValues[7].aurora
+        
+        auroraValuesList.append(leftTopCornerFinalVal)
         
         // flip sides for now
         
@@ -470,6 +523,7 @@ class CoordinateCalculations {
         // was differenceRightLon
         let rightBottomCornerFinalVal = (rightBottomCornerDifference * newRightLonDiff) + bottomCutOffValues[8].aurora
         
+        auroraValuesList.append(rightBottomCornerFinalVal)
         
         let rightTopCornerDifference = bottomCutOffValues[15].aurora - bottomCutOffValues[13].aurora
         // was differenceRightLon
@@ -477,6 +531,14 @@ class CoordinateCalculations {
         
         //print(leftBottomCornerFinalVal)
         //print()
+        
+        auroraValuesList.append(rightTopCornerFinalVal)
+        
+        for item in auroraValuesList {
+            if item < 0 {
+                print()
+            }
+        }
         
         var rightIndex = height * (width - 1)
         var leftIndex = 0
@@ -500,6 +562,10 @@ class CoordinateCalculations {
             let changedLeftValue = leftAuroraDifference * differenceLeftLon // leftLon, since we comparing edge values
             leftAuroraValue = leftAuroraValue - changedLeftValue // changedLeftValue + nextLeftAuroraValue
             
+            if leftAuroraValue < 0 {
+                print()
+            }
+            
             // create a new individual spot with a new value
             
             allChangedLongitudeAuroraValues.append(leftAuroraValue)
@@ -515,14 +581,44 @@ class CoordinateCalculations {
             
             let topRightCoordinate = initialList[rightIndex]
             var rightAuroraValue = topRightCoordinate.aurora
+            let previousRightAuroraCoordinate = initialList[rightIndex - height] // temo comparison
             let PreviousRightAurora = initialList[rightIndex - height].aurora
             
-            let rightAuroraDifference = rightAuroraValue - PreviousRightAurora
+            var tempRightDiff = 0.0
+            
+            /*
+             
+             Problem here is difference between 359 ans 360 is crucial.
+             I would need to make sure all of my used values are withing the requested range
+             
+             looks like i have 0 -> 359 comparing to 0 -> 360.
+             
+             */
+            
+            if maxLongitude == 360 {
+                tempRightDiff = differenceRightLon + 1 // terrible. Im proud of it
+            } else {
+                tempRightDiff = differenceRightLon
+            }
+            
+            let rightAuroraDifference = rightAuroraValue - PreviousRightAurora // was rightAuroraValue - previous
             let changedRightValue = rightAuroraDifference * differenceRightLon // rightLon? change to lat
             rightAuroraValue = rightAuroraValue - changedRightValue // changedRightValue + PreviousRightAurora
             
+            if rightAuroraValue < 0 {
+                print()
+            }
+            
             // allChangedLongitudeAuroraValues.append(rightAuroraValue)
 
+            var tempVal = 0.0
+            
+            if maxLongitude >= 360 {
+                tempVal = 359
+            } else {
+                tempVal = maxLongitude
+            }
+            
             let newTopAurora = IndividualAuroraSpot(longitude: maxLongitude,
                                                     latitude: latitudeList[rightIndex].latitude,
                                                     aurora: rightAuroraValue)
@@ -545,19 +641,25 @@ class CoordinateCalculations {
         latitudeList[latitudeList.count - height].aurora = rightBottomCornerFinalVal // finalBottomRightCorner
         latitudeList[latitudeList.count - 1].aurora = rightTopCornerFinalVal // finalTopRightCorner
         
-        // Accuracy method, will be changed later to avoid this step.
         
+        
+        // Accuracy method, will be changed later to avoid this step.
+        // does it even help? - apparently lmao
+        
+        /*
         if maxLongitude >= 360 {
             var cycleIndex = 0
             for item in latitudeList {
                 if item.longitude >= 360 {
                     let newItem = IndividualAuroraSpot(longitude: 359.0, latitude: item.latitude, aurora: item.aurora)
                     latitudeList[cycleIndex] = newItem
+                    print()
                 }
                 cycleIndex += 1
             }
         }
-        
+        */
+         
         
         // when the amount in main lists is less than 16, calculations are not correct due to square calculation system
         
@@ -682,6 +784,16 @@ class CoordinateCalculations {
         
 //        BasicTimer().endTimer(start, functionName: "createTileAuroraList")
         
+        for aurora in latitudeList {
+            if aurora.aurora < 0 {
+                print()
+            }
+        }
+        
+        if calc == true {
+            print()
+        }
+        
         return (latitudeList, width, height, indexWidth, indexHeight)
     }
     
@@ -769,7 +881,8 @@ class CoordinateCalculations {
                             height: Int,
                             indexWidth: [Double],
                             indexHeight: [Double],
-                            maxAurora: Double) -> CGImage {
+                            maxAurora: Double,
+                            calc: Bool) -> CGImage {
         
         // Would be simplified in future.
         
@@ -814,7 +927,27 @@ class CoordinateCalculations {
         var gradientPixelArray: [Double] = []
  
         // Cycle through list, see if there are any aurora values, if there are - create a picture, else pass an empty list
+        
+        for aurora in inputList {
+            if aurora.aurora < 0.0 {
+                print(aurora)
+                print()
+            }
+        }
+        
+        for aurora in auroraQuickList {
+            if aurora < 0.0 {
+                print(aurora)
+                print()
+            }
+        }
  
+        for aurora in testList {
+            if aurora.aurora < 0.0 {
+                print(aurora)
+                print()
+            }
+        }
         
         for aurora in auroraQuickList {
             if aurora != 0 {
@@ -823,7 +956,8 @@ class CoordinateCalculations {
                                                     height: height,
                                                     width: width,
                                                     heightIndex: newIndexHeight,
-                                                    widthIndex: indexWidth)
+                                                    widthIndex: indexWidth,
+                                                    calc: calc)
 
                 gradientPixelArray = experiment
                 break
@@ -885,7 +1019,7 @@ class CoordinateCalculations {
         // in case of incorrect values.
         
         var calcIndex = 0
-        
+        /*
         for item in gradientPixelArray {
             if item < 0.0 || item.isNaN {
                 print(item)
@@ -895,12 +1029,14 @@ class CoordinateCalculations {
                 }
             calcIndex = calcIndex + 1
         }
-        
+        */
         // cycling through values and appending a value to a colorl list based on value from Aurora Double List.
         
         // create an accurate representation
         
         // 0...10...50...90...100
+        
+        var negativeValuesCount = 0
 
         for item in gradientPixelArray {
             if item >= 100 {
@@ -990,11 +1126,35 @@ class CoordinateCalculations {
                 
             } else if item < 0.0 {
                 // negative values mean error in calculations.
-                print(item)
+                
+                // would need to figure why this happens, tiles to pay attention to: 4_15_10, 4_15_11.x
+                
+                // would be a good idea to take a look at lists.
+                
+                // Red
+                
+                negativeValuesCount += 1
+                
+                var newColor: UInt32 = 0
+                
+                if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+                    newColor += UInt32(1.0 * 255.0) << 24 +
+                    UInt32(blue * 255.0) << 16 +
+                    UInt32(green * 255.0) << 8 +
+                    UInt32(1.0 * 255.0)
+                    
+                    pixelGrid.append(newColor)
+                }
+                
+                // print(item)
             } else {
                 pixelGrid.append(emptyColor)
             }
             
+        }
+        
+        if negativeValuesCount != 0 {
+            print("I managed to get \(negativeValuesCount) empty values!")
         }
         
         // Duplicate for rotateList func.
@@ -1518,7 +1678,8 @@ class CoordinateCalculations {
                             height: Int,
                             width: Int,
                             heightIndex: [Double],
-                            widthIndex: [Double]) -> [Double] {
+                            widthIndex: [Double],
+                            calc: Bool) -> [Double] {
         
 //        let start = BasicTimer().startTimer()
         
@@ -1540,6 +1701,13 @@ class CoordinateCalculations {
         
         // Create a list with Longitude and latitude values from 0 to 255, fill other coordinates with 0 inbetween
         // Each list will be used as a template for column and rows to be filled with values for each 0 value between coordinats.
+        
+        for aurora in inputList {
+            if aurora.aurora < 0.0 {
+                print(aurora)
+                print()
+            }
+        }
         
         var widthList: [Double] = []
         var heightList: [Double] = []
@@ -1780,6 +1948,13 @@ class CoordinateCalculations {
         
         for list in newGradientColumnList {
             let newGradientList = fillLineWithGradient(inputLine: list, lengthZeros: zeroRowCount) //zeroRowCount
+            
+            for item in newGradientList {
+                if item < 0 {
+                    print()
+                }
+            }
+            
             finalOutputList.append(contentsOf: newGradientList)
         }
         
@@ -1928,7 +2103,11 @@ class CoordinateCalculations {
             
             return increment
         }
-
+        /*
+        if calc {
+            print()
+        }
+         */
         // BasicTimer().endTimer(start, functionName: "createGradient")
         
         return finalOutputList

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */; };
+		AE0C429E29D1861500874279 /* AuroraMapViewLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C429D29D1861400874279 /* AuroraMapViewLink.swift */; };
 		AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51BD29C64E1F007C90CB /* MainMenu.swift */; };
 		AE0F51C129C64EBC007C90CB /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */; };
 		AE0F6E2C29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */; };
@@ -31,7 +31,7 @@
 		AE42CF7C29D7E04A00E1C00B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF7B29D7E04A00E1C00B /* Event.swift */; };
 		AE42CF7F29D7FB0700E1C00B /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = AE42CF7E29D7FB0700E1C00B /* Events.json */; };
 		AE42CF8129D8038B00E1C00B /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF8029D8038B00E1C00B /* EventDetail.swift */; };
-		AE42CF8329D8106E00E1C00B /* EventsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF8229D8106E00E1C00B /* EventsButton.swift */; };
+		AE42CF8329D8106E00E1C00B /* CustomMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42CF8229D8106E00E1C00B /* CustomMenuButton.swift */; };
 		AE50FF6729905EE100743942 /* AuroraCoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */; };
 		AE567B9429AE4A4800D75FEB /* CoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */; };
 		AE5A4A612996A802000856A3 /* AuroraTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */; };
@@ -52,6 +52,7 @@
 		AECB102C2A1FE6DE00087321 /* CoordinateFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB102B2A1FE6DE00087321 /* CoordinateFinder.swift */; };
 		AEF758F62988787100D8CC64 /* AuroraOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF758F52988787100D8CC64 /* AuroraOverlay.swift */; };
 		AEF758FA29888F2600D8CC64 /* AuroraMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF758F929888F2600D8CC64 /* AuroraMapView.swift */; };
+		AEFF4BC82B5304A5007EB929 /* MenuSampleBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF4BC72B5304A5007EB929 /* MenuSampleBuild.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetAuroraInfo.swift; sourceTree = "<group>"; };
+		AE0C429D29D1861400874279 /* AuroraMapViewLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraMapViewLink.swift; sourceTree = "<group>"; };
 		AE0F51BD29C64E1F007C90CB /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
 		AE0F6E2B29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndividualAuroraSpot+Preview.swift"; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		AE42CF7B29D7E04A00E1C00B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AE42CF7E29D7FB0700E1C00B /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
 		AE42CF8029D8038B00E1C00B /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
-		AE42CF8229D8106E00E1C00B /* EventsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsButton.swift; sourceTree = "<group>"; };
+		AE42CF8229D8106E00E1C00B /* CustomMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuButton.swift; sourceTree = "<group>"; };
 		AE50FF6629905EE100743942 /* AuroraCoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraCoordinateRectangle.swift; sourceTree = "<group>"; };
 		AE567B9329AE4A4800D75FEB /* CoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculations.swift; sourceTree = "<group>"; };
 		AE5A4A602996A802000856A3 /* AuroraTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraTileOverlay.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		AECB102B2A1FE6DE00087321 /* CoordinateFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateFinder.swift; sourceTree = "<group>"; };
 		AEF758F52988787100D8CC64 /* AuroraOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraOverlay.swift; sourceTree = "<group>"; };
 		AEF758F929888F2600D8CC64 /* AuroraMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraMapView.swift; sourceTree = "<group>"; };
+		AEFF4BC72B5304A5007EB929 /* MenuSampleBuild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSampleBuild.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,11 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				AE0F51C029C64EBC007C90CB /* MainMenuButton.swift */,
-				AE42CF8229D8106E00E1C00B /* EventsButton.swift */,
+				AE42CF8229D8106E00E1C00B /* CustomMenuButton.swift */,
 				AE42CF7529D7D2AD00E1C00B /* EventsList.swift */,
 				AE42CF7729D7D2C000E1C00B /* EventCell.swift */,
 				AE42CF8029D8038B00E1C00B /* EventDetail.swift */,
-				AE0C429D29D1861400874279 /* SheetAuroraInfo.swift */,
+				AE0C429D29D1861400874279 /* AuroraMapViewLink.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -244,6 +246,7 @@
 			children = (
 				AE1805F329820EDF00C96DD1 /* Aurora+Color.swift */,
 				AE8D4F022981AD7B008AE9A2 /* ContentView.swift */,
+				AEFF4BC72B5304A5007EB929 /* MenuSampleBuild.swift */,
 				AE0F51BD29C64E1F007C90CB /* MainMenu.swift */,
 				AE1805EE29820B5300C96DD1 /* MapView.swift */,
 			);
@@ -395,11 +398,12 @@
 				AE0F6E2C29D9A51000BBFAD3 /* IndividualAuroraSpot+Preview.swift in Sources */,
 				AEF758F62988787100D8CC64 /* AuroraOverlay.swift in Sources */,
 				AE0F51BE29C64E1F007C90CB /* MainMenu.swift in Sources */,
-				AE0C429E29D1861500874279 /* SheetAuroraInfo.swift in Sources */,
+				AEFF4BC82B5304A5007EB929 /* MenuSampleBuild.swift in Sources */,
+				AE0C429E29D1861500874279 /* AuroraMapViewLink.swift in Sources */,
 				AECB102C2A1FE6DE00087321 /* CoordinateFinder.swift in Sources */,
 				AE94F38D2983340600068AB5 /* TestDownloader.swift in Sources */,
 				AE1805F029820DB100C96DD1 /* TestData.swift in Sources */,
-				AE42CF8329D8106E00E1C00B /* EventsButton.swift in Sources */,
+				AE42CF8329D8106E00E1C00B /* CustomMenuButton.swift in Sources */,
 				AEA006332983107D00EB1EA6 /* AuroraLocationsList.swift in Sources */,
 				AE1805F429820EDF00C96DD1 /* Aurora+Color.swift in Sources */,
 				AE214D9029B3ECA100F56724 /* AuroraRendererCustom.swift in Sources */,
@@ -605,7 +609,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Aurora Tracker/Aurora_Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Aurora Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M25927RFN;
@@ -621,13 +625,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -650,7 +654,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Aurora Tracker/Aurora_Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Aurora Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 2M25927RFN;
@@ -666,13 +670,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "arseniychuranov.com.Aurora-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

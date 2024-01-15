@@ -7,7 +7,7 @@
 
 import Foundation
 
-Class TileCoordinateCalculator {
+class TileCoordinateCalculator {
     
     // Function to calculate longitude for specific zoom and return it's location.
     

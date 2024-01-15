@@ -16,7 +16,6 @@ struct AuroraMapView: UIViewRepresentable {
      // @Binding var auroraList: [IndividualAuroraSpot] // get info and see if that can be passed
     let annotations: [MKAnnotation] = []
     
-    
 
     func makeUIView(context: Context) -> MKMapView {
         MKMapView(frame: .zero)
@@ -27,7 +26,7 @@ struct AuroraMapView: UIViewRepresentable {
         uiView.delegate = mapViewDelegate
         uiView.translatesAutoresizingMaskIntoConstraints = false
         uiView.addOverlay(AuroraMapOverlay(), level: .aboveLabels)
-
+        uiView.overrideUserInterfaceStyle = .dark
     }
 }
 
@@ -84,7 +83,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         
         //Every time I use info feature, this function reloads. Learn how to stop processes.
 
-        let polygonRend = MKPolygonRenderer()
+        // let polygonRend = MKPolygonRenderer()
         let renderer = MKTileOverlayRenderer(tileOverlay: overlay) // Look into MKTileOverlayRenderer
        
         // Add functionality that would allow to change alpha value.

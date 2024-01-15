@@ -22,7 +22,7 @@ struct MainMenuButton: View {
 struct MainMenuButton_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuButton()
-            .background(.green)
+            .background(.yellow)
             .previewLayout(.fixed(width: 400, height: 60))
     }
 }

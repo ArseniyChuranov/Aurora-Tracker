@@ -19,6 +19,7 @@ extension AuroraError: LocalizedError {
         case .missingData:
             return NSLocalizedString("Found Missing Data.", comment: "missing data")
         case .networkError:
+            print("This error was triggered, meaning no internet")
             return NSLocalizedString("Error connecting to network.", comment: "network error")
         case .unexpectedError(let error):
             return NSLocalizedString("Unexpected Error. \(error.localizedDescription)", comment: "unexpected error")
