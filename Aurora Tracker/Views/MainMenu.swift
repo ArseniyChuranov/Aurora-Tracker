@@ -28,160 +28,155 @@ struct MainMenu: View {
     @State private var textForButton = "Update Forecast"
     @State private var forecastInfo = "Current Forecast Info"
     
-    @State private var bounds = UIScreen.main.bounds
-    
     @State private var fistAuroraFetched = false
     
     var body: some View {
         
-        // make sure that at least once aurora is updated.
-        
-        let width = bounds.width
-        let height = bounds.height
-        let cellWidth = width * 0.9
-            
-            NavigationStack {
+        GeometryReader { geometry in
+            // make sure that at least once aurora is updated.
                 
-                VStack {
-                    NavigationLink(destination:
-                                    AuroraMapViewLink(forecastTime: $infoList[0],
-                                                    observationTime: $infoList[1])) {
-                        ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
-                                .frame(maxWidth: cellWidth, maxHeight: 200)
-                            
-                            HStack {
-                                Spacer()
-                                    .frame(width: width - cellWidth)
-                                
-                                Text("See Map")
-                                
-                                Spacer()
-                                
-                                Image(systemName: "globe")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 50)
-                                    .foregroundColor(.white)
-                                
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 10)
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                                    .frame(width: width - cellWidth)
-                            }
-                            .padding()
-                        }
-                        .foregroundColor(.white)
-                    }
+                NavigationStack {
                     
-                    Button {
-                        if !isSheetPresented {
-                            isSheetPresented = true
+                    VStack {
+                        NavigationLink(destination:
+                                        AuroraMapViewLink(forecastTime: $infoList[0],
+                                                        observationTime: $infoList[1])) {
+                            ZStack {
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                    .frame(maxWidth: geometry.size.width * 0.9, maxHeight: 200)
+                                
+                                HStack {
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                    
+                                    Text("See Map")
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "globe")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 50)
+                                        .foregroundColor(.white)
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 10)
+                                        .foregroundColor(.white)
+                                    
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                }
+                                .padding()
+                            }
+                            .foregroundColor(.white)
                         }
                         
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
-                                .frame(maxWidth: cellWidth, maxHeight: 100)
+                        Button {
+                            if !isSheetPresented {
+                                isSheetPresented = true
+                            }
                             
-                            HStack {
-                                Spacer()
-                                    .frame(width: width - cellWidth)
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                    .frame(maxWidth: geometry.size.width * 0.9, maxHeight: 100)
                                 
-                                Text(forecastInfo)
-                                
-                                Spacer()
-                                
-                                Image(systemName: "info.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 50)
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                                    .frame(width: width - cellWidth)
+                                HStack {
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                    
+                                    Text(forecastInfo)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "info.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 50)
+                                        .foregroundColor(.white)
+                                    
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                }
+                                .padding()
                             }
-                            .padding()
+                            .foregroundColor(.white)
                         }
-                        .foregroundColor(.white)
-                    }
-            
-                    // forecast update button.
-                    Button {
-                        Task {
-                            if !isFetchinAurora {
-                                textForButton = "Updating..."
-                                await fetchAurora()
-                                textForButton = "Update Forecast"
+                
+                        // forecast update button.
+                        Button {
+                            Task {
+                                if !isFetchinAurora {
+                                    textForButton = "Updating..."
+                                    await fetchAurora()
+                                    textForButton = "Update Forecast"
+                                }
                             }
-                        }
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
-                                .frame(maxWidth: cellWidth, maxHeight: 100)
-                            
-                            HStack {
-                                Spacer()
-                                    .frame(width: width - cellWidth)
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color(red: 0.05, green: 0.05, blue: 1.0, opacity: 0.5))
+                                    .frame(maxWidth: geometry.size.width * 0.9, maxHeight: 100)
                                 
-                                Text(textForButton)
-                                
-                                Spacer()
-                                
-                                Image(systemName: "arrow.clockwise.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 50)
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                                    .frame(width: width - cellWidth)
+                                HStack {
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                    
+                                    Text(textForButton)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "arrow.clockwise.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 50)
+                                        .foregroundColor(.white)
+                                    
+                                    Spacer()
+                                        .frame(width: geometry.size.width - geometry.size.width * 0.9)
+                                }
+                                .padding()
                             }
-                            .padding()
-                        }
-                        .foregroundColor(.white)
+                            .foregroundColor(.white)
 
+                        }
+                        
+                        Text("Note: Internet connection is required to observe latest Aurora Forecast.")
+                            .italic()
+                            .padding()
                     }
-                    
-                    Text("Note: Internet connection is required to observe latest Aurora Forecast.")
-                        .italic()
-                }
-                .sheet(isPresented: $isSheetPresented) {
-                    // input info about current aurora.
-                    VStack {
-                        Text("Forecast Time")
-                        Text(provider.aurora.forecastTime)
-                            .font(.title2)
-                        Text("Observation Time")
-                        Text(provider.aurora.observationTime)
-                            .font(.title2)
+                    .sheet(isPresented: $isSheetPresented) {
+                        // input info about current aurora.
+                        VStack {
+                            Text("Forecast Time")
+                            Text(provider.aurora.forecastTime)
+                                .font(.title2)
+                            Text("Observation Time")
+                            Text(provider.aurora.observationTime)
+                                .font(.title2)
+                        }
+                        .presentationDetents([.medium])
+                        .padding()
                     }
-                    .presentationDetents([.medium])
-                    .padding()
+            }
+            .task {
+                
+                if !fistAuroraFetched {
+                    await fetchAurora()
+                    fistAuroraFetched = true
                 }
                 
-        }
-        .task {
-            
-            if !fistAuroraFetched {
-                await fetchAurora()
-                fistAuroraFetched = true
+                // should work on startup
+                
+                // if no internet?
+                
+                // await fetchAurora()
             }
-            
-            // should work on startup
-            // takes a long time. make it background?
-            
-            // if no internet?
-            
-            // await fetchAurora()
         }
     }
 }

@@ -28,7 +28,7 @@ struct MenuSampleBuild: View {
     @State private var isFetchinAurora = false
     @State private var textForButton = "Update Forecast"
     
-    private var bounds = UIScreen.main.bounds
+    @State private var bounds = UIScreen.main.bounds
     
     
     var body: some View {
@@ -145,6 +145,10 @@ struct MenuSampleBuild: View {
                     .padding()
                 }
                 .foregroundColor(.white)
+                
+                Text("Note: Internet connection is required to observe latest Aurora Forecast.")
+                    .italic()
+                    .padding()
                 
             }
             .sheet(isPresented: $isSheetPresented) {
